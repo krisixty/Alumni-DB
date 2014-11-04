@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alumni Survey Form v1</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/alumni_style.css">
+    </head>
+    <body>
+
+      <form action="index.html" method="post">
+       
+        <h1>Alumni Survey</h1>
+		<pre>
+Dear Graduate,
+
+We survey our alumni in order to obtain information helpful to the university in program planning and in assisting current students.
+
+--WE CARE WHAT HAPPENS TO OUR GRADUATES
+--WE WANT TO KNOW HOW YOU ARE DOING 
+--WE WOULD LIKE TO KEEP TRACK OF YOU
+
+It just takes a few moments of your time, however, filling in this questionnaire will bring us up-to-date on your employment and educational status.
+
+Information you provide will:
+
+--REMAIN CONFIDENTIAL
+--HELP IF YOU ARE SEEKING EMPLOYMENT
+--ASSIST CURRENT STUDENTS AND FUTURE GRADUATES OF UNIVERSITY OF SZEGED
+
+My sincere thanks for your cooperation.
+
+Best regards,
+The Alumni Team
+
+
+</pre>
+
+		<fieldset>
+		
+			<legend><span class="number">1</span>Information Regarding Graduation</legend>
+        	
+				<label for="grad_faculty">Which Faculty have you graduated from?</label>
+				<select id="grad_faculty">
+					<option value="Medicine">Medicine</option>
+					<option value="Pharmacy">Pharmacy</option>
+					<option value="Dentistry">Dentistry</option>
+				</select>
+				
+				<label for="grad_year">Year of Graduation</label>
+				<input type="text" id="grad_year" name="grad_year">
+			
+		</fieldset>	
+		
+		
+		<fieldset>
+		
+			<legend><span class="number">2</span>Licensing Process</legend>
+			
+				<label for="licensing">Did you have to take part in any licensing process?</label>
+				<select id="licensing">
+					<option value="Y">Yes</option>
+					<option value="N">No</option>
+				</select>
+			
+				<label for="licensing_type">If yes, in which licensing process did you take part?</label>
+				<input type="text" id="licensing_type" name="licensing_type">
+				
+				>What were your experiences?</label>
+				<textarea id="licensing_exp" name="licensing_exp"></textarea>
+			
+		</fieldset>	
+			
+			
+		<fieldset>
+		
+			<legend><span class="number">3</span>Further Studies / Employment </legend>
+			
+				<label for="employment">Which was your country of choice you sought employment in after graduation?</label>
+				<select id="employment">
+					<option value="H">Hungary</option>
+					<option value="B">United Kingdom</option>
+				</select>
+				
+				<label for="activities">Activities after graduation</label>
+				<select id="activities">
+					<option value="H">PhD</option>
+					<option value="B">Residency</option>
+					<option value="B">Other</option>
+				</select>
+				
+				Where do you work at the moment? 
+				<label for="workplace">Workplace:</label>
+				<input type="text" id="workplace" name="workplace">
+				<label for="position">Position:</label>
+				<input type="text" id="position" name="position">
+				<label for="title">Title:</label>
+				<input type="text" id="title" name="title">
+				
+				<label for="other_work">Other workplaces after graduation:</label>
+				<textarea id="other_work" name="other_work"></textarea>
+				
+				<label for="awards">What awards/honors have you received during your medical career?</label>
+				<textarea id="awards" name="awards"></textarea>
+				
+        	
+		</fieldset>	
+
+		<fieldset>
+		
+			<legend><span class="number">4</span>Comments on the Szeged Experience</legend>
+			
+				<label for="contribute">How has the University of Szeged contributed to your life?</label>
+				<textarea id="contribute" name="contribute"></textarea>
+        	
+				<label for="opinion">What are the strengths and weaknesses of the program in your opinion?</label>
+				<textarea id="opinion" name="opinion"></textarea>
+				
+				<label for="comment">If you have any comments that you would like to make about any areas not covered in this survey, please do so now.</label>
+				<textarea id="comment" name="comment"></textarea>
+				
+				
+		</fieldset>		
+		
+		<pre>
+Thank you for filling in our questionnaire! We hope to see you at the Alumni Reunion Weekend organized to celebrate the 30th anniversary of the English language Medical Program between the 18-20. of September 2015 in Szeged! 
+
+For more information go directly to our <a href="http://szegedmed.hu" target="_blank">website</a>, our <a href="https://www.linkedin.com/groups/Szeged-University-Medical-Alumni-Association-6663708/about?report%2Esuccess=wfYwey9x_vDJSupNXsg1N65PA9qU9Vhzo4c4fywdI9xE44HFPya15swP53hapENqWjZzGAJPIIEAIAHSWOlIFtsVzjzNV8gSQXHzOpKzXXAaXF4VZyOq42GdI8ExV8hVWGa1V0LI5kVtFytIKy414AMPAFZaXFCSPsc1V57ldO-tqkE-P5tddH3AfpZt5j4Iv9-q3TrPIIEC42ZIbjmq32Md99AxX4C1ItuDkt2" target="_blank">LinkedIn</a> or <a href="https://www.facebook.com/szegedalumni" target="_blank">Facebook</a> page.
+		</pre>
+		
+			
+			
+        
+        <button type="submit">Submit</button>
+        
+      </form>
+      <a href="index.html" target="_blank">Registration</a>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+

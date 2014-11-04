@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alumni Registration Form v1</title>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/alumni_style.css">
+    </head>
+    <body>
+
+      <form action="index.html" method="post">
+       
+        <h1>Alumni DB Registration</h1>
+		
+		<fieldset>
+		
+			<legend><span class="number">1</span>Your personal data</legend>
+        	
+				<label for="fname">Family Name:</label>
+				<input type="text" id="fname" name="fname">
+				
+				<label for="gname">Given Name:</label>
+				<input type="text" id="gname" name="gname">
+				
+				<label for="gender">Gender:</label>
+				<select id="gender">
+					<option value="F">Male</option>
+					<option value="N">Female</option>
+				</select>
+				
+				<label for="bday">Birthday:</label>
+				<input type="date" id="bday" name="bday">
+				
+				Place of Birth:
+				<label for="pob_city">City:</label>
+				<input type="text" id="pob_city" name="pob_city">
+				
+				<label for="pob_country">Country:</label>
+				<input type="text" id="pob_country" name="pob_country">
+				
+				<label for="citizenship">Citizenship</label>
+				<select id="citizenship">
+					<option value="H">Hungarian</option>
+					<option value="B">British</option>
+				</select>
+			
+		</fieldset>	
+		
+		<fieldset>
+		
+			<legend><span class="number">2</span>Contacts</legend>
+			
+				Permanent Address:
+				<label for="permadd">Street No\Street Name\PO.Box.</label>
+				<input type="text" id="permadd" name="permadd">
+				
+				<label for="add_pc">Postal Code (If you don't have postal code write '-')</label>
+				<input type="text" id="add_pc" name="add_pc">
+				
+				<label for="add_city">City:</label>
+				<input type="text" id="add_city" name="add_city">
+				
+				<label for="add_country">Country:</label>
+				<select id="add_country">
+					<option value="H">Hungary</option>
+					<option value="B">United Kingdom</option>
+				</select>
+				
+				<label for="phone">Phone number:</label>
+				<input type="text" id="phone" name="phone">
+				
+				<label for="mail">Email:</label>
+				<input type="email" id="mail" name="user_email">
+		
+		</fieldset>
+			
+        
+        <button type="submit">Register</button>
+        
+      </form>
+      <a href="survey.html" target="_blank">Survey</a>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
