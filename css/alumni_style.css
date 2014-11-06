@@ -13,6 +13,11 @@ body {
 	color: #336699;
 	background-color: #fff;
 }
+pre {
+	font: normal 1em/1.5 sans-serif;
+	font-family: Futura, "Trebuchet MS", sans-serif;
+}
+
 img {
 	/*border: solid 1px;*/
 	padding: 5px;
