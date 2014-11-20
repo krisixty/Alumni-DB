@@ -1,9 +1,11 @@
 /* Initial body */
-body {
+html, body {
+  height: 100%;
   left: 0;
   margin: 0;
   /*overflow: hidden;*/
   position: relative;
+  
 }
 
 /* Initial menu */

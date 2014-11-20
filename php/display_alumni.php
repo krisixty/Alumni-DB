@@ -1,12 +1,24 @@
+<?php
+function alumni_header() {
+ // print an HTML header
+?>
+<!DOCTYPE html>
 <html>
-  <head>
-    <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+	<head>
+    <title>AlumniDB_TestSession1</title>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
     <link href='style/style.css' rel='stylesheet'>
   </head>
-  <body>
+<body>
+<?php
+}
+?>
 
+<?php function alumni_menu() {
+?>
     <div class="menu">
       <!-- Menu icon -->
       <div class="icon-close">
@@ -29,7 +41,12 @@
 		
       </ul>
     </div>
+<?php
+}
+?>
 
+<?php function alumni_body() {
+?>
     <!-- Main body -->
    <div class="jumbotron">
       <div class="icon-menu">
@@ -41,4 +58,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="script/script.js"></script>
   </body>
-</html>
+</html>	
+<?php
+}
+?>

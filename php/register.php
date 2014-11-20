@@ -1,4 +1,6 @@
 <?php
+require_once('alumni_includes.php');
+
 
 //Kötőjel után is nagybetű + sztringtisztításért felelős FUNCTION
 
@@ -64,17 +66,20 @@
 
 	$phone = preg_replace("/[^0-9+]/", "", $_POST['phone']); //Eltávolítja a telefonszámból a fölösleges karaktereket. Csak a számokat és a + jelet hagyja meg.
 	
+
+//REGCHECK
+include 'registration_variables.php';
+include 'alumni_regcheck.php';
+
 	
 //TEST ECHOS
-
+/*
 	if ($fname) {
 		echo 'fname: '.$fname.'<br>';
 	}
 	else {
 		echo 'field is req'.'<br>';
 	}
-
-
 
 	echo 'gname: '.$gname.'<br>';
 	echo 'gender: '.$gender.'<br>';
@@ -86,3 +91,5 @@
 	echo 'add_pc: '.$add_pc.'<br>';
 	echo 'add_city: '.$add_city.'<br>';
 	echo 'add_country: '.$add_country.'<br>';
+	*/
+?>	
