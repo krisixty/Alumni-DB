@@ -1,5 +1,12 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+//ob_start(); //Turn on output buffering
 require_once('alumni_includes.php');
+//session_start();
+//do_html_header('');
+//check_valid_user();
+$conn = db_connect();
 
 
 //Kötőjel után is nagybetű + sztringtisztításért felelős FUNCTION
@@ -50,46 +57,45 @@ require_once('alumni_includes.php');
 	$citizenship=trim($_POST['citizenship']);
 	$citizenship=str_replace('\' ', '\'', ucwords(str_replace('\'', '\' ', strtolower($citizenship))));
 
-	$permadd=trim($_POST['permadd']);
-	$add_pc=trim($_POST['add_pc']);
+//	$permadd=trim($_POST['permadd']);
+//	$add_pc=trim($_POST['add_pc']);
 
-	$add_city=trim($_POST['add_city']);
+/*	$add_city=trim($_POST['add_city']);
 		$names=array($add_city);
 			
 		foreach ($names as $name) 
 			{ 
 			$add_city=ucname(("{$name}")); //tömbbe rakja a név elemeit és az ucname funkcióval átalakítja (usefuls_fns.php-ban található)
 			}
+*/
 
+//	$add_country=$_POST['add_country'];
 
-	$add_country=$_POST['add_country'];
-
-	$phone = preg_replace("/[^0-9+]/", "", $_POST['phone']); //Eltávolítja a telefonszámból a fölösleges karaktereket. Csak a számokat és a + jelet hagyja meg.
+//	$phone = preg_replace("/[^0-9+]/", "", $_POST['phone']); //Eltávolítja a telefonszámból a fölösleges karaktereket. Csak a számokat és a + jelet hagyja meg.
+	
+//	$email= $_POST['email'];
 	
 
 //REGCHECK
-include 'registration_variables.php';
-include 'alumni_regcheck.php';
+	include 'registration_variables.php';
+	include 'alumni_regcheck.php';
 
+//DATABASE INSERTIONS
 	
-//TEST ECHOS
-/*
-	if ($fname) {
-		echo 'fname: '.$fname.'<br>';
-	}
-	else {
-		echo 'field is req'.'<br>';
-	}
+//$appdate=date('Ymd');
+//$username=$_SESSION['valid_user'];
 
-	echo 'gname: '.$gname.'<br>';
-	echo 'gender: '.$gender.'<br>';
-	echo 'dob: '.$dob.'<br>';
-	echo 'pob_country: '.$pob_country.'<br>';
-	echo 'pob_city: '.$pob_city.'<br>';
-	echo 'citizenship: '.$citizenship.'<br>';
-	echo 'permadd: '.$permadd.'<br>';
-	echo 'add_pc: '.$add_pc.'<br>';
-	echo 'add_city: '.$add_city.'<br>';
-	echo 'add_country: '.$add_country.'<br>';
-	*/
+$username = 'altest'.date('Ymd');
+
+
+
+$insert_graduate=$conn->query("INSERT INTO graduate_data 
+(username, fname, gname, gender, dob, pob_country, pob_city, citizenship) 
+
+VALUES 
+('$username', '$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship')");
+
+
+ 	
+
 ?>	

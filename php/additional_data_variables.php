@@ -8,4 +8,12 @@ $placeOfBirthCityLabel = "(City): ";
 $dateOfBirthLabel = "Date of Birth: ";
 $citizenshipLabel = "Citizenship: ";
 $citizenship2Label = "Citizenship 2 (if any): ";
+$motherFamilyNameLabel = "Mother's maiden name (Family name): ";
+$motherFirstNameLabel = "(First name): ";
+$permanentAddressLabel = "Permanent Address: ";
+$postalCodeLabel = "Postal Code: ";
+$addressCityLabel = "City: ";
+$addressCountryLabel ="Country: ";
+$phoneNumberLabel = "Phone number: ";
+$emailLabel = "E-mail: ";
 ?>

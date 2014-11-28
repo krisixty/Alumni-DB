@@ -6,11 +6,11 @@ function alumni_header() {
 <html>
 	<head>
     <title>AlumniDB_TestSession1</title>
-	<meta name="viewport" content="width=device-width">
-	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
-    <link href='style/style.css' rel='stylesheet'>
+        <link rel="stylesheet" href="style/normalize.css">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
+		<link href='style/style.css' rel='stylesheet'>
+        <link href="style/alumni_style.css" rel="stylesheet" >
   </head>
 <body>
 <?php
@@ -29,7 +29,7 @@ function alumni_header() {
       <ul>
 	    <li><a href="news.html">News</a></li>
         <li><a href="index.html">About</a></li>
-        <li><a href="register.html">Register</a></li>
+        <li><a href="registration_form.php">Register</a></li>
         <li><a href="#">Login</a></li>
 		<!--
         <li><a href="#">Contact</a></li>
