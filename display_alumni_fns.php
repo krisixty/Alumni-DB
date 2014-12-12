@@ -159,10 +159,9 @@
 					?>
 					<li><a href="member.php">My Alumni</a></li>
 					<li><a href="about.php">About Us</a></li>
-					<li><a href="news.php">News</a></li>
 					<li><a href="contact_us.php">Contact Us</a></li>
-					<li><a href="accomodation.php">Accomodation</a></li>
 					<li><a href="survey.php">Survey</a></li>
+					<li><a href="../../reunion/index.php" target="_blank">Reunion & Anniversary</a></li>
 					<li><a href="logout.php">Logout</a></li>
 					<?php
 					}	
@@ -170,10 +169,11 @@
 					?>
 					<li><a href="index.php">Home</a></li>
 					<li><a href="about1.php">About Us</a></li>
-					<li><a href="news1.php">News</a></li>
-					<li><a href="accomodation1.php">Accomodation</a></li>
+					<li><a href="login.php">Login</a></li>
+					<li><a href="register_form.php">Register</a></li>
+					<li><a href="../../reunion/index.php" target="_blank">Reunion & Anniversary</a></li>
 					<li><a href="contact_us1.php">Contact Us</a></li>
-					<li><a href="login.php">Alumni Databank</a></li>
+
 					<?php
 				}
 				?>
