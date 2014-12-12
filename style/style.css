@@ -25,12 +25,12 @@ html, body {
 }
 
 .jumbotron {
-  background-image: url('../img/alumni_main_3.jpg'); 
+  background: url('../img/alumni_landing_page.jpg') no-repeat center center;
   height: 100%;
   -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .menu ul {

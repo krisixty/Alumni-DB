@@ -26,6 +26,10 @@ p.p2 {
 	color: #fff;
 }
 
+p.main, h3, pre {
+	margin-left: 10%;
+}
+
 /* links */
 a {
   color: #2C9E76;
@@ -49,6 +53,7 @@ nav a.selected, nav a:hover {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	background-color: #0E3E6C; 
+
 }
 .main-logo {
 	margin-top: 0;
@@ -107,6 +112,7 @@ span {
   /*padding: 7px 10px; - number is in the center of number class circle*/
   color: #fff;
 }
+/*
 span:after {
   right: 100%;
   top: 50%;
@@ -121,6 +127,7 @@ span:after {
   border-width: 8px;
   margin-top: -8px;
 }
+*/
 
 input[type="text"],
 input[type="password"],

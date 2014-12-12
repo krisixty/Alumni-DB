@@ -21,10 +21,10 @@ alumni_menu();
 			<legend><span class="number">1</span>Personal data</legend>
         	
 				<label for="fname">Family Name:</label>
-				<input type="text" id="fname" name="fname">
+				<input type="text" id="fname" name="fname" maxlength="100">
 				
 				<label for="gname">Given Name:</label>
-				<input type="text" id="gname" name="gname">
+				<input type="text" id="gname" name="gname" maxlength="100">
 				
 				<label for="gender">Gender:</label>
 				<select id="gender" name="gender">
@@ -37,10 +37,12 @@ alumni_menu();
 				
 				Place of Birth:
 				<label for="pob_city">City:</label>
-				<input type="text" id="pob_city" name="pob_city">
+				<input type="text" id="pob_city" name="pob_city" maxlength="50">
 				
 				<label for="pob_country">Country:</label>
-				<input type="text" id="pob_country" name="pob_country">
+				<select id="pob_country" name="pob_country">
+						<?php include 'countries.php';?> 
+				</select>		
 				
 				<label for="citizenship">Citizenship</label>
 				<select id="citizenship" name="citizenship">
@@ -54,16 +56,16 @@ alumni_menu();
 			<legend><span class="number">2</span>User data</legend>
 			
 			<label for="email">Email address:</label>
-			<input type='text' id="email"name='email' size=30 maxlength=100>
+			<input type='text' id="email" name='email' maxlength="100">
 			
 			<label for="username">Preferred username*:</label>
-			<input type='text' id="username" name='username' size=30 maxlength=16>
+			<input type='text' id="username" name='username' maxlength="16">
 			
 			<label for="passwd">Password**:</label>
-			<input type='password' id="passwd" name='passwd' size=30 maxlength=16>
+			<input type='password' id="passwd" name='passwd' maxlength="16">
 			
 			<label for="passwd2">Confirm password:</label>
-			<input type='password' id="passwd2" name='passwd2' size=30 maxlength=16>
+			<input type='password' id="passwd2" name='passwd2' maxlength="16">
 			
 			<p>*max 16 chars</p>
 			<p>**between 6 and 16 chars</p>
