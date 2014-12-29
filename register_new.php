@@ -40,14 +40,14 @@ session_start();
 	//	do_html_url('aas.php', 'Go to the application form and submit your application.');
 	
 	$conn = db_connect();
-	$insert_graduate=$conn->query("INSERT INTO graduate_data (username, fname, gname, gender, dob, pob_country, pob_city, citizenship, grad_faculty, grad_year, verification) VALUES ('$username', '$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship', '$grad_faculty', '$grad_year', 'N')");	
+	$insert_graduate=$conn->query("INSERT INTO graduate_data (username, fname, gname, gender, dob, pob_country, pob_city, citizenship, citizenship2, grad_faculty, grad_year, verification) VALUES ('$username', '$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship', '$citizenship2', '$grad_faculty', '$grad_year', 'No')");	
 
 	//lekérdezi az AID-t és verificationt a graduate_data táblából
 	$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
 	$sor=mysqli_fetch_array($result);
 	$aid=$sor['AID'];
 	$verification=$sor['verification'];
-	
+	/*
 	//Kettős állampolgárság
 	if($citizenship2)
 	{
@@ -57,7 +57,7 @@ session_start();
 	$aid=$sor['AID'];
 	$insert_citizenship2= $conn->query("INSERT INTO citizenship2 (AID, citizenship2) VALUES ('$aid', '$citizenship2')");
 	}
-	
+	*/
 	do_html_footer();
 
 	}	 

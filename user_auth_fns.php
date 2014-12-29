@@ -150,17 +150,15 @@ function check_valid_officer_user()
 //ellenőrzi, h a user be van-e jelentkezve és értesíti
 {
   if (isset($_SESSION['valid_user']))
-  {?>
-  <p class="fent_login">Welcome <?php
-      echo $_SESSION['valid_user'].',';
-      echo ' ';?>you are logged in to Alumni DB. </p><?php  
+  {
+	return true;
+	//display_login_message(); // display_main_content() -jeleníti meg
   }
   else
   {
      // they are not logged in 
-     do_html_heading('Problem:');
-     echo '
-	 logged in.<br />';
+     //do_html_heading();
+     //echo 'You are not logged in.<br />';
      do_html_url('login2.php', 'Login');
      do_html_footer();
      exit;

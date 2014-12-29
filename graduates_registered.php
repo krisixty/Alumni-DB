@@ -1,12 +1,12 @@
 <?php 
-$pg_content = 'graduates';
+$pg_content = 'graduates_registered';
 session_start();
 require_once('alumni_includes.php');
 ?>
 <!DOCTYPE html>
 <html>
     <head>
-	    <title>Graduates</title>
+	    <title>List of Registered Graduates</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="tablesorter/themes/blue/style.css">
@@ -29,10 +29,8 @@ display_login_message();
 //alumni_body();
 adminMainPage();
 $conn = db_connect();
-$graduates=$conn->query("SELECT * FROM graduate_officedata ORDER BY fname");
+$graduates=$conn->query("SELECT * FROM graduate_data ORDER BY fname");
 ?>
-
-
 <table id="myTable" class="tablesorter">
 
 	<thead>
@@ -47,15 +45,8 @@ $graduates=$conn->query("SELECT * FROM graduate_officedata ORDER BY fname");
 		<th>Citizenship 2</th>
 		<th>Grad. faculty</th>
         <th>Grad. year</th>
-		<th>Diploma serial</th>
-		<th>Diploma qual.</th>
-		<th>Grad. date</th>
-		<th>E-mail</th>	
-		<th>Dipl. avg.</th>
-		<th>Sign. rector</th>
-		<th>Sign. dean</th>
-		<th>Stud. start a.yr.</th>
-		<th>sem.</th>
+		<th>Verified</th>
+		<th>Verification</th>
 
 	</tr>
 	</thead>
@@ -78,21 +69,14 @@ while($sor=mysqli_fetch_array($graduates))
 		<td><?php print $sor['citizenship2'];?></td>
 		<td><?php print $sor['grad_faculty'];?></td>
 		<td><?php print $sor['grad_year'];?></td>
-		<td><?php print $sor['diploma_serial'];?></td>
-		<td><?php print $sor['diploma_qual'];?></td>
-		<td><?php print $sor['grad_date'];?></td>
-		<td><?php print $sor['email'];?></td>
-		<td><?php print $sor['diploma_average'];?></td>
-		<td><?php print $sor['signatory_rector'];?></td>
-		<td><?php print $sor['signatory_dean'];?></td>
-		<td><?php print $sor['studies_start'];?></td>
-		<td><?php print $sor['start_semester'];?></td>
-		
+		<td><?php print $sor['verification'];?></td>
+	
         <td>
-<form action="graduate.php" method="post" id="form1">
-<input type="hidden" id="o_aid" name="o_aid" value="<?php print $sor['o_aid']?>" />
-<input type="submit" name="Submit" id="Submit" value="+" />
+<form action="verification.php" method="post" id="form1">
+<input type="hidden" id="AID" name="AID" value="<?php print $sor['AID']?>" />
+<input type="submit" name="Submit" id="Submit" value="Verfication" />
 </form></td>
+
        </tr>
 	<?php
 	}
@@ -100,11 +84,9 @@ while($sor=mysqli_fetch_array($graduates))
 </tbody>
 </table>
 <?php 
-require_once('pagecontents.php'); 
 adminMainPage();
+do_html_footer();
 ?>
-</body>
-</html>
 
 
 

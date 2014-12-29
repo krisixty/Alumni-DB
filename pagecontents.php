@@ -45,7 +45,7 @@ As a part of our program, let us invite you to participate in a bit of a market 
  
 The inception of the Alumni program is particularly timely because the English Language Medical Program of the University of Szeged is celebrating its 30th anniversary in 2015, on which occasion we are organizing a major meeting between September 18 and 20, 2015. We hope that many of you will be able to make it to Szeged.
 
-We are jointly working with the Szeged University Medical Alumni Association (SUMAA). Please visit our website where you can browse interviews and the newsletter distributed regularly – you are sure to find something of interest.
+We are jointly working with the <a href="http://sumaa.org" target="_blank">Szeged University Medical Alumni Association (SUMAA)</a>. Please visit their website where you can browse interviews and the newsletter distributed regularly – you are sure to find something of interest.
 
 We hope that our initiative will prove to be successful and many of you will be joining the Alumni program.
 
@@ -94,7 +94,7 @@ function contentMemberPage() {
 <p class="main">Your Alumni Databank ID number is <?php echo $aid;?>.</p>
 <p class="main">Your personal data is
 <?php
-	if ($verification == 'N') {
+	if ($verification == 'No') {
 	?>
 		not verified yet.
 	<?php
@@ -228,9 +228,12 @@ function adminMainPage() {
 ?>
 <h3>Alumni databank Admin v1.0</h3>
 <p class= "main">
-	<a href="main.php">Admin mainpage</a><br>
+	<a href="officer.php">Admin mainpage</a><br>
 	<a href="add_graduate_form.php">Add new graduate</a><br>
-	<a href="graduates.php">List of graduates</a>
+	<a href="graduates.php">List of office registered graduates</a><br>
+	<a href="graduates_registered.php">List of user registered graduates</a><br>
+	<a href="logout.php">Logout</a>
+	
 </p>	
 <?php	
 }

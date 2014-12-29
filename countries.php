@@ -204,6 +204,7 @@
   <option value="Somalia">Somalia</option>
   <option value="South Africa">South Africa</option>
   <option value="South Georgia And The South Sandwich Islands">South Georgia And The South Sandwich Islands</option>
+  <option value="Soviet Union">Soviet Union</option>
   <option value="Spain">Spain</option>
   <option value="Sri Lanka">Sri Lanka</option>
   <option value="Sudan">Sudan</option>
@@ -244,5 +245,6 @@
   <option value="Wallis And Futuna">Wallis And Futuna</option>
   <option value="Western Sahara">Western Sahara</option>
   <option value="Yemen">Yemen</option>
+  <option value="Yugoslavia">Yugoslavia</option>
   <option value="Zambia">Zambia</option>
   <option value="Zimbabwe">Zimbabwe</option>

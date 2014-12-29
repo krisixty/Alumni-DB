@@ -1,5 +1,8 @@
 <?php
+session_start();
 require_once('alumni_includes.php');
+require_once('pagecontents.php'); 
+check_valid_officer_user();
 
 do_html_header('');
 
@@ -59,12 +62,6 @@ do_html_header('');
 		echo $startSemesterLabel.$start_semester.'<br>';
 		?>
 		
-		<p class="main">
-		<a href="add_graduate_form.php">Add new graduate</a><br>
-		<a href="graduates.php">List of graduates</a><br>
-		<a href="main.php">Main menu</a>
-		</p>
-		
 		<form action="graduate.php" method="post" id="form1">
 		<input name="o_aid" type="hidden" value="<?php print $o_aid ?>" />
 		<input type="submit" name="Submit" id="Submit" value="Back" />
@@ -73,5 +70,6 @@ do_html_header('');
 
 </p>		
 <?php
+adminMainPage();
 do_html_footer();		 
 ?>

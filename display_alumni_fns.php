@@ -197,8 +197,14 @@
 			if ($content == 'register_form') {
 				display_registration_form();
 			}
+			if ($content == 'register_form2') {
+				display_officer_registration_form();
+			}
 			if ($content == 'login') {
 				display_login_form();
+			}
+			if ($content == 'login2') {
+				display_officer_login_form();
 			}
 			else {
 				display_main_content();
@@ -251,71 +257,67 @@
 					if ($pg_content == 'news') {
 						display_login_message();
 						contentNews();
-					}
+						}
 					if ($pg_content == 'news1') {
 						contentNews();
-					}
-					
+						}
 					if ($pg_content == 'accomodation') {
 						display_login_message();
 						contentAccomodation();
-					}
-					
+						}
 					if ($pg_content == 'accomodation1') {
 						contentAccomodation();
-					}
-					
+						}
 					if ($pg_content == 'about') {
 						display_login_message();
 						contentAbout();
-					}
+						}
 					if ($pg_content == 'about1') {
 						contentAbout();
-					}
-					
+						}
 					if ($pg_content == 'contact_us') {
 						display_login_message();
 						contentContactUs();
-					}
+						}
 					if ($pg_content == 'contact_us1') {
 						contentContactUs();
-					}
-					
+						}
 					if ($pg_content == 'member') {
 						display_login_message();
 						contentMemberPage();
-					}
-					
+						}
 					if ($pg_content == 'yourcontacts') {
 						display_login_message();
 						display_contacts_form();
-					}
-					
+						}				
 					if ($pg_content == 'survey') {
 						display_login_message();
 						contentSurveyPageTop();
 						display_survey_form();
-					}
-
+						}		
 					if ($pg_content == 'survey_filled') {
 						display_login_message();
 						contentSurveyFilledIn();
-					}
-					
+						}
 					if ($pg_content == 'survey_edit') {
 						display_login_message();
 						display_survey_form();
-					}
-					
-					if ($pg_content == 'main') {
+						}
+					if ($pg_content == 'officer') {
+						display_login_message();
 						adminMainPage();
-					}
-					
+						}
 					if ($pg_content == 'add_graduate_form') {
+						display_login_message();
 						adminMainPage();
 						add_graduate_form();
-					}
-					
+						}
+					if ($pg_content == 'graduates') {
+						display_login_message();
+						}
+					if ($pg_content == 'graduates_registered') {
+						display_login_message();
+						}
 					?>
 				</div>
 			</div>	
@@ -359,6 +361,28 @@
 <?php
 	}
 // END OF DISPLAY LOGIN FORM 
+?>
+
+
+
+<?php
+// DISPLAY OFFICER LOGIN FORM
+
+	function display_officer_login_form() {
+		
+		display_menu_icon();
+?>
+		<form action="officer.php" method="post">
+			<label for="username">Username</label>
+			<input type="text" id="username" name="username">
+			<label for="password" >Password</label>
+			<input type="password" id="password" name="passwd">
+			<button type="submit">Login</button>
+			<p><a href='forgot_form.php'>Forgot your password?</a></p>
+		 </form>
+<?php
+	}
+// END OF DISPLAY OFFICER LOGIN FORM 
 ?>
 
 
@@ -466,6 +490,47 @@
 <?php 
 	}
 // END OF REGISTRATION FORM
+?>
+
+
+
+<?php
+// DISPLAY OFFICER REGISTRATION FORM
+	function display_officer_registration_form() {
+		
+		display_menu_icon();
+	?>
+	  
+		<form method='post' action='cap_officers.php'>
+			<p>Create a user account:</p>
+			
+			<h1>Academic officer user registration</h1>
+		
+		<fieldset>
+					
+			<label for="email">Email address:</label>
+			<input type='email' id="email" name='email' maxlength="100">
+			
+			<label for="username">Preferred username*:</label>
+			<input type='text' id="username" name='username' maxlength="16">
+			
+			<label for="passwd">Password**:</label>
+			<input type='password' id="passwd" name='passwd' maxlength="16">
+			
+			<label for="passwd2">Confirm password:</label>
+			<input type='password' id="passwd2" name='passwd2' maxlength="16">
+			
+			<p>*max 16 chars</p>
+			<p>**between 6 and 16 chars</p>
+		
+		</fieldset>
+			
+        <button type="submit">Register</button>
+			
+		</form>
+<?php 
+	}
+// END OF OFFICER REGISTRATION FORM
 ?>
 
 
