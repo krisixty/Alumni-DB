@@ -112,18 +112,7 @@ if ($result->num_rows>0)
 	}
 ?>
 	
-<?php
-/*------------------------------------------------------------------------------------- DISPLAY LOGIN MESSSAGE---------------------------------------------*/
 
-	function display_login_message() {
-?>
-			<div class="grid-12">
-				<p class="main">Welcome <?php echo $_SESSION['valid_user'].','; ?> you are logged in to Alumni DB. </p>
-			</div>
-<?php
-	}
-/*--END OF DISPLAY LOGIN MESSAGE--*/
-?>	
 
 
 <?php

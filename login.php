@@ -1,9 +1,9 @@
 <?php
-$content = 'login';
-require_once('alumni_includes.php');
+$log_sel= "selected";
+$pg_content = "login";
+include 'display_alumni4_fns.php';
+require_once 'pagecontents.php';
 do_html_header('');
-display_user_menu();
-alumni_body();
-//display_login_form();
+alumniMainContent();
 do_html_footer();
 ?>

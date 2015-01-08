@@ -1,7 +1,9 @@
 <?php
- require_once('alumni_includes.php');
- do_html_header(''); 
- display_forgot_form();
- do_html_footer();
+$pg_content = 'forgot_form';
+require_once('alumni_includes.php');
+require_once('pagecontents.php');
+do_html_header('');
+alumniMainContent();
+do_html_footer(); 
 ?>
 

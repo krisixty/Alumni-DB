@@ -1,24 +1,17 @@
-<?php
-$content = 'index';
-require_once('alumni_includes.php');
+<?php   
+$ind_sel="selected";
+$pg_content="index";
+include 'display_alumni4_fns.php';
+require_once 'pagecontents.php';
 do_html_header('');
-display_user_menu();
-//alumni_body();
-//display_site_info(); 
-//do_html_footer();
 ?>
-		
+<div class="grid-container">
+		<div class="grid-12">
+		<?php contentIndex(); ?>
+		</div>
+</div>	
 
-		
-		<div class="jumbotron">
-		  <div class="icon-menu">
-			<i class="fa fa-bars"></i>
-			Menu
-		  </div>
-		</div> 
-		
-		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="script/script.js"></script>
-	  </body>
-	</html>			
+
+<?php
+do_html_footer();
+?>

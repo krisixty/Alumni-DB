@@ -5,7 +5,6 @@ require_once('alumni_includes.php');
 
 do_html_header('');
 check_valid_user();
-display_user_menu();
 $username=$_SESSION['valid_user'];
 
 //Survey posts goes here

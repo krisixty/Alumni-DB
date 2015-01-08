@@ -20,7 +20,7 @@
 	function do_html_URL($url, $name) {
 ?>
 		<div class="grid-container">
-			<div class="grid-8">
+			<div class="grid-9">
 			<h3>You are not logged in! <a href="<?php echo $url;?>"><?php echo $name;?></a></h3>
 			</div>
 		 </div>
@@ -29,326 +29,228 @@
 // END OF OUTPUT URL AS LINK AND BR
 ?>
 
-
-
 <?php
-// PRINT HTML HEADER 
-	function do_html_header() {
+function do_html_header() {
+ // print an HTML header
+
 ?>
-	<!DOCTYPE html>
-		<html>
-			<head>
-			<title>AlumniDB_TestSession4</title>
-				<meta name="viewport" content="width=device-width">
-				<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-				<link rel="stylesheet" href="style/normalize.css">
-				<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-				<link href='http://fonts.googleapis.com/css?family=Open+Sans:400;300' rel='stylesheet' type='text/css'>
-				<link href='style/style.css' rel='stylesheet'>
-				<link href="style/alumni4_style.css" rel="stylesheet" >
-		  </head>
-		<body>
-<?php
-	}
-// END OF HTML HEADER
-?>	
-
-
-
-<?php
-// PRINT HTML FOOTER 
-
-	function do_html_footer() {
-?>
-		<footer class="main-footer">
-			<p>University Szeged Foreign Language Programs - Alumni Databank &copy; <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a> 2014</p>
-		</footer>
-	</body>
-	</html>
-<?php
-	}
-// END OF HTML FOOTER 
-?>
-
-
-
-<?php
-// DIV OPEN DIV CLOSE 
-	function div_open() {
-		?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AlumniDB_TestSession4</title>
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/grid.css">
+	<link rel="stylesheet" href="css/alumni4_style.css">
+</head>
+<body>
+	<header class="main-header">
+	<h1>UNIVERSITY OF SZEGED Alumni Databank</h1>
+	<p class="header">Faculty of Medicine, Faculty of Dentistry, Faculty of Pharmacy
+	Foreign Language Programs</p>
+<!--
+<img class="students" src="img/logo2.jpg">
+<img class="students" src="img/szegedmed_students_02.jpg">
+<img class="students" src="img/szegedmed_students_03.jpg">
+<img class="students" src="img/szegedmed_students_04.jpg">
+<img class="students" src="img/szegedmed_students_05.jpg">
+-->
 		<div class="grid-container">
-			<div class="grid-12">
-		<?php
-	}
-?>
-
-<?php
-	function div_close() {
-		?>
-			</div>
-		<div>
-		<?php
-	}
-// END OF DIV OPEN DIV CLOSE 
-?>
-
-
-
-<?php
-// S I T E    C O N T E N T    E L E M E N T S
-
-// DISPLAY SITE INFO
-	function display_site_info() {
-  // display some general info
-?>
-		<div class="grid-container">
-			<div class="grid-6">
-				<h3>Alumni h3</h3>
-					<p class="main">Welcome to the Alumni DB<br /></p>		
-			</div>
-
-			<div class="grid-6">
-					<h3>Alumni h3</h3>
-						<p>
-						Lorem
-						</p>
-			</div>
+			<?php display_links() ?>
 		</div>
-
+	</header>
 <?php
 }
-// END OF DISPLAY SITE INFO 
 ?>
-
-
 
 <?php
-// DISPLAY CONFIRMATION
-	function display_confirmation() {
+function main_banner() {
 ?>
-		<p class="text2">
-		Registration Completed! Finish your application <a href='form.php'>here</a>
-		</p> 	
+	<div class="main-banner">
+		<h1>Lorem</h1>
+	</div>
 <?php
-	}
-// END OF DISPLAY CONFIRMATION	
+}
 ?>
-
 
 <?php
-//  DISPLAY USER MENU 
-	function display_user_menu(){
+function display_links() {
+ 	global $ind_sel;
+	global $memb_sel;
+	global $surv_sel;
+	global $log_sel;
+	global $reg_sel;
+	global $cont_sel;
+	global $reun_sel;
+	global $lout_sel;
+	global $pass_sel;
+
 ?>
-			<div class="menu">
-			  <!-- Menu icon -->
-			  <div class="icon-close">
-				<img src="img/close.png">
-			  </div>
-
-			  <!-- Menu -->
-			  <ul>
-
-				<!--
-				<li><a href="#">Your Classmates</a></li>
-				<li><a href="#">Other Graduates</a></li>
-				<li><a href="#">Memories</a></li>
-				-->
-				<?php
+		<ul class="grid-12 main-nav">
+						<?php
 				if (isset($_SESSION['valid_user']))
 					{
 					?>
-					<li><a href="member.php">My Alumni</a></li>
-					<li><a href="about.php">About Us</a></li>
-					<li><a href="contact_us.php">Contact Us</a></li>
-					<li><a href="survey.php">Survey</a></li>
-					<li><a href="../../reunion/index.php" target="_blank">Reunion & Anniversary</a></li>
-					<li><a href="logout.php">Logout</a></li>
+					<li><a href="index1.php" class="<?php echo $ind_sel; ?>">Home</a></li>
+					<li><a href="member.php" class="<?php echo $memb_sel; ?>">My Alumni</a></li>
+					<li><a href="survey.php" class="<?php echo $surv_sel; ?>">Survey</a></li>
+					<li><a href="reunion_registration.php" class="<?php echo $reun_sel; ?>">Reunion Weekend Registration</a></li> 
+					<li><a href="contact_us1.php" class="<?php echo $cont_sel; ?>">Contact Us</a></li>
+					<li><a href="change_passwd_form.php" class="<?php echo $pass_sel; ?>">Password</a></li>
+					<li><a href="logout.php" class="<?php echo $lout_sel; ?>">Logout</a></li> 
 					<?php
 					}	
 				else {
 					?>
-					<li><a href="index.php">Home</a></li>
-					<li><a href="about1.php">About Us</a></li>
-					<li><a href="login.php">Login</a></li>
-					<li><a href="register_form.php">Register</a></li>
-					<li><a href="../../reunion/index.php" target="_blank">Reunion & Anniversary</a></li>
-					<li><a href="contact_us1.php">Contact Us</a></li>
-
+					<li><a href="index.php" class="<?php echo $ind_sel; ?>">Home</a></li>
+					<li><a href="login.php" class="<?php echo $log_sel; ?>">Login</a></li> 
+					<li><a href="register_form.php" class="<?php echo $reg_sel; ?>">Register</a></li> 
+					<li><a href="../../reunion/index.php" target="_blank">Reunion 2015</a></li>
+					<li><a href="contact_us.php" class="<?php echo $cont_sel; ?>">Contact Us</a></li>
 					<?php
 				}
 				?>
-			  </ul>
-			</div>
+		</ul>
 <?php
-// END OF DISPLAY USER MENU
 }
 ?>
 
-
+<?php
+function display_secondary_nav() {
+?>
+		<ul class="secondary-nav">
+			<li><a href="#" target="_blank">Trailer</a></li>
+			<li><a href="../alumni/2/index.php" target="_blank">Join our Alumni Community</a></li>
+			<li><a href="http://sumaa.org" target="_blank">SUMAA</a></li>
+		</ul>
 
 <?php
-// DISPLAY ALUMNI BODY 
-	function alumni_body() {
-		global $content;
-
-			if ($content == 'index') {
-				display_landing_page();
-			}
-			if ($content == 'register_form') {
-				display_registration_form();
-			}
-			if ($content == 'register_form2') {
-				display_officer_registration_form();
-			}
-			if ($content == 'login') {
-				display_login_form();
-			}
-			if ($content == 'login2') {
-				display_officer_login_form();
-			}
-			else {
-				display_main_content();
-			}
-			
-			
-			?>
-
-		<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="script/script.js"></script>
-	  </body>
-	</html>	
-<?php
-	}
+}
 ?>
 
-
-
 <?php
-	// DISPLAY LANDING PAGE
-	function display_landing_page() {
+function mainContentDivOpen() {
 ?>
-		<!-- Main body -->
-		<div class="jumbotron">
-		  <div class="icon-menu">
-			<i class="fa fa-bars"></i>
-			Menu
-		  </div>
-		</div> 
+	<div class="grid-container">
+		<div class="grid-9 main-content">
 <?php
-	}
+}
 ?>
 
-
+<?php
+function mainContentDivClose() {
+?>
+		</div>
+		<?php second_column(); ?>
+	</div>	
+<?php
+}
+?>
 
 <?php
-	function display_main_content() {
-		
-		global $pg_content;
+function second_column() {
 ?>
-	
+		<div class="grid-3">
+		<h3><br></h3>
 		<?php
-		display_menu_icon();
-		?>
-		
-			<div class="grid-container">
-				<div class="grid-6">
-					<?php 
-					if ($pg_content == 'news') {
-						display_login_message();
-						contentNews();
-						}
-					if ($pg_content == 'news1') {
-						contentNews();
-						}
-					if ($pg_content == 'accomodation') {
-						display_login_message();
-						contentAccomodation();
-						}
-					if ($pg_content == 'accomodation1') {
-						contentAccomodation();
-						}
-					if ($pg_content == 'about') {
-						display_login_message();
-						contentAbout();
-						}
-					if ($pg_content == 'about1') {
-						contentAbout();
-						}
-					if ($pg_content == 'contact_us') {
-						display_login_message();
-						contentContactUs();
-						}
-					if ($pg_content == 'contact_us1') {
-						contentContactUs();
-						}
-					if ($pg_content == 'member') {
-						display_login_message();
-						contentMemberPage();
-						}
-					if ($pg_content == 'yourcontacts') {
-						display_login_message();
-						display_contacts_form();
-						}				
-					if ($pg_content == 'survey') {
-						display_login_message();
-						contentSurveyPageTop();
-						display_survey_form();
-						}		
-					if ($pg_content == 'survey_filled') {
-						display_login_message();
-						contentSurveyFilledIn();
-						}
-					if ($pg_content == 'survey_edit') {
-						display_login_message();
-						display_survey_form();
-						}
-					if ($pg_content == 'officer') {
-						display_login_message();
-						adminMainPage();
-						}
-					if ($pg_content == 'add_graduate_form') {
-						display_login_message();
-						adminMainPage();
-						add_graduate_form();
-						}
-					if ($pg_content == 'graduates') {
-						display_login_message();
-						}
-					if ($pg_content == 'graduates_registered') {
-						display_login_message();
-						}
-					?>
-				</div>
-			</div>	
-<?php
-}
-?>
-
-
-<?php
-// DISPLAY MENU ICON
-	function display_menu_icon() {
-?>
-		<div class="icon-menu">
-		   <i class="fa fa-bars"></i>
-			Menu
+			if (isset($_SESSION['valid_user']))
+				{
+				display_login_message();
+				}	
+		?>		
 		</div>
 <?php
-	}
+}
 ?>
 
+<?php
+function alumniMainContent() {
+	global $pg_content;
 
+		mainContentDivOpen();
+	
+			if ($pg_content == 'login') {
+					display_login_form();
+				}
+			if ($pg_content == 'logout') {
+					display_logout_message();
+				}
+			if ($pg_content == 'registration_form') {
+					display_registration_form();
+				}
+			if ($pg_content == 'contact_us1') {
+					contentContactUs();
+				}
+			if ($pg_content == 'contact_us') {
+					contentContactUs();
+				}
+			if ($pg_content == 'faq') {
+					contentFAQ();
+				}	
+			/*	
+			if ($pg_content == 'index') {
+					contentIndex();
+				}	
+			*/	
+			if ($pg_content == 'index1') {
+					contentIndex();
+				}				
+			if ($pg_content == 'member') {
+					contentMemberPage();
+				}
+			if ($pg_content == 'yourcontacts') {
+					display_contacts_form();
+				}	
+			if ($pg_content == 'survey') {
+					contentSurveyPageTop();
+					display_survey_form();
+				}		
+			if ($pg_content == 'survey_filled') {
+					contentSurveyFilledIn();
+				}
+			if ($pg_content == 'survey_edit') {
+					editSurveyTop();
+					display_survey_form();
+				}	
+			if ($pg_content == 'reunion_registration') {
+					contentReunionRegistration(); 
+				}		
+			if ($pg_content == 'forgot_form') {
+					display_forgot_form(); 
+				}	
+			if ($pg_content == 'change_password_form') {
+					display_change_password_form(); 
+				}
+			
+			mainContentDivClose();	
+}
+?>
+
+<?php
+function do_html_footer()
+ // print an HTML footer
+{
+?>
+
+	<footer class="main-footer">
+		        <p>University Szeged Foreign Language Programs - Alumni Databank &copy; <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a> 2014-2015</p>
+	</footer>
+</body>
+</html>
+<?php
+}
+?>
 
 <?php
 // F O R M S
 
 // DISPLAY LOGIN FORM
-
 	function display_login_form() {
-		
-		display_menu_icon();
 ?>
+	<h3>Login</h3>
+	
 		<form action="member.php" method="post">
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username">
@@ -362,8 +264,6 @@
 	}
 // END OF DISPLAY LOGIN FORM 
 ?>
-
-
 
 <?php
 // DISPLAY OFFICER LOGIN FORM
@@ -385,20 +285,15 @@
 // END OF DISPLAY OFFICER LOGIN FORM 
 ?>
 
-
-
 <?php
 // DISPLAY REGISTRATION FORM
 	function display_registration_form() {
-		
-		display_menu_icon();
-	?>
-	  
+?>
+	<h3>Register</h3>
+	
 		<form method='post' action='cap.php'>
-			<p>Create a user account:</p>
+		<p>Create a user account:</p>
 			
-			<h1>Alumni DB Registration</h1>
-		
 		<fieldset>
 		
 			<legend><span class="number">1</span>Personal data</legend>
@@ -448,9 +343,10 @@
 					<option value="Medicine">Medicine</option>
 					<option value="Pharmacy">Pharmacy</option>
 					<option value="Dentistry">Dentistry</option>
+					<option value="Medicine, 2-year German Program">Medicine, 2-year German Program</option>
 				</select>
 				
-				<label for="grad_year">Year of graduation:</label>
+				<label for="grad_year">Year of graduation/Physikum:</label>
 				<select id="grad_year" name="grad_year">
 					<option value="">-- year --</option>
 						<?php
@@ -491,8 +387,6 @@
 	}
 // END OF REGISTRATION FORM
 ?>
-
-
 
 <?php
 // DISPLAY OFFICER REGISTRATION FORM
@@ -725,30 +619,10 @@
 ?>
 	<!--Survey form -->
       <form action="register_survey.php" method="post">
-
-		<fieldset>
-		
-			<legend><span class="number">1</span>Licensing Process</legend>
-			
-				<label for="licensing">Did you have to take part in any licensing process?</label>
-				<select id="licensing" name="licensing">
-					<option> <?php print $licensing;?></option>
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
-				</select>
-			
-				<label for="licensing_type">If yes, in which licensing process did you take part?</label>
-				<input type="text" id="licensing_type" name="licensing_type" value="<?php print $licensing_type;?>">
-				
-				<label for="licensing_exp">What were your experiences?</label>
-				<textarea id="licensing_exp" name="licensing_exp"><?php print $licensing_exp;?></textarea>
-			
-		</fieldset>	
-			
 			
 		<fieldset>
 		
-			<legend><span class="number">2</span>Further Studies / Employment </legend>
+			<legend><span class="number">1</span>Further Studies / Employment – professional profile, public information</legend>
 			
 				<label for="employment_country">Which was your country of choice you sought employment in after graduation?</label>
 				<select id="employment_country" name="employment_country">
@@ -779,10 +653,29 @@
 				<textarea id="awards" name="awards"><?php print $awards;?></textarea>
 				
 		</fieldset>	
-
+		
 		<fieldset>
 		
-			<legend><span class="number">3</span>Comments on the Szeged Experience</legend>
+			<legend><span class="number">2</span>Licensing Process – for ALUMNI Team use only</legend>
+			
+				<label for="licensing">Did you have to take part in any licensing process?</label>
+				<select id="licensing" name="licensing">
+					<option> <?php print $licensing;?></option>
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			
+				<label for="licensing_type">If yes, in which licensing process did you take part?</label>
+				<input type="text" id="licensing_type" name="licensing_type" value="<?php print $licensing_type;?>">
+				
+				<label for="licensing_exp">What were your experiences?</label>
+				<textarea id="licensing_exp" name="licensing_exp"><?php print $licensing_exp;?></textarea>
+			
+		</fieldset>	
+		
+		<fieldset>
+		
+			<legend><span class="number">3</span>Comments on the Szeged Experience – for ALUMNI Team use only</legend>
 			
 				<label for="contribute">How has the University of Szeged contributed to your life?</label>
 				<textarea id="contribute" name="contribute"><?php print $contribute;?></textarea>
@@ -814,15 +707,12 @@ function display_contacts_form() {
 	global $phone;
 ?>
 	
+	<h3>Contacts</h3>
 
       <form action="register_contacts.php" method="post">
-       
-        <h1>Contacts</h1>
 		
 		<fieldset>
-		
-			<legend>Contacts</legend>
-			
+					
 				Permanent Address:
 				<label for="permadd">Street No\Street Name\PO.Box.</label>
 				<input type="text" id="permadd" name="permadd" maxlength="100" value="<?php print $permadd; ?>">
@@ -855,11 +745,11 @@ function display_contacts_form() {
 
 <?php
 // DISPLAY CHANGE PASSWORD FORM
-	function display_password_form() {
-
+	function display_change_password_form() {
 ?>
+	<h3>Change password</h3>
+
 		<form action='change_passwd.php' method='post'>
-			Change password:
 			<label for="old_passwd">Old password:</label>
 			<input type='password' id='old_passwd' name='old_passwd' size=16 maxlength=16>
 			<label for="new_passwd">New password:</label>
@@ -878,6 +768,8 @@ function display_contacts_form() {
 // display HTML form to reset and email password
 	function display_forgot_form() {
 ?>
+	<h3>Reset password</h3>
+	
 		<form action='cap2.php' method='post'>
 			<label for="username">Enter your username:</label>
 			<input type='text' id="username" name='username' size=16 maxlength=16></td></tr>
@@ -889,17 +781,39 @@ function display_contacts_form() {
 ?>
 
 
-
-<?php	
-	function display_applicant_info()
-	{
-?>
-	<p class="text">This is your application info.</p>
 <?php
-	}
+function display_logout_message() {
+	global $old_user;
+	global $result_dest;
+?>
+	
 
-	
-	
-	
-	
+	<h3>Logout</h3>
+		<p>
+		<?php
+		if (!empty($old_user)) 
+		{
+			if ($result_dest)
+			{
+			echo 'Logged out.' ?> <a href="login.php">Log in</a> <?php ;
+			// ha be volt jelentkezve a user, akkor most már ki van jelentkezve
+			//header("Location:login.php");
+			}
+			else
+			{
+		   // be volt jelentkezve a user, de nem tud kijelentkezni
+			echo 'Could not log you out.<br />';
+			}
+		}
+		else
+		{
+		  // nem volt bejelentkezve, de valahogy ide került
+		  echo 'You were not logged in, and so have not been logged out.<br />';
+		  do_html_url('login.php', 'Login');
+		}
+	?>
+		</p>
+<?php
+		}
+?>		
 

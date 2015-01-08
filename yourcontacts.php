@@ -35,7 +35,6 @@ else
 */
 require_once('pagecontents.php');
 do_html_header('');
-display_user_menu();
-alumni_body();
+alumniMainContent();
 do_html_footer();
 ?>

@@ -6,6 +6,6 @@ ob_start(); //Turn on output buffering
 require_once('data_valid_fns.php');
 require_once('alumni_db_fns.php');
 require_once('user_auth_fns.php');
-require_once('display_alumni_fns.php');
+require_once('display_alumni4_fns.php');
 require_once('useful_fns.php');
 ?>

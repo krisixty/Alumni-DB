@@ -1,6 +1,6 @@
 <?php
-$cont_sel= "selected";
-$pg_content = 'contact_us1';
+$reun_sel = "selected";
+$pg_content = "reunion_registration";
 session_start();
 require_once('alumni_includes.php');
 require_once('pagecontents.php');

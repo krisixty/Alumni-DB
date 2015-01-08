@@ -1,5 +1,6 @@
 <?php
 ob_start(); //Turn on output buffering
+$memb_sel = 'selected';
 $pg_content = 'member';
 require_once('alumni_includes.php');
 session_start();
@@ -18,8 +19,7 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 	catch (Exception $e)	
 		{
 		do_html_header('Problem:'); //sikertelen bejelentkezés
-		?><p class="text"><?php
-		echo 'You could not be logged in. You must be logged in to view this page.';
+		//echo 'You could not be logged in. You must be logged in to view this page.';
 		do_html_url('login.php', 'Login');
 		do_html_footer();
 		exit;
@@ -40,12 +40,16 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 	$pob_country=$sor['pob_country'];
 	$pob_city=$sor['pob_city'];
 	$citizenship=$sor['citizenship'];
+	$citizenship2=$sor['citizenship2'];
 
 	$grad_faculty=$sor['grad_faculty'];
 	$grad_year=$sor['grad_year'];
-	//$email=$sor['email'];
-	
-	//$citizenship2=$sor[''];
+
+	//E-mail
+	$result_email=$conn->query("SELECT * FROM user WHERE username='$username'");
+	$sor=mysqli_fetch_array($result_email);
+	$email=$sor['email'];
+
 	
 	//CONTACT DATA from GRADUATE_CONTACTS
 	$result_contacts=$conn->query("SELECT * FROM graduate_contacts WHERE AID='$aid'");
@@ -72,9 +76,8 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 require_once('pagecontents.php');
 
 do_html_header('');
-display_user_menu();
 check_valid_user();
-alumni_body();
+alumniMainContent();
 do_html_footer();
 
 ?>

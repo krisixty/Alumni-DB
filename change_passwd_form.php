@@ -1,8 +1,11 @@
 <?php
- require_once('alumni_includes.php');
- session_start();
- do_html_header('');
- check_valid_user();
- display_password_form();
- do_html_footer();
+$pass_sel= "selected";
+$pg_content = 'change_password_form';
+session_start();
+require_once('alumni_includes.php');
+require_once('pagecontents.php');
+do_html_header('');
+check_valid_user();
+alumniMainContent();
+do_html_footer();
 ?>

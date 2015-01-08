@@ -1,5 +1,6 @@
 <?php
 ob_start(); //Turn on output buffering
+$surv_sel = 'selected';
 $pg_content = 'survey_edit';
 require_once('alumni_includes.php');
 session_start();
@@ -44,7 +45,6 @@ else
 */
 require_once('pagecontents.php');
 do_html_header('');
-display_user_menu();
-alumni_body();
+alumniMainContent();
 do_html_footer();
 ?>

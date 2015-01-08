@@ -33,13 +33,16 @@ Accommodation with breakfast is free of charge for children below 4 years of age
 ?>
 
 <?php
-function contentAbout() {
+function contentIndex() {
 ?>
 <h3>About Us</h3>
 <!--<p class="main">Alumni adatbankról pár szóban.</p>-->
 <pre>
 Dear Graduates,
+
 We have realized our long-standing ambition by founding the Alumni program. Officially organized, it is the first time that our former students will be able to get into contact and keep in touch with one another and the alma mater. With the help of the website, you can share information regarding your careers, its main stages, awards etc. You can also upload photos of yourselves and your experiences in Szeged and revive long-forgotten friendships.
+
+<img src="img/graduation.jpg">
 
 As a part of our program, let us invite you to participate in a bit of a market research – it only takes a few minutes to answer the questions. Your feedback is important to us, including answers to questions such as what kinds of licensing procedures you had to take part in, where you got employed, what kinds of experiences you have acquired after having received your diploma. With the help of your participation, our aim is to enhance the quality of education at our university and to be able to provide future graduate students with the most useful guidance.
  
@@ -67,6 +70,14 @@ function contentContactUs() {
 ?>
 
 <?php
+function display_login_message() {
+?>
+	<p>Welcome <?php echo $_SESSION['valid_user'].','; ?> you are logged in to Alumni DB. </p>
+<?php
+}
+?>
+
+<?php
 function contentMemberPage() {
 	global $aid;
 	global $verification;
@@ -88,54 +99,87 @@ function contentMemberPage() {
 	global $phone;
 	
 	global $contactsFill;
+	global $surveyFill;
 ?>
 <h3>Your Alumni Databank Account</h3>
-<?php check_valid_user();?>
-<p class="main">Your Alumni Databank ID number is <?php echo $aid;?>.</p>
-<p class="main">Your personal data is
-<?php
+<?php 
+check_valid_user();
+
 	if ($verification == 'No') {
 	?>
-		not verified yet.
-	<?php
-	}
-?>
+<pre>
+Thank you for your registration. Since our Alumni Community is a closed group, your data needs to be verified. The activation of your account is going to be confirmed via e-mail approximately within 3 working days. 
 
+Please check back later, as following the activation, you will have access to the profiles of other graduates registered in the system. You will furthermore be able to register to the Alumni Reunion event.
+
+Until then you are welcome to view your <a href="member.php">personal profile</a>, provide us with your <a href="yourcontacts.php">contact information</a> and create <a href="survey.php">professional profile by filling in our Alumni survey</a>. 
+
+The Alumni Team
+</pre>
+<fieldset class="text">
+	<legend class="text">Personal profile</legend>
+		<fieldset class="text2">
+			<legend class="text2">Personal data</legend>
+			<strong><?php echo $fname.' '.$gname; ?></strong><br>
+			Date of birth: <?php echo $dob; ?><br>
+			Place of birth: <?php echo $pob_city.', '.$pob_country; ?><br>
+			Citizenship: <?php echo $citizenship; ?>
+			<?php
+			if ($citizenship2) {
+				echo ', '.$citizenship2.'<br>';
+				}
+				else
+				{
+				echo '<br>';
+				}
+			?>
+
+			Graduation: <?php echo $grad_faculty.', '.$grad_year; ?><br>
+				<?php
+				}
+			?>
+			Alumni Databank ID number: <?php echo $aid;?>
+		</fieldset>
 <?php
 	if ($contactsFill)
 		{
 	?>
-		<p class="main"><?php echo $fname.' '.$gname.'<br>'.
-		$dob.' '.$pob_city.' '.$pob_country.'<br>'.
-		$citizenship.'<br>'.
-		'Graduation: '.$grad_faculty.', '.$grad_year;?></p>
-		<p class="main">Contacts:<br>
-		<?php echo $permadd.' '.$add_pc.'<br>'. 
-		$add_city.', '.$add_country.'<br>'.
-		$phone;?>
-		</p>
-
-		<p class="main"><a href="yourcontacts.php">Edit your contacts info</a></p>
-		<?php
-		}
-	else
-		{
-	?>
-		<p class="main"><a href="yourcontacts.php">Give us your contacts info</a></p>
-		<?php
-		}
-	?>
+		<fieldset class="text2">
+			<legend class="text2">Contacts</legend>
+			Address: <?php echo $permadd; ?><br>
+			Postal Code: <?php echo $add_pc; ?><br>
+			City: <?php echo $add_city; ?><br>
+			Country: <?php echo $add_country; ?><br>
+			Phone number: <?php echo $phone; ?><br>
+			E-mail: <?php echo $email; ?><br>
+			<strong><a href="yourcontacts.php">Edit your contacts info</a></strong>
+			<?php
+			}
+		else
+			{
+		?>
+		<fieldset class="text2">
+			<legend class="text2">Contacts</legend>
+			<strong><a href="yourcontacts.php">Give us your contacts info</a></strong>
+			<?php
+			}
+		?>
+		</fieldset>
+</fieldset>		
 		
-<p class="main">
-Thank you for your registration to our Alumni databank. <br>
-After the verification of your data –appr. within 3 workdays- you will be informed via e-mail about the activation of your account.<br>
-Until then you are welcome to fill out our <a href="survey.php">Alumni questionnaire</a>.<br>
-We highly appreciate your cooperation in advance.<br>
-<br>
-The Alumni Team
-</p>
-
-<?php
+<fieldset class="text">
+	<legend class="text">Professional profile</legend>
+		<fieldset class="text2">
+			<legend class="text2">Further studies/employment </legend>
+		</fieldset>	
+		<fieldset class="text2">
+			<legend class="text2">Licensing Process – for ALUMNI Team use only</legend>
+		</fieldset>
+		<fieldset class="text2">
+			<legend class="text2">Comments on the Szeged Experience – for ALUMNI Team use only</legend>
+		</fieldset>	
+</fieldset>	
+<?php		
 }
 ?>
 
@@ -190,35 +234,48 @@ function contentSurveyFilledIn() {
 	global $surveyFill;
 	//check_valid_user();
 ?>
-<p class="main">
+<p>
+<h3>Alumni Survey</h3>
 Thank you for filling in our questionnaire! We hope to see you at the Alumni Reunion Weekend organized to celebrate the 30th anniversary of the English language Medical Program between the 18-20. of September 2015 in Szeged!</p> 
-<p class="main">
-For more information go directly to our <a href="http://szegedmed.hu" target="_blank">website</a>, our <a href="https://www.linkedin.com/groups/Szeged-University-Medical-Alumni-Association-6663708/about?report%2Esuccess=wfYwey9x_vDJSupNXsg1N65PA9qU9Vhzo4c4fywdI9xE44HFPya15swP53hapENqWjZzGAJPIIEAIAHSWOlIFtsVzjzNV8gSQXHzOpKzXXAaXF4VZyOq42GdI8ExV8hVWGa1V0LI5kVtFytIKy414AMPAFZaXFCSPsc1V57ldO-tqkE-P5tddH3AfpZt5j4Iv9-q3TrPIIEC42ZIbjmq32Md99AxX4C1ItuDkt2" target="_blank">LinkedIn</a> or <a href="https://www.facebook.com/szegedalumni" target="_blank">Facebook</a> page.
-</p>
-<h3>Your Survey Answers</h3>
-<p class="main">
+
+
+<fieldset class="text">
+<h4>Your Survey Answers</h4>
+<p>
 
 <?php
+global $span; 
+$span = '<span class="question">';
+
 	if ($surveyFill)
 		{
 		include 'survey_questions.php';
-		echo $licensingQuestion.'<br>'.$licensing.'<br><br>';
-		echo $licensing_typeQuestion.'<br>'.$licensing_type.'<br><br>';
-		echo $licensing_expQuestion.'<br>'.$licensing_exp.'<br><br>';
-		echo $employment_countryQuestion.'<br>'.$employment_country.'<br><br>';
-		echo $after_graduationQuestion.'<br>'.$after_graduation.'<br><br>';
-		echo $workplaceQuestion.'<br>'.$workplace.'<br><br>';
-		echo $positionQuestion.'<br>'.$position.'<br><br>';
-		echo $titleQuestion.'<br>'.$title.'<br><br>';
-		echo $other_workQuestion.'<br>'.$other_work.'<br><br>';
-		echo $awardsQuestion.'<br>'.$awards.'<br><br>';
-		echo $contributeQuestion.'<br>'.$contribute.'<br><br>';
-		echo $opinionQuestion.'<br>'.$opinion.'<br><br>';
-		echo $commentQuestion.'<br>'.$comment.'<br><br>';
+		echo $span.$licensingQuestion.'</span><br>'.$licensing.'<br><br>';
+		echo $span.$licensing_typeQuestion.'</span><br>'.$licensing_type.'<br><br>';
+		echo $span.$licensing_expQuestion.'</span><br>'.$licensing_exp.'<br><br>';
+		echo $span.$employment_countryQuestion.'</span><br>'.$employment_country.'<br><br>';
+		echo $span.$after_graduationQuestion.'</span><br>'.$after_graduation.'<br><br>';
+		echo $span.$workplaceQuestion.'</span><br>'.$workplace.'<br><br>';
+		echo $span.$positionQuestion.'</span><br>'.$position.'<br><br>';
+		echo $span.$titleQuestion.'</span><br>'.$title.'<br><br>';
+		echo $span.$other_workQuestion.'</span><br>'.$other_work.'<br><br>';
+		echo $span.$awardsQuestion.'</span><br>'.$awards.'<br><br>';
+		echo $span.$contributeQuestion.'</span><br>'.$contribute.'<br><br>';
+		echo $span.$opinionQuestion.'</span><br>'.$opinion.'<br><br>';
+		echo $span.$commentQuestion.'</span><br>'.$comment.'<br><br>';
 		}	
 ?>		
 </p>
-<p class="main"><a href="survey_edit.php">Edit your answers</a></p>		
+<p><a href="survey_edit.php">Edit your answers</a></p>
+</fieldset>		
+<?php
+}
+?>
+
+<?php
+function editSurveyTop() {
+?>
+	<h3>Edit survey answers</h3>
 <?php
 }
 ?>
@@ -237,4 +294,15 @@ function adminMainPage() {
 </p>	
 <?php	
 }
+?>
 
+<?php
+function contentReunionRegistration() {
+?>
+<h3>Registration for Reunion Weekend 2015</h3>
+<p>Please check back later, following the activation of your account.</p>
+<a href="../../reunion/index.php" target="_blank">Reunion Weekend 2015 website</a></li>
+
+<?php
+}
+?>
