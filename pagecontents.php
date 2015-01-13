@@ -62,9 +62,15 @@ The Alumni Team
 function contentContactUs() {
 ?>
 <h3>Contact Us</h3>
-<p class="main">Tel.: English Office: (+36) 62/545-458 | German Office: (+36) 62/546-865</p>
-<p class="main">Fax: (+36) 62/545-028 | Address: Hungary 6720 Szeged, Dóm tér 12.</p>
-<p class="main">office.fs@med.u-szeged.hu</p>
+<pre>
+Foreign Students'Secretariat
+Alumni Team
+H-6720 Szeged
+Dóm tér 12.
+T: +3662546-867
+<a href="mailto:alumni.fs@med.u-szeged.hu">alumni.fs@med.u-szeged.hu</a>
+</pre>
+
 <?php
 }
 ?>

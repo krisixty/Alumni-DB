@@ -1,0 +1,230 @@
+
+/* Page Styles
+================================ */
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	/*font-family: 'Ubuntu', sans-serif;*/
+	font: normal 1em/1.5 'Ubuntu', sans-serif;
+	color: #369;
+	background-color: #F0F7F8;
+	text-align: justify;
+}
+pre {
+	font: normal 1em/1.5 'Ubuntu', sans-serif;
+	/*font: normal 1em/1.5 sans-serif;*/
+}
+
+img.big-logo {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	width: 80%;
+}
+
+img.students {
+	display: inline;
+    margin-left: auto;
+    margin-right: auto;
+	width: 13%;
+}
+
+h2, h3 {
+	margin-top: 300px;
+	display: block;
+}
+
+h3 {
+	text-align: center;
+}
+
+h4 {
+	margin: 0px;
+	padding: 0px;
+}
+/* Normaliz.css -ben ideiglenesen:
+h2, h3 {
+	margin-top: 180px;
+}
+*/
+
+h1 {
+	color: #F0F7F8;
+	padding-top: 12px;
+	margin: 0px 0px 0px 0px;
+	background-color: #3F8ABF;
+	/*text-shadow: 2px 2px #000;*/
+}
+
+p.header {
+	font-size: 1.25em;
+	color: #F0F7F8;
+	padding-bottom: 12px;
+	margin: 0px 0px 12px;
+	background-color: #3F8ABF;
+	/*text-shadow: 2px 2px #000;*/
+}
+
+p.p2 {
+	color: #fff;
+}
+
+/* links */
+a {
+  color: #4D93A4;
+  text-decoration: none;
+}
+
+/* nav link */
+nav a, nav a:visited { /*pesudo class*/
+  color: #3F7785;
+}
+
+/* selected nav link */ 
+nav a.selected, nav a:hover {
+  color: #3F7785;
+  
+}
+
+/* Main Layout Styles
+================================ */
+
+.main-header {
+	/*padding-top: 20px;*/
+	padding-bottom: 20px;
+	text-align: center;
+	background-color: #F0F7F8;
+	/*background-color: #3f8abf; */
+}
+.main-logo {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 1.5em;
+}
+
+
+.main-logo a, 
+.main-nav a, .secondary-nav a {
+	display: block;
+	text-align: center;
+	/*border-radius: 15px;*/
+	color: white;
+	text-decoration: none;
+	padding: 8px 16px;
+}
+.main-logo a { 
+	background-color: #4D93A4; 
+}
+.main-nav a { 
+	/*background-color: #3f8abf; */
+	background-color: #095890;
+}
+.main-nav a.selected, a:hover {
+	color: #fff;
+	/*background-color: #F7CC4F;*/
+	background-color: gray;
+	transition: background-color 1000ms linear;
+}
+
+.main-content a {
+	color: #6DABBB;
+
+}
+
+.main-content a:hover {
+	color: #50B96C;
+	background: transparent;
+}
+
+.main-footer {
+	text-align: center;
+	margin-top: 30px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px; /*0 top/bott, 5 left/right*/
+}
+
+.secondary-nav {
+	font-size: 1.15em;
+	padding: 2px 2px; 
+	text-align: center;
+    background: #095890;
+    /*border-radius: 15px;*/
+}
+
+@media (min-width: 768px) and (max-width: 973px) {
+	h2, h3 {
+	margin-top: 250px;
+	display: block;
+	}
+}
+
+@media (min-width: 768px) { 
+
+	/* Main Layout Styles
+	================================ */
+
+	body {
+		padding-top: 75px;
+	}
+	
+	.main-header {
+		position: fixed;
+		top: 0;
+		width: 100%;
+	}
+	.main-nav {
+		text-align: center;
+	}
+	.main-nav li {
+		margin-top: 12px;
+		margin-left: 10px;
+		display: inline-block;
+	}
+	.main-banner {
+		display: block;
+		background: #4D93A4;
+		text-align: center;
+		padding: 5px 0px;
+		margin-bottom: 10px;
+	}
+
+	/* Imagery
+	================================ */
+	
+	.logo-picture {
+	display: block; /* display + margin auto technique: for flexibility for display layout*/
+	float: left;
+	max-width: 100px;
+	margin-left: 10px; /*top, l-r, bottom*/
+	/*border-radius: 15px;*/
+	}
+	
+}
+
+@media (min-width: 1px) and (max-width: 767px)  {
+	.main-nav li {
+		margin-top: 12px;
+	}
+
+	.logo-picture {
+	max-width: 150px;
+	/*border-radius: 15px;*/
+	}
+	
+	h2, h3 {
+	margin-top: auto;
+	}
+	
+	#wrapper {
+    text-align: center;
+	}
+	

@@ -70,7 +70,21 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 			//echo 'noo';
 			$contactsFill = false;
 			}
+			
+	//SURVEY DATA from SURVEY		
+	$result_survey = $conn->query("SELECT * FROM survey WHERE AID='$aid'");	
+	$sor=mysqli_fetch_array($result_survey);
 	
+		if ($result_survey->num_rows>0) //vizsgálja, hogy kitöltötte-e már a surveyt
+			{
+			echo 'yeee';
+			$surveyFill = true;
+			} 
+		else
+			{
+			echo 'noo';
+			$surveyFill = false;
+			}
 
 	
 require_once('pagecontents.php');
