@@ -6,6 +6,9 @@ require_once('pagecontents.php');
 
 do_html_header('');
 check_valid_officer_user();
-alumni_body();
+	mainContentDivOpen();
+	adminMainPage();
+		add_graduate_form();
+	mainContentDivClose();
 do_html_footer();
 ?>

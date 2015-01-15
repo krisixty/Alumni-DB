@@ -36,8 +36,8 @@ Accommodation with breakfast is free of charge for children below 4 years of age
 function contentIndex() {
 ?>
 <h3>About Us</h3>
-<!--<p class="main">Alumni adatbankról pár szóban.</p>-->
 <pre>
+<img class="pics-in-text" src="img/infoblokk_kedv_final_felso_cmyk_en_ESZA_low_res.jpg">
 Dear Graduates,
 
 We have realized our long-standing ambition by founding the Alumni program. Officially organized, it is the first time that our former students will be able to get into contact and keep in touch with one another and the alma mater. With the help of the website, you can share information regarding your careers, its main stages, awards etc. You can also upload photos of yourselves and your experiences in Szeged and revive long-forgotten friendships.
@@ -63,7 +63,7 @@ function contentContactUs() {
 ?>
 <h3>Contact Us</h3>
 <pre>
-Foreign Students'Secretariat
+Foreign Students' Secretariat
 Alumni Team
 H-6720 Szeged
 Dóm tér 12.
@@ -78,13 +78,18 @@ T: +3662546-867
 <?php
 function display_login_message() {
 ?>
-	<p>Welcome <?php echo $_SESSION['valid_user'].','; ?> you are logged in to Alumni DB. </p>
+	<p>Welcome <?php echo $_SESSION['valid_user'].','; ?> you are logged in to Alumni Database. </p>
+	<ul class="main-nav">
+	<li><a href="logout.php" class="<?php echo $lout_sel; ?>">Logout</a></li> 
+	</ul>
+	
 <?php
 }
 ?>
 
 <?php
 function contentMemberPage() {
+	//PERSONAL DATA VARIABLES
 	global $aid;
 	global $verification;
 	global $fname;
@@ -98,16 +103,26 @@ function contentMemberPage() {
 	global $grad_year;
 	global $email;
 	
+	//ADDRESS VARIABLES
 	global $permadd;
 	global $add_pc;
 	global $add_city;
 	global $add_country;
 	global $phone;
 	
+	//FORMS FILL VARIABLES
 	global $contactsFill;
 	global $surveyFill;
+	
+	//SURVEY VARIABLES
+	global $workplace;
+	global $position;
+	global $title;
+	global $other_work;
+	global $awards;
+
 ?>
-<h3>Your Alumni Databank Account</h3>
+<h3>Your Alumni Database Account</h3>
 <?php 
 check_valid_user();
 
@@ -121,7 +136,16 @@ Please check back later, as following the activation, you will have access to th
 Until then you are welcome to view your <a href="member.php">personal profile</a>, provide us with your <a href="yourcontacts.php">contact information</a> and create <a href="survey.php">professional profile by filling in our Alumni survey</a>. 
 
 The Alumni Team
+	<?php
+	}
+	if ($verification == 'Yes')
+	{
+	echo '<p>'.'Your account has been verified. You can now use all of the Alumni Database functions. Look for and reestablish the connection with your former classmates and your long-lost acquaintances! Check out what they were up to after their studies and how they are doing now. Spread the word about the community so that more people can enjoy the benefits of the Alumni program.'.'</p>';
+	}
+	?>
+
 </pre>
+
 <fieldset class="text">
 	<legend class="text">Personal profile</legend>
 		<fieldset class="text2">
@@ -142,9 +166,9 @@ The Alumni Team
 
 			Graduation: <?php echo $grad_faculty.', '.$grad_year; ?><br>
 				<?php
-				}
+				
 			?>
-			Alumni Databank ID number: <?php echo $aid;?>
+			Alumni Database ID number: <?php echo $aid;?>
 		</fieldset>
 <?php
 	if ($contactsFill)
@@ -173,17 +197,30 @@ The Alumni Team
 		</fieldset>
 </fieldset>		
 		
+		
 <fieldset class="text">
-	<legend class="text">Professional profile</legend>
+	<legend class="text">Professional profile</legend>	
 		<fieldset class="text2">
-			<legend class="text2">Further studies/employment </legend>
-		</fieldset>	
-		<fieldset class="text2">
-			<legend class="text2">Licensing Process – for ALUMNI Team use only</legend>
-		</fieldset>
-		<fieldset class="text2">
-			<legend class="text2">Comments on the Szeged Experience – for ALUMNI Team use only</legend>
-		</fieldset>	
+			<legend class="text2">Employment</legend>
+<?php
+	if ($surveyFill) {
+	?>
+
+				Current workplace: <?php echo $workplace;?><br>
+				Current position: <?php echo $position;?><br>
+				Current title: <?php echo $title;?><br>
+				Other workplace(s): <?php echo $other_work;?><br>
+				Awards/Honors: <?php echo $awards;?><br>
+				<strong><a href="survey_edit.php">Edit your professional info</a></strong>
+	</fieldset>	
+	<?php
+	}
+	else {
+		?>
+		<a href="survey.php">Please fill out our survey</a>
+		<?php
+	}
+	?>			
 </fieldset>	
 <?php		
 }
@@ -289,7 +326,7 @@ function editSurveyTop() {
 <?php
 function adminMainPage() {
 ?>
-<h3>Alumni databank Admin v1.0</h3>
+<h3>Alumni Database Admin v1.1</h3>
 <p class= "main">
 	<a href="officer.php">Admin mainpage</a><br>
 	<a href="add_graduate_form.php">Add new graduate</a><br>
@@ -306,9 +343,31 @@ function adminMainPage() {
 function contentReunionRegistration() {
 ?>
 <h3>Registration for Reunion Weekend 2015</h3>
-<p>Please check back later, following the activation of your account.</p>
-<a href="../../reunion/index.php" target="_blank">Reunion Weekend 2015 website</a></li>
-
 <?php
+
+check_valid_user();
+
+	if ($verification == 'No') {
+		?><p>Please check back later, following the activation of your account.</p>
+		<a href="../../reunion/index.php" target="_blank">Reunion Weekend 2015 website</a></li><?php
+		}
+	else {
+		?><p>Please check back later, registration to the Reunion Weekend will be open from early spring 2015.</p><?php
+	}
 }
 ?>
+
+<?php
+function contentAlumniCommunity() {
+	
+?>
+
+	<h3>Alumni Community</h3>
+	<p>
+		Are you looking for your old classmates and friends? Find them with the help of the search options below!<br><br>
+		<a href="alumni_community_all.php">Show all registered graduates</a><br>
+		<a href="alumni_community_filters.php">Filter registered graduates</a><br>	
+		<a href="www.bmbah.hu/images/formanyomtatvanyok-teljes/ENG/doc/Registration%20card%20for%20EEA%20Nationals.doc" target="_blank">Application form</a>
+	</p>
+<?php
+}

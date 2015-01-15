@@ -261,4 +261,16 @@ function send_application_email($username)
     }
 } 
 
+function is_verified() {
+
+	global $verification_result;
+
+		$username=$_SESSION['valid_user'];
+		$conn = db_connect();
+		$result = $conn->query("SELECT verification FROM graduate_data WHERE username='$username'");
+		$row=mysqli_fetch_array($result);
+		$verification_result = $row['verification'];
+}
+
+
 ?>

@@ -10,7 +10,12 @@ body {
 	/*font-family: 'Ubuntu', sans-serif;*/
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
 	color: #369;
-	background-color: #F0F7F8;
+	background-image: url('../img/Reunion_logo_bg2.png');
+	background-repeat: no-repeat;
+	background-position: 50% 400px; 
+	background-size: 40%;
+	background-color: #fff;
+	/*background-color: #F0F7F8;*/
 	text-align: justify;
 }
 pre {
@@ -19,10 +24,21 @@ pre {
 }
 
 img.big-logo {
-	display: block;
+	display: block; /* display + margin auto technique: for flexibility for display layout*/
+	float: right;
+	padding: 20px;
     margin-left: auto;
     margin-right: auto;
-	width: 80%;
+	width: 50%;
+}
+
+img.pics-in-text {
+	display: block; /* display + margin auto technique: for flexibility for display layout*/
+	float: right;
+	padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+	width: 50%;
 }
 
 img.students {
@@ -68,6 +84,11 @@ p.header {
 	/*text-shadow: 2px 2px #000;*/
 }
 
+span.header-s {
+	color: #AAC7E4;
+	/*color: #F7CC4F;*/
+}
+
 p.p2 {
 	color: #fff;
 }
@@ -96,7 +117,8 @@ nav a.selected, nav a:hover {
 	/*padding-top: 20px;*/
 	padding-bottom: 20px;
 	text-align: center;
-	background-color: #F0F7F8;
+	background-color: #fff;
+	/*background-color: #F0F7F8;*/
 	/*background-color: #3f8abf; */
 }
 .main-logo {
@@ -161,8 +183,12 @@ nav a.selected, nav a:hover {
 }
 
 @media (min-width: 768px) and (max-width: 973px) {
+	body {
+		background-size: 60%;
+	}
+	
 	h2, h3 {
-	margin-top: 250px;
+	margin-top: 300px;
 	display: block;
 	}
 }
@@ -211,6 +237,10 @@ nav a.selected, nav a:hover {
 }
 
 @media (min-width: 1px) and (max-width: 767px)  {
+	body {
+		background-image: none;
+	}
+	
 	.main-nav li {
 		margin-top: 12px;
 	}

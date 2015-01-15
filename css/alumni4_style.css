@@ -10,7 +10,7 @@ body {
 	/*font-family: 'Ubuntu', sans-serif;*/
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
 	color: #369;
-	background-color: #F0F7F8;
+	background-color: #fff;
 	text-align: justify;
 }
 pre {
@@ -20,6 +20,15 @@ pre {
 
 img.big-logo {
 	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	width: 25%;
+}
+
+img.pics-in-text {
+	display: block; /* display + margin auto technique: for flexibility for display layout*/
+	float: right;
+	padding: 20px;
     margin-left: auto;
     margin-right: auto;
 	width: 25%;
@@ -63,6 +72,19 @@ p.header {
 	margin: 0px 0px 12px;
 	background-color: #3F8ABF;
 	/*text-shadow: 2px 2px #000;*/
+}
+
+span.header-s {
+	font-style: normal;
+	border-radius: 0px;
+	display: inline;
+	font-size: 1em;
+	text-align: left;
+	background: none;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	color: #AAC7E4;
 }
 
 p.p2 {
@@ -120,7 +142,7 @@ span.question {
 	border-radius: 0px;
 	display: inline;
 	font-size: 1em;
-	text-align: ledt;
+	text-align: left;
 	background: none;
 	left: 0px;
 	top: 0px;
@@ -135,7 +157,7 @@ span.question {
 	/*padding-top: 20px;*/
 	padding-bottom: 20px;
 	text-align: center;
-	background-color: #F0F7F8;
+	background-color: #fff;
 	/*background-color: #3f8abf; */
 }
 .main-logo {
@@ -391,6 +413,10 @@ label.light {
 	.logo-picture {
 	max-width: 150px;
 	/*border-radius: 15px;*/
+	}
+	
+	img.pics-in-text {
+	width: 100%;
 	}
 	
 	h2, h3 {

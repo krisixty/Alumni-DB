@@ -47,9 +47,8 @@ function do_html_header() {
 </head>
 <body>
 	<header class="main-header">
-	<h1>UNIVERSITY OF SZEGED Alumni Databank</h1>
-	<p class="header">Faculty of Medicine, Faculty of Dentistry, Faculty of Pharmacy
-	Foreign Language Programs</p>
+	<h1>UNIVERSITY OF SZEGED Alumni Database</h1>
+	<p class="header">Faculty of Medicine, Faculty of Dentistry, Faculty of Pharmacy <span class="header-s">Foreign Language Programs</span></p>
 <!--
 <img class="students" src="img/logo2.jpg">
 <img class="students" src="img/szegedmed_students_02.jpg">
@@ -79,6 +78,7 @@ function main_banner() {
 function display_links() {
  	global $ind_sel;
 	global $memb_sel;
+	global $comm_sel;
 	global $surv_sel;
 	global $log_sel;
 	global $reg_sel;
@@ -86,21 +86,36 @@ function display_links() {
 	global $reun_sel;
 	global $lout_sel;
 	global $pass_sel;
-
+	global $verification_result;
+	global $pg_content;
+	
+	
+	//Ezt átírni. check_valid_officer_user feltételre
+	if (($pg_content == 'officer')||($pg_content == 'add_graduate_form')) {
+		return true;
+		exit;
+	}
+	else {
 ?>
 		<ul class="grid-12 main-nav">
 						<?php
-				if (isset($_SESSION['valid_user']))
-					{
+				if (isset($_SESSION['valid_user'])) {
 					?>
 					<li><a href="index1.php" class="<?php echo $ind_sel; ?>">Home</a></li>
 					<li><a href="member.php" class="<?php echo $memb_sel; ?>">My Alumni</a></li>
+						<?php
+						is_verified();
+						if ($verification_result == 'Yes')	{
+						?>
+							<li><a href="alumni_community.php" class="<?php echo $comm_sel; ?>">Alumni Community</a></li>
+						<?php
+						}
+						?>
 					<li><a href="survey.php" class="<?php echo $surv_sel; ?>">Survey</a></li>
-					<li><a href="reunion_registration.php" class="<?php echo $reun_sel; ?>">Reunion Weekend Registration</a></li> 
-					<li><a href="contact_us1.php" class="<?php echo $cont_sel; ?>">Contact Us</a></li>
+					<li><a href="reunion_registration.php" class="<?php echo $reun_sel; ?>">Reunion Registration</a></li> 
+					<li><a href="contact_us1.php" class="<?php echo $cont_sel; ?>">Contact</a></li>
 					<li><a href="change_passwd_form.php" class="<?php echo $pass_sel; ?>">Password</a></li>
-					<li><a href="logout.php" class="<?php echo $lout_sel; ?>">Logout</a></li> 
-					<?php
+					<?php		
 					}	
 				else {
 					?>
@@ -114,6 +129,7 @@ function display_links() {
 				?>
 		</ul>
 <?php
+	}
 }
 ?>
 
@@ -174,6 +190,9 @@ function alumniMainContent() {
 			if ($pg_content == 'login') {
 					display_login_form();
 				}
+			if ($pg_content == 'login2') {
+					display_officer_login_form();
+				}	
 			if ($pg_content == 'logout') {
 					display_logout_message();
 				}
@@ -200,6 +219,14 @@ function alumniMainContent() {
 			if ($pg_content == 'member') {
 					contentMemberPage();
 				}
+			/*	
+			if ($pg_content == 'officer') {
+					adminMainPage();
+				}	
+			*/	
+			if ($pg_content == 'alumni_community') {
+					contentAlumniCommunity();
+				}	
 			if ($pg_content == 'yourcontacts') {
 					display_contacts_form();
 				}	
@@ -223,6 +250,15 @@ function alumniMainContent() {
 			if ($pg_content == 'change_password_form') {
 					display_change_password_form(); 
 				}
+			/*if ($pg_content == 'add_graduate_form') {
+					add_graduate_form();
+					}*/
+			if ($pg_content == 'graduates') {
+					 
+					}
+			if ($pg_content == 'graduates_registered') {
+					 
+					}
 			
 			mainContentDivClose();	
 }
@@ -235,7 +271,7 @@ function do_html_footer()
 ?>
 
 	<footer class="main-footer">
-		        <p>University Szeged Foreign Language Programs - Alumni Databank &copy; <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a> 2014-2015</p>
+		        <p>University Szeged Foreign Language Programs - Alumni Database &copy; <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a> 2014-2015</p>
 	</footer>
 </body>
 </html>
@@ -257,7 +293,7 @@ function do_html_footer()
 			<label for="password" >Password</label>
 			<input type="password" id="password" name="passwd">
 			<button type="submit">Login</button>
-			<p><a href='register_form.php'>Create an Alumni DB account.</a></p>
+			<p><a href='register_form.php'>Create an Alumni Database account.</a></p>
 			<p><a href='forgot_form.php'>Forgot your password?</a></p>
 		 </form>
 <?php
@@ -270,8 +306,9 @@ function do_html_footer()
 
 	function display_officer_login_form() {
 		
-		display_menu_icon();
 ?>
+	<h3>Login for Academic Officers</h3>
+
 		<form action="officer.php" method="post">
 			<label for="username">Username</label>
 			<input type="text" id="username" name="username">
@@ -458,10 +495,9 @@ function do_html_footer()
 		//display_menu_icon();
 	?>
 	  
+	  <h3>Add new graduate to Alumni Database</h3>
+	  
 		<form method='post' action='add_graduate.php'>
-			<p>Add new graduate to Alumni DB:</p>
-			
-			<h1>Graduate Registration</h1>
 		
 		<fieldset>
 		
@@ -570,9 +606,9 @@ function do_html_footer()
 					<option><?php print $studies_start;?></option>
 					<option value="">-- academic year --</option>
 						<?php
-							  $y=date('Y')-6;
+							  $y=date('Y')-1;
 							  //$per="/";
-							  for($i=$y; $i>1990; $i--) 
+							  for($i=$y; $i>1984; $i--) 
 									{
 									$j=$i+1;?>
 									<option><?php print $i.'/'.$j;?></option>   
@@ -816,4 +852,45 @@ function display_logout_message() {
 <?php
 		}
 ?>		
+
+<?php function display_filter_form() {
+?>
+	
+	<h4>Filter Registered Graduates</h4>	
+	
+		<form action='community_result.php' method='post'>
+
+				<label for="grad_faculty">Faculty</label>
+				<select id="grad_faculty" name="grad_faculty">
+				<option value="">--</option>
+					<option value="Medicine">Medicine</option>
+					<option value="Pharmacy">Pharmacy</option>
+					<option value="Dentistry">Dentistry</option>
+					<option value="Medicine, 2-year German Program">Medicine, 2-year German Program</option>
+				</select>
+						
+				<label for="grad_year">Year of graduation/Physikum:</label>
+				<select id="grad_year" name="grad_year">
+					<option value="">-- year --</option>
+						<?php
+							  $y=date('Y');
+							  for($i=$y; $i>1990; $i--) 
+									{?>
+									<option value="<?php echo $i; ?>"><?php echo $i; ?></option>   
+						<?php 		} ?>
+				</select>
+				
+				<label for="citizenship">Citizenship</label>
+				<select id="citizenship" name="citizenship">
+					<?php include 'nationalities.php';?> 
+				</select>
+				
+				<button type='submit'>Apply Filter</button>
+				
+		</form>
+<?php
+}
+
+
+
 

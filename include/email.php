@@ -4,8 +4,8 @@ require_once 'Mail.php';
   
 $from    = "sztekhok@gmail.com";  
 /*$to      = "sixty.kri@gmail.com";  */
-$subject = "New Alumni DB password";  
-$body    = "Dear $username,\n\nThis is to inform you that your University of Szeged Alumni Databank password has been changed to $password ";  
+$subject = "New Alumni Dadabase password";  
+$body    = "Dear $username,\n\nThis is to inform you that your University of Szeged Alumni Database password has been changed to $password ";  
   
 /* SMTP server name, port, user/passwd */  
 $smtpinfo["host"] = "ssl://smtp.gmail.com";  

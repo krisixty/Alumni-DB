@@ -1,7 +1,7 @@
 <?php
 function do_html_header() {
  // print an HTML header
-
+	global $pg_content;
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,14 +13,24 @@ function do_html_header() {
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/reunion_style.css">
+	
+	<?php //Removes logo from index page
+	if ($pg_content == 'index') {
+				?>
+				<style>
+				body {background-image:none}
+				</style>
+				<?php
+			}	
+	?>
+
 </head>
 <body>
 	<header class="main-header">
 	<h1>UNIVERSITY OF SZEGED</h1>
-	<p class="header">Faculty of Medicine, Faculty of Dentistry, Faculty of Pharmacy
-	Foreign Language Programs</p>
+	<p class="header">Faculty of Medicine, Faculty of Dentistry, Faculty of Pharmacy <span class="header-s">Foreign Language Programs</span></p>
 
-<img class="students" src="img/Reunion.jpg">
+<img class="students" src="img/Reunion.png">
 <img class="students" src="img/szegedmed_students_02.jpg">
 <img class="students" src="img/szegedmed_students_03.jpg">
 <img class="students" src="img/szegedmed_students_04.jpg">
@@ -60,7 +70,7 @@ function display_links() {
 			<li><a href="program.php" class="<?php echo $prog_sel; ?>">Program</a></li> 
 			<li><a href="accommodation.php" class="<?php echo $acc_sel; ?>">Accommodation</a></li> 
 			<li><a href="registration.php" class="<?php echo $reg_sel; ?>">Registration to the Event</a></li>
-			<li><a href="coming.php" class="<?php echo $com_sel; ?>">Who's coming</a></li>
+			<li><a href="coming.php" class="<?php echo $com_sel; ?>">Who's Coming</a></li>
 			<li><a href="faq.php" class="<?php echo $faq_sel; ?>">FAQ</a></li>
 			<li><a href="contact.php" class="<?php echo $cont_sel; ?>">Contact</a></li> 
 		</ul>
@@ -72,9 +82,7 @@ function display_links() {
 function display_secondary_nav() {
 ?>
 		<ul class="secondary-nav">
-			<li><a href="#" target="_blank">Trailer</a></li>
 			<li><a href="../alumni/4/index.php" target="_blank">Join our Alumni Community</a></li>
-			<li><a href="http://sumaa.org" target="_blank">SUMAA</a></li>
 		</ul>
 
 <?php
@@ -114,7 +122,9 @@ function reunionMainContent() {
 		
 		<div class="grid-3">
 		<h3><br></h3>
-			<?php display_secondary_nav();?>	
+			<img src="img/infoblokk_kedv_final_felso_cmyk_en_ESZA_low_res.jpg">		
+			<?php display_secondary_nav();?><br>	
+			<a href="http://sumaa.org" target="_blank"><img src="img/sumaa.png"></a>	
 		</div>
 	</div>	
 <?
