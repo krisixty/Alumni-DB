@@ -6,6 +6,9 @@
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
+
+
 body {
 	/*font-family: 'Ubuntu', sans-serif;*/
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
@@ -23,6 +26,17 @@ img.big-logo {
     margin-left: auto;
     margin-right: auto;
 	width: 25%;
+}
+
+img.large-pics-in-text {
+	display: block; /* display + margin auto technique: for flexibility for display layout*/
+    margin-left: auto;
+    margin-right: auto;
+	width: 100%;
+}
+
+img.small-pics-in-text {
+	display: none; /* display + margin auto technique: for flexibility for display layout*/
 }
 
 img.pics-in-text {
@@ -418,6 +432,17 @@ label.light {
 	img.pics-in-text {
 	width: 100%;
 	}
+	
+	img.large-pics-in-text {
+	display: none; /* display + margin auto technique: for flexibility for display layout*/
+	}
+	
+	img.small-pics-in-text {
+	display: block; /* display + margin auto technique: for flexibility for display layout*/
+    margin-left: auto;
+    margin-right: auto;
+	width: 100%;
+}
 	
 	h2, h3 {
 	margin-top: auto;

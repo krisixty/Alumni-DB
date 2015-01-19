@@ -60,10 +60,8 @@ $graduates=$conn->query("SELECT * FROM graduate_officedata ORDER BY fname");
 	</tr>
 	</thead>
 	
-	<tbody>
-		
+	<tbody>	
 <?php
-
 while($sor=mysqli_fetch_array($graduates))
 	{
 	?>

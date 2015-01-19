@@ -30,11 +30,11 @@ function do_html_header() {
 	<h1>UNIVERSITY OF SZEGED</h1>
 	<p class="header">Faculty of Medicine, Faculty of Dentistry, Faculty of Pharmacy <span class="header-s">Foreign Language Programs</span></p>
 
-<img class="students" src="img/Reunion.png">
-<img class="students" src="img/szegedmed_students_02.jpg">
-<img class="students" src="img/szegedmed_students_03.jpg">
-<img class="students" src="img/szegedmed_students_04.jpg">
-<img class="students" src="img/szegedmed_students_05.jpg">
+<img class="pics-in-line" src="img/Reunion.png">
+<img class="pics-in-line" src="img/szegedmed_students_02.jpg">
+<img class="pics-in-line" src="img/szegedmed_students_03.jpg">
+<img class="pics-in-line" src="img/szegedmed_students_04.jpg">
+<img class="pics-in-line" src="img/szegedmed_students_05.jpg">
 
 		<div class="grid-container">
 			<?php display_links() ?>
@@ -72,7 +72,7 @@ function display_links() {
 			<li><a href="registration.php" class="<?php echo $reg_sel; ?>">Registration to the Event</a></li>
 			<li><a href="coming.php" class="<?php echo $com_sel; ?>">Who's Coming</a></li>
 			<li><a href="faq.php" class="<?php echo $faq_sel; ?>">FAQ</a></li>
-			<li><a href="contact.php" class="<?php echo $cont_sel; ?>">Contact</a></li> 
+			<li><a href="contact.php" class="<?php echo $cont_sel; ?>">Contacts</a></li> 
 		</ul>
 <?php
 }
@@ -138,7 +138,7 @@ function do_html_footer()
 ?>
 
 	<footer class="main-footer">
-		        <p>Reunion Weekend 2015 and 30th Anniversary &copy; 2014 Kristof Szilagyi</p>
+		        <p>Reunion Weekend 2015 and 30th Anniversary &copy; 2014-2015 <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristof Szilagyi</a></p>
 	</footer>
 </body>
 </html>

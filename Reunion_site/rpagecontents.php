@@ -59,7 +59,7 @@ Be sure to check back regularly and let any other graduates of the university kn
 <?php
 function contentContact() {
 ?>
-		<h2>Contact</h2>
+		<h2>Contacts</h2>
 <pre>
 Foreign Students' Secretariat
 Alumni Team
@@ -67,6 +67,7 @@ H-6720 Szeged
 Dóm tér 12.
 T: +3662546-867
 <a href="mailto:alumni.fs@med.u-szeged.hu">alumni.fs@med.u-szeged.hu</a>
+<a href="http://www.szegedmed.hu" target="_blank">www.szegedmed.hu</a>
 </pre>
 <?php
 }
@@ -76,7 +77,24 @@ T: +3662546-867
 function contentFAQ() {
 ?>
 		<h2>FAQ</h2>
-			<p>ez majd menet közben, lehet-e hozni gyereket, dress code stb?</p>	
+<pre>
+<em>How to get to Szeged?</em>
+
+If you arrive to Hungary's international airport, Budapest Ferenc Liszt International Airport we recommend taking one of the following airport shuttles to get to Szeged:
+
+<a href="http://www.airportshuttle.hu/en" target="_blank">Airportshuttle</a>
+
+<a href="http://signumtrans.hu" target="_blank">Signum Transfer</a> 
+
+<a href="http://www.premiumtrans.hu/cegunkrol-eng.html" target="_blank">Premium Trans</a>
+
+Trains to Szeged stop at Ferenc Liszt International Airport. 
+For information on timetable please see <a href="http://elvira.mavinformatika.hu/" target="_blank">this website</a>. 
+Tickets are available on spot, at the Tourist Information booth.
+
+If you are coming by car, take Motorway M5 to reach Szeged. Toll roads in Hungary may only be used with an e-vignette. 
+For more information please visit <a href="https://en-ematrica.autopalya.hu/" target="_blank">this website</a>. 
+</pre>	
 <?php
 }
 ?>
@@ -92,7 +110,7 @@ We are honored to welcome you at the homepage of the Alumni Weekend of the Facul
 
 It is our pleasure to invite you to the Alumni Weekend 2015 organized on the occasion of the 30th anniversary of the English Language Medical Program. Whether you graduated a year or more decades ago, whether from the Medical, Dental or Pharmacy Program, coming back together with your classmates for a reunion has special significance. 
 
-We have a great schedule planned, filled with opportunities for you to reconnect with your friends, the academic community, and to enjoy a beautiful autumn weekend in Szeged. We are looking forward to show you the growing and dynamic campus, moreover, we are keen to hear about your news and accomplishments, both personal and professional.
+We have a great schedule planned, filled with opportunities for you to reconnect with your friends, the academic community, and to enjoy a beautiful autumn weekend in Szeged. We are looking forward to the opportunity to show you the growing and dynamic campus, moreover, we are keen to hear about your news and accomplishments, both personal and professional.
 
 On behalf of our entire academic community, welcome back & hope to see you at the Alumni Reunion Weekend 2015 in September.
 
@@ -104,6 +122,10 @@ Prof. Ferenc BARI, Dean of the Faculty of Medicine
 Prof. Katalin NAGY, Dean of the Faculty of Dentistry
 Prof. Judit HOHMANN, Dean of the Faculty of Pharmacy
 </pre>			
+
+<img class="pics-in-line2" src="img/Prof_Ferenc_Bari.jpg">
+<img class="pics-in-line2" src="img/Prof_Dr_Nagy_Katalin.jpg">
+<img class="pics-in-line2" src="img/Prof_Judit_Hohmann.jpg">
 			
 <?php
 }
@@ -119,14 +141,14 @@ function contentProgram() {
 <strong>September 18-19-20, 2015
 Preliminary schedule</strong>
 
-Day 1 — Friday
+<strong>Day 1. Friday</strong>
 
 14:00	Welcome reception at Hunguest Hotel Forrás**** 
 16:00	Sightseeing tour with the highlights of new developments in the city and the university campus
 19:00	Dinner/Reception at the bank of the river Tisza
 
 
-Day 2 — SATURDAY
+<strong>Day 2. Saturday</strong>
 
 Venue: University Library-TIK
 
@@ -134,10 +156,11 @@ Venue: University Library-TIK
  9:30	Foreign Language Programs: Past-present-future
 13:00	Luncheon 
 14:30	CME workshops 
-20:00	Dinner at the Hunguest Hotel Forrás**** restaurant including cultural show presented by the International Student Union of Szeged
+20:00	Dinner at the Hunguest Hotel Forrás**** restaurant including cultural show 
+		presented by the International Student Union of Szeged
 
 
-Day 3 — Sunday (optional)
+<strong>Day 3. Sunday</strong> 
 
 10:00	Picnic and football with the professors
 

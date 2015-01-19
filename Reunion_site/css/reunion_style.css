@@ -4,8 +4,13 @@
 
 * {
 	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	box-sizing: border-box;	
 }
+
+html {
+	height: 100%;
+}
+
 body {
 	/*font-family: 'Ubuntu', sans-serif;*/
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
@@ -17,6 +22,7 @@ body {
 	background-color: #fff;
 	/*background-color: #F0F7F8;*/
 	text-align: justify;
+	height: 100%;
 }
 pre {
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
@@ -41,11 +47,18 @@ img.pics-in-text {
 	width: 50%;
 }
 
-img.students {
+img.pics-in-line {
 	display: inline;
     margin-left: auto;
     margin-right: auto;
 	width: 13%;
+}
+
+img.pics-in-line2 {
+	display: inline;
+    margin-left: auto;
+    margin-right: auto;
+	width: 25%;
 }
 
 h2, h3 {

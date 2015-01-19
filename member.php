@@ -77,7 +77,11 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 	
 		if ($result_survey->num_rows>0) //vizsgálja, hogy kitöltötte-e már a surveyt
 			{
-			echo 'yeee';
+				$workplace=$sor['workplace'];
+				$position=$sor['position'];
+				$title=$sor['title'];
+				$other_work=$sor['other_work'];
+				$awards=$sor['awards'];
 			$surveyFill = true;
 			} 
 		else

@@ -39,6 +39,8 @@ function do_html_header() {
 <head>
 	<title>AlumniDB_TestSession4</title>
 	<meta name="viewport" content="width=device-width">
+	<!--<meta content="True" name="HandheldFriendly">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1">-->
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
 	<link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/normalize.css">
@@ -271,7 +273,7 @@ function do_html_footer()
 ?>
 
 	<footer class="main-footer">
-		        <p>University Szeged Foreign Language Programs - Alumni Database &copy; <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a> 2014-2015</p>
+		        <p>Alumni Database &copy; 2014-2015 <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a></p>
 	</footer>
 </body>
 </html>
@@ -338,7 +340,7 @@ function do_html_footer()
 				<label for="fname">Family Name:</label>
 				<input type="text" id="fname" name="fname" maxlength="100">
 				
-				<label for="gname">Given Name:</label>
+				<label for="gname">First Name:</label>
 				<input type="text" id="gname" name="gname" maxlength="100">
 				
 				<label for="gender">Gender:</label>
@@ -858,7 +860,7 @@ function display_logout_message() {
 	
 	<h4>Filter Registered Graduates</h4>	
 	
-		<form action='community_result.php' method='post'>
+		<form action='alumni_community_result.php' method='post'>
 
 				<label for="grad_faculty">Faculty</label>
 				<select id="grad_faculty" name="grad_faculty">
@@ -890,7 +892,46 @@ function display_logout_message() {
 		</form>
 <?php
 }
+?>
 
+<?php
+function display_alumni_mate_table_body() {
+
+	global $aid;
+	global $fname;
+	global $gname;
+	global $grad_faculty;
+	global $grad_year;
+?>
+
+				<tr>
+					<td><?php print $fname;?></td>
+					<td><?php print $gname;?></td>
+					<td><?php print $grad_faculty;?></td>
+					<td><?php print $grad_year;?></td>
+					<td>
+						<form action="alumni_community_mate.php" method="post" id="form1">
+						<input type="hidden" id="AID" name="AID" value="<?php print $aid;?>" />
+						<input type="submit" name="Submit" id="Submit" value="+" />
+						</form>
+					</td>	
+				</tr>
+<?php
+}
+?>
+
+<?php
+function display_alumni_mate_table_head() {
+?>
+			<tr>
+				<th>Family name</th>
+				<th>First name</th>
+				<th>Grad. faculty</th>
+				<th>Grad. year</th>
+			</tr>
+<?php
+}
+?>
 
 
 

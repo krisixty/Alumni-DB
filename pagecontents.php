@@ -35,6 +35,7 @@ Accommodation with breakfast is free of charge for children below 4 years of age
 <?php
 function contentIndex() {
 ?>
+
 <h3>About Us</h3>
 <pre>
 <img class="pics-in-text" src="img/infoblokk_kedv_final_felso_cmyk_en_ESZA_low_res.jpg">
@@ -42,7 +43,8 @@ Dear Graduates,
 
 We have realized our long-standing ambition by founding the Alumni program. Officially organized, it is the first time that our former students will be able to get into contact and keep in touch with one another and the alma mater. With the help of the website, you can share information regarding your careers, its main stages, awards etc. You can also upload photos of yourselves and your experiences in Szeged and revive long-forgotten friendships.
 
-<img src="img/graduation.jpg">
+<img class="large-pics-in-text" src="img/graduation.jpg">
+<img class="small-pics-in-text" src="img/graduation_small.jpg">
 
 As a part of our program, let us invite you to participate in a bit of a market research – it only takes a few minutes to answer the questions. Your feedback is important to us, including answers to questions such as what kinds of licensing procedures you had to take part in, where you got employed, what kinds of experiences you have acquired after having received your diploma. With the help of your participation, our aim is to enhance the quality of education at our university and to be able to provide future graduate students with the most useful guidance.
  
@@ -102,7 +104,7 @@ function contentMemberPage() {
 	global $grad_faculty;
 	global $grad_year;
 	global $email;
-	
+		
 	//ADDRESS VARIABLES
 	global $permadd;
 	global $add_pc;
@@ -129,9 +131,9 @@ check_valid_user();
 	if ($verification == 'No') {
 	?>
 <pre>
-Thank you for your registration. Since our Alumni Community is a closed group, your data needs to be verified. The activation of your account is going to be confirmed via e-mail approximately within 3 working days. 
+Thank you for your registration. Since our Alumni Community is a closed group, your data needs to be verified. The verification of your data is going to be confirmed via e-mail approximately within 3 working days. 
 
-Please check back later, as following the activation, you will have access to the profiles of other graduates registered in the system. You will furthermore be able to register to the Alumni Reunion event.
+Please check back later, as following the verification, you will have access to the profiles of other graduates registered in the system. You will furthermore be able to register to the Alumni Reunion event.
 
 Until then you are welcome to view your <a href="member.php">personal profile</a>, provide us with your <a href="yourcontacts.php">contact information</a> and create <a href="survey.php">professional profile by filling in our Alumni survey</a>. 
 
@@ -150,7 +152,7 @@ The Alumni Team
 	<legend class="text">Personal profile</legend>
 		<fieldset class="text2">
 			<legend class="text2">Personal data</legend>
-			<strong><?php echo $fname.' '.$gname; ?></strong><br>
+			<strong><?php echo $gname.' '.$fname; ?></strong><br>
 			Date of birth: <?php echo $dob; ?><br>
 			Place of birth: <?php echo $pob_city.', '.$pob_country; ?><br>
 			Citizenship: <?php echo $citizenship; ?>
@@ -348,12 +350,12 @@ function contentReunionRegistration() {
 check_valid_user();
 
 	if ($verification == 'No') {
-		?><p>Please check back later, following the activation of your account.</p>
-		<a href="../../reunion/index.php" target="_blank">Reunion Weekend 2015 website</a></li><?php
+		?><p>Please check back later, following the verification of your data.</p><?php
 		}
 	else {
 		?><p>Please check back later, registration to the Reunion Weekend will be open from early spring 2015.</p><?php
 	}
+	?><a href="../../reunion/index.php" target="_blank">Reunion Weekend 2015 website</a></li><?php
 }
 ?>
 
@@ -364,10 +366,70 @@ function contentAlumniCommunity() {
 
 	<h3>Alumni Community</h3>
 	<p>
-		Are you looking for your old classmates and friends? Find them with the help of the search options below!<br><br>
+		Are you looking for your old classmates and friends? Find them with the help of the filter options below!<br><br>
 		<a href="alumni_community_all.php">Show all registered graduates</a><br>
 		<a href="alumni_community_filters.php">Filter registered graduates</a><br>	
-		<a href="www.bmbah.hu/images/formanyomtatvanyok-teljes/ENG/doc/Registration%20card%20for%20EEA%20Nationals.doc" target="_blank">Application form</a>
 	</p>
 <?php
 }
+?>
+
+<?php
+function contentAlumniMate() {
+
+	//PERSONAL DATA VARIABLES
+	global $aid;
+	global $verification;
+	global $fname;
+	global $gname;
+	global $grad_faculty;
+	global $grad_year;
+	global $email;
+	
+	//SURVEY VARIABLES
+	global $workplace;
+	global $position;
+	global $title;
+	global $other_work;
+	global $awards;
+	
+	global $surveyFill;
+?>
+	<h3>Alumni Community</h3>
+
+		<fieldset class="text">
+			<legend class="text">Public profile</legend>
+				<fieldset class="text2">
+					<legend class="text2">Personal data</legend>
+					<strong><?php echo $gname.' '.$fname; ?></strong><br>
+					Family name: <?php echo $fname;?><br>
+					First name: <?php echo $gname;?><br>
+					Faculty: <?php echo $grad_faculty;?><br>
+					Graduation Year: <?php echo $grad_year;?><br>
+					E-mail: <?php echo $email;?><br>
+				</fieldset>	
+				
+				<fieldset class="text2">
+					<legend class="text2">Employment</legend>
+		<?php
+				if ($surveyFill) {
+				?>
+							Current workplace: <?php echo $workplace;?><br>
+							Current position: <?php echo $position;?><br>
+							Current title: <?php echo $title;?><br>
+							Other workplace(s): <?php echo $other_work;?><br>
+							Awards/Honors: <?php echo $awards;?><br>
+				</fieldset>	
+			<?php
+				}
+				else {
+				?>
+				This user has not uploaded professional data yet.
+				<?php
+			}
+			?>			
+		</fieldset>	
+	
+<?php
+}
+

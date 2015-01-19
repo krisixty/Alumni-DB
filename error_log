@@ -79,3 +79,9 @@
 [15-Jan-2015 16:01:00 Europe/Budapest] PHP Parse error:  syntax error, unexpected '}' in /home/aassdhu1/public_html/test/alumni/4/community_result.php on line 58
 [15-Jan-2015 16:25:19 Europe/Budapest] PHP Parse error:  syntax error, unexpected $end in /home/aassdhu1/public_html/test/alumni/4/community_result.php on line 106
 [15-Jan-2015 16:31:22 Europe/Budapest] PHP Parse error:  syntax error, unexpected '}' in /home/aassdhu1/public_html/test/alumni/4/community_result.php on line 36
+[19-Jan-2015 12:57:52 Europe/Budapest] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/aassdhu1/public_html/test/alumni/4/alumni_community_result.php on line 72
+[19-Jan-2015 12:58:00 Europe/Budapest] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/aassdhu1/public_html/test/alumni/4/alumni_community_result.php on line 72
+[19-Jan-2015 13:02:18 Europe/Budapest] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/aassdhu1/public_html/test/alumni/4/alumni_community_result.php on line 75
+[19-Jan-2015 13:02:21 Europe/Budapest] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/aassdhu1/public_html/test/alumni/4/alumni_community_result.php on line 75
+[19-Jan-2015 13:22:44 Europe/Budapest] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home/aassdhu1/public_html/test/alumni/4/alumni_community_all.php on line 32
+[19-Jan-2015 17:00:59 Europe/Budapest] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/aassdhu1/public_html/test/alumni/4/alumni_community_result.php on line 75
