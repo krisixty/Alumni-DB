@@ -71,7 +71,8 @@ if((!$grad_year) && (!$grad_faculty) && (!$citizenship)) {
 		contentAlumniCommunity();
 		
 			?><h4>Filtered Registered Graduates</h4>
-		<table>
+			<br>
+		<table class="community">
 			<thead>
 				<?php
 				display_alumni_mate_table_head();

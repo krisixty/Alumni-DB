@@ -557,6 +557,7 @@ function do_html_footer()
 					<option value="Medicine">Medicine</option>
 					<option value="Pharmacy">Pharmacy</option>
 					<option value="Dentistry">Dentistry</option>
+					<option value="Medicine, 2-year German Program">Medicine, 2-year German Program</option>
 				</select>
 				
 				<label for="grad_year">Year of graduation:</label>
@@ -640,11 +641,6 @@ function do_html_footer()
 // DISPLAY SURVEY FORM
 	function display_survey_form() {
 	
-		global $licensing;
-		global $licensing_type;
-		global $licensing_exp;
-		global $employment_country;
-		global $after_graduation;
 		global $workplace;
 		global $position;
 		global $title;
@@ -653,6 +649,8 @@ function do_html_footer()
 		global $contribute;
 		global $opinion;
 		global $comment;
+		
+		global $survey_type;
 
 ?>
 	<!--Survey form -->
@@ -662,19 +660,14 @@ function do_html_footer()
 		
 			<legend><span class="number">1</span>Further Studies / Employment – professional profile, public information</legend>
 			
-				<label for="employment_country">Which was your country of choice you sought employment in after graduation?</label>
-				<select id="employment_country" name="employment_country">
-				<option> <?php print $employment_country;?></option>
-					<?php include 'countries.php';?> 
-				</select>
-				
-				<label for="after_graduation">Activities after graduation</label>
-				<select id="after_graduation" name="after_graduation">
-				<option> <?php print $after_graduation;?></option>
-					<option value="PhD">PhD</option>
-					<option value="Residency">Residency</option>
-					<option value="Other">Other</option>
-				</select>
+				<?php 	
+					if ($survey_type == 'english') {
+					english_survey_after_uni();
+					}
+					if ($survey_type == 'german') {
+					german_survey_after_uni();
+					}
+				?>
 				
 				Where do you work at the moment? 
 				<label for="workplace">Workplace:</label>
@@ -696,18 +689,14 @@ function do_html_footer()
 		
 			<legend><span class="number">2</span>Licensing Process – for ALUMNI Team use only</legend>
 			
-				<label for="licensing">Did you have to take part in any licensing process?</label>
-				<select id="licensing" name="licensing">
-					<option> <?php print $licensing;?></option>
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
-				</select>
-			
-				<label for="licensing_type">If yes, in which licensing process did you take part?</label>
-				<input type="text" id="licensing_type" name="licensing_type" value="<?php print $licensing_type;?>">
-				
-				<label for="licensing_exp">What were your experiences?</label>
-				<textarea id="licensing_exp" name="licensing_exp"><?php print $licensing_exp;?></textarea>
+				<?php 	
+					if ($survey_type == 'english') {
+					english_survey_licencing();
+					}
+					if ($survey_type == 'german') {
+					german_survey_licencing();
+					}
+				?>
 			
 		</fieldset>	
 		
@@ -733,6 +722,112 @@ function do_html_footer()
 }
 // END OF SURVEY FORM
 ?>
+
+<?php
+// DISPLAY ENGLISH SURVEY AFTER UNIVERSITY
+	function english_survey_after_uni() {
+
+		global $employment_country;
+		global $after_graduation;
+	
+?>
+				<label for="employment_country">Which was your country of choice you sought employment in after graduation?</label>
+				<select id="employment_country" name="employment_country">
+				<option> <?php print $employment_country;?></option>
+					<?php include 'countries.php';?> 
+				</select>
+				
+				<label for="after_graduation">Activities after graduation</label>
+				<select id="after_graduation" name="after_graduation">
+				<option> <?php print $after_graduation;?></option>
+					<option value="PhD">PhD</option>
+					<option value="Residency">Residency</option>
+					<option value="Other">Other</option>
+				</select>
+
+<?php
+}
+// END OF GERMAN SURVEY AFTER UNIVERSITY
+?>			
+
+<?php 
+// DISPLAY ENGLSIH SURVEY LICENCING
+	function english_survey_licencing() {
+	
+		global $licensing;
+		global $licensing_type;
+		global $licensing_exp;
+	
+?>			
+	
+				<label for="licensing">Did you have to take part in any licensing process?</label>
+				<select id="licensing" name="licensing">
+					<option> <?php print $licensing;?></option>
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			
+				<label for="licensing_type">If yes, in which licensing process did you take part?</label>
+				<input type="text" id="licensing_type" name="licensing_type" value="<?php print $licensing_type;?>">
+				
+				<label for="licensing_exp">What were your experiences?</label>
+				<textarea id="licensing_exp" name="licensing_exp"><?php print $licensing_exp;?></textarea>
+	
+<?php
+}
+// END OF ENGLISH SURVEY LICENCING
+?>
+
+
+<?php 
+// DISPLAY GERMAN SURVEY AFTER UNIVERSITY
+	function german_survey_after_uni() {
+	
+		global $after_phys;
+		global $wait;
+		global $med_y_n;
+		global $grad_place;
+		global $grad_yr_germ;
+		
+?>			
+				<label for="after_physikum">Which university have you been admitted to after obtaining the „Physikumzeugnis”?</label>
+				<input type="text" id="after_phys" name="after_phys" maxlength="200" value="<?php print $after_phys;?>">
+				
+				<label for="wait">How many semesters did you have to wait to continue your medical studies? (Please use numbers.)</label>
+				<input type="text" id="wait" name="wait" maxlength="2" value="<?php print $wait;?>">
+				
+				<label for="med_y_n">Have you graduated as a doctor of medicine?</label>
+				<select id="med_y_n" name="med_y_n">
+				<option> <?php print $med_y_n;?></option>
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+				
+				<label for="grad_place">If yes, which university?</label>
+				<input type="text" id="grad_place" name="grad_place" maxlength="200" value="<?php print $grad_place;?>">
+				
+				<label for="grad_yr_germ">and which year?</label>
+				<input type="text" id="grad_yr_germ" name="grad_yr_germ" maxlength="4" value="<?php print $grad_yr_germ;?>">
+<?php
+}
+// END OF GERMAN SURVEY AFTER UNIVERSITY
+?>
+
+
+<?php
+// GERMAN SURVEY LICENCING 
+	function german_survey_licencing() {
+
+		global $licensing_exp;
+?>
+				<label for="licensing_exp">What are your experiences regarding the approval procedure of your „Physikumzeugnis”?</label>
+				<textarea id="licensing_exp" name="licensing_exp"><?php print $licensing_exp;?></textarea>
+<?php
+}
+// END OF GERMAN SURVEY lICENCING
+?>
+
+
 
 <?php
 // DISPLAY CONTACTS FORM
@@ -910,12 +1005,13 @@ function display_alumni_mate_table_body() {
 					<td><?php print $grad_faculty;?></td>
 					<td><?php print $grad_year;?></td>
 					<td>
-						<form action="alumni_community_mate.php" method="post" id="form1">
+						<form class="grad-details-form" action="alumni_community_mate.php" method="post" id="form1">
 						<input type="hidden" id="AID" name="AID" value="<?php print $aid;?>" />
-						<input type="submit" name="Submit" id="Submit" value="+" />
+						<button class="grad-details-button" type='submit'>></button>
 						</form>
 					</td>	
 				</tr>
+				
 <?php
 }
 ?>
@@ -926,12 +1022,24 @@ function display_alumni_mate_table_head() {
 			<tr>
 				<th>Family name</th>
 				<th>First name</th>
-				<th>Grad. faculty</th>
-				<th>Grad. year</th>
+				<th>Faculty</th>
+				<th>Year</th>
+				<th>Details</th>
 			</tr>
 <?php
 }
 ?>
 
+<?php function display_public_profile_form() {
 
+	global $aid;
+?>
+
+		<form action="alumni_community_mate.php" method="post" id="form1">	
+				<input type="hidden" id="AID" name="AID" value="<?php print $aid;?>" />
+				<button type='submit'>Show my public profile</button>	
+		</form>
+<?php
+}
+?>
 

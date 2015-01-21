@@ -27,12 +27,12 @@ $conn = db_connect();
 if ($result_survey->num_rows>0) 
 	{
 	$update_survey=$conn->query
-	("UPDATE survey SET licensing='$licensing', licensing_type='$licensing_type', licensing_exp='$licensing_exp', employment_country='$employment_country', after_graduation='$after_graduation', workplace='$workplace', position='$position',  title='$title', other_work='$other_work', awards='$awards', contribute='$contribute', opinion='$opinion', comment='$comment' WHERE AID='$aid'");
+	("UPDATE survey SET licensing='$licensing', licensing_type='$licensing_type', licensing_exp='$licensing_exp', employment_country='$employment_country', after_graduation='$after_graduation', workplace='$workplace', position='$position',  title='$title', other_work='$other_work', awards='$awards', contribute='$contribute', opinion='$opinion', comment='$comment', after_phys='$after_phys', wait='$wait', med_y_n='$med_y_n', grad_place='$grad_place', grad_yr_germ='$grad_yr_germ' WHERE AID='$aid'");
 	header("Location:survey.php" );
 	}
 else
 	{
-	$insert_survey=$conn->query("INSERT INTO survey (AID, licensing, licensing_type, licensing_exp, employment_country, after_graduation, workplace, position, title, other_work, awards, contribute, opinion, comment) VALUES ('$aid', '$licensing', '$licensing_type', '$licensing_exp', '$employment_country', '$after_graduation', '$workplace', '$position', '$title', '$other_work', '$awards', '$contribute', '$opinion', '$comment')");
+	$insert_survey=$conn->query("INSERT INTO survey (AID, licensing, licensing_type, licensing_exp, employment_country, after_graduation, workplace, position, title, other_work, awards, contribute, opinion, comment, after_phys) VALUES ('$aid', '$licensing', '$licensing_type', '$licensing_exp', '$employment_country', '$after_graduation', '$workplace', '$position', '$title', '$other_work', '$awards', '$contribute', '$opinion', '$comment', '$after_phys', '$wait', '$med_y_n', '$grad_place', '$grad_yr_germ')");
 	header("Location:survey.php" );
 	}
 

@@ -164,6 +164,26 @@ span.question {
 	color: gray;
 }
 
+table.community {
+	border-collapse: separate;
+    border-spacing: 1px;
+}
+
+.community tr:nth-child(even) {
+    background-color: #B4CBD7;
+}
+
+.community td {
+	padding: 0px 10px 0px 5px;
+}
+
+.community th {
+	color: #fff;
+	font-weight: normal;
+	background-color: #3F8ABF;
+	padding: 3px 10px 3px 5px;
+}
+
 /* Main Layout Styles
 ================================ */
 
@@ -329,6 +349,31 @@ button {
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
+
+.grad-details-form {
+  max-width: 500px;
+  margin: 0px;
+  padding: 6px 6px 0px 6px;
+  background: none;
+  border-radius: 0px;
+}
+
+.grad-details-button {
+  padding: 3px 6px 3px 6px;
+  color: #369;
+  background-color: transparent;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  width: 100%;
+  border: 0px;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+
+
+
 
 fieldset {
   margin-bottom: 30px;

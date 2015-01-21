@@ -184,6 +184,7 @@ The Alumni Team
 			Country: <?php echo $add_country; ?><br>
 			Phone number: <?php echo $phone; ?><br>
 			E-mail: <?php echo $email; ?><br>
+			<br>
 			<strong><a href="yourcontacts.php">Edit your contacts info</a></strong>
 			<?php
 			}
@@ -192,7 +193,7 @@ The Alumni Team
 		?>
 		<fieldset class="text2">
 			<legend class="text2">Contacts</legend>
-			<strong><a href="yourcontacts.php">Give us your contacts info</a></strong>
+			<a href="yourcontacts.php">Give us your contacts info</a>
 			<?php
 			}
 		?>
@@ -213,7 +214,8 @@ The Alumni Team
 				Current title: <?php echo $title;?><br>
 				Other workplace(s): <?php echo $other_work;?><br>
 				Awards/Honors: <?php echo $awards;?><br>
-				<strong><a href="survey_edit.php">Edit your professional info</a></strong>
+				<br>
+				<a href="survey_edit.php">Edit your professional info</a>
 	</fieldset>	
 	<?php
 	}
@@ -224,9 +226,17 @@ The Alumni Team
 	}
 	?>			
 </fieldset>	
+</fieldset>		
+<p>You can check below what other graduates can see about you under your Alumni Database public profile.
 <?php		
+display_public_profile_form();
+?></p>
+<?php
 }
 ?>
+
+
+
 
 <?php
 function contentSurveyPageTop() {
@@ -262,11 +272,7 @@ The Alumni Team
 
 <?php
 function contentSurveyFilledIn() {
-	global $licensing;
-	global $licensing_type;
-	global $licensing_exp;
-	global $employment_country;
-	global $after_graduation;
+	
 	global $workplace;
 	global $position;
 	global $title;
@@ -276,8 +282,24 @@ function contentSurveyFilledIn() {
 	global $opinion;
 	global $comment;
 	
+	global $licensing_exp; //SAME 4 BOTH
+		
+	//ENGLISH
+	global $licensing;
+	global $licensing_type;
+	global $employment_country;
+	global $after_graduation;
+	
+	//GERMAN
+	global $after_phys;
+	global $wait;
+	global $med_y_n;
+	global $grad_place;
+	global $grad_yr_germ;
+	
+	
 	global $surveyFill;
-	//check_valid_user();
+	global $survey_type;
 ?>
 <p>
 <h3>Alumni Survey</h3>
@@ -295,11 +317,23 @@ $span = '<span class="question">';
 	if ($surveyFill)
 		{
 		include 'survey_questions.php';
-		echo $span.$licensingQuestion.'</span><br>'.$licensing.'<br><br>';
-		echo $span.$licensing_typeQuestion.'</span><br>'.$licensing_type.'<br><br>';
-		echo $span.$licensing_expQuestion.'</span><br>'.$licensing_exp.'<br><br>';
-		echo $span.$employment_countryQuestion.'</span><br>'.$employment_country.'<br><br>';
-		echo $span.$after_graduationQuestion.'</span><br>'.$after_graduation.'<br><br>';
+		
+		if ($survey_type == 'english') {
+			echo $span.$licensingQuestion.'</span><br>'.$licensing.'<br><br>';
+			echo $span.$licensing_typeQuestion.'</span><br>'.$licensing_type.'<br><br>';
+			echo $span.$licensing_expQuestion.'</span><br>'.$licensing_exp.'<br><br>';
+			echo $span.$employment_countryQuestion.'</span><br>'.$employment_country.'<br><br>';
+			echo $span.$after_graduationQuestion.'</span><br>'.$after_graduation.'<br><br>';
+		}
+		
+		if ($survey_type == 'german') {
+			echo $span.$afterPhysikumQuestion.'</span><br>'.$after_phys.'<br><br>';
+			echo $span.$waitSemesterQuestion.'</span><br>'.$wait.'<br><br>';
+			echo $span.$medicineYesOrNoQuestion.'</span><br>'.$med_y_n.'<br><br>';
+			echo $span.$graduationPlaceQuestion.'</span><br>'.$grad_place.'<br><br>';
+			echo $span.$yearQuestion.'</span><br>'.$grad_yr_germ.'<br><br>';
+		}
+		
 		echo $span.$workplaceQuestion.'</span><br>'.$workplace.'<br><br>';
 		echo $span.$positionQuestion.'</span><br>'.$position.'<br><br>';
 		echo $span.$titleQuestion.'</span><br>'.$title.'<br><br>';

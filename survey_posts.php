@@ -4,11 +4,7 @@ require_once('useful_fns.php');
 
 //$pg_content = 'survey_confirm';
 
-$licensing = trim($_POST['licensing']);
-$licensing_type = trim($_POST['licensing_type']);
-$licensing_exp = trim($_POST['licensing_exp']);
-$employment_country = trim($_POST['employment_country']);
-$after_graduation = trim($_POST['after_graduation']);
+
 
 
 $workplace = trim($_POST['workplace']);
@@ -39,27 +35,21 @@ $contribute = trim($_POST['contribute']);
 $opinion = trim($_POST['opinion']);
 $comment = trim($_POST['comment']);
 
-//Test echoes
+//ENGLISH
+	$licensing = trim($_POST['licensing']);
+	$licensing_type = trim($_POST['licensing_type']);
+	$licensing_exp = trim($_POST['licensing_exp']);
+	$employment_country = trim($_POST['employment_country']);
+	$after_graduation = trim($_POST['after_graduation']);
+	
+//GERMAN
+	$after_phys = trim($_POST['after_phys']);
+	$wait = trim($_POST['wait']);
+	$med_y_n = trim($_POST['med_y_n']);
+	$grad_place = trim($_POST['grad_place']);
+	$grad_yr_germ = trim($_POST['grad_yr_germ']);	
 ?>
-<p class = "main">
 
-	<?php /*
-	echo $licensingQuestion.'<br>'.$licensing.'<br>';
-	echo $licensing_typeQuestion.'<br>'.$licensing_type.'<br><br>';
-	echo $licensing_expQuestion.'<br>'.$licensing_exp.'<br><br>';
-	echo $employment_countryQuestion.'<br>'.$employment_country.'<br><br>';
-	echo $after_graduationQuestion.'<br>'.$after_graduation.'<br><br>';
-	echo $workplaceQuestion.'<br>'.$workplace.'<br><br>';
-	echo $positionQuestion.'<br>'.$position.'<br><br>';
-	echo $titleQuestion.'<br>'.$title.'<br><br>';
-	echo $other_workQuestion.'<br>'.$other_work.'<br><br>';
-	echo $awardsQuestion.'<br>'.$awards.'<br><br>';
-	echo $contributeQuestion.'<br>'.$contribute.'<br><br>';
-	echo $opinionQuestion.'<br>'.$opinion.'<br><br>';
-	echo $commentQuestion.'<br>'.$comment.'<br><br>';
-	*/?>
-	<!--<a href="survey.php">OK</a>-->
-</p>
 
 
 

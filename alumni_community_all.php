@@ -16,8 +16,9 @@ $graduates=$conn->query("SELECT * FROM graduate_data ORDER BY fname");
 
 		contentAlumniCommunity();
 		
-			?><h4>All Registered Graduates</h4><p>
-		<table>
+			?><h4>All Registered Graduates</h4>
+		<table class="community">
+		<br>
 			<thead>
 				<?php
 				display_alumni_mate_table_head();

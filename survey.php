@@ -9,9 +9,22 @@ check_valid_user();
 $username=$_SESSION['valid_user'];
 
 $conn = db_connect();
-$result = $conn->query("SELECT * FROM applicants WHERE username='$username'");
 
-$result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'");
+$result_faculty = $conn->query("SELECT grad_faculty FROM graduate_data WHERE username='$username'");
+$sor=mysqli_fetch_array($result_faculty);
+	
+	//ENLGISH OR GERMAN PROGRAM SURVEY
+	$grad_faculty = $sor['grad_faculty'];
+
+	if ($grad_faculty == "Medicine, 2-year German Program") {
+		$survey_type = 'german';
+	}
+	else {
+		$survey_type = 'english';
+	}
+
+
+	$result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'");
 	$sor=mysqli_fetch_array($result);
 	$aid=$sor['AID'];	
 	
@@ -21,26 +34,38 @@ $result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'")
 	
 		if ($result_survey->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kérdőívet
 			{
-				$licensing=$sor['licensing'];
-				$licensing_type=$sor['licensing_type'];
-				$licensing_exp=$sor['licensing_exp'];
-				$employment_country=$sor['employment_country'];
-				$after_graduation=$sor['after_graduation'];
-				$workplace=$sor['workplace'];
-				$position=$sor['position'];
-				$title=$sor['title'];
-				$other_work=$sor['other_work'];
-				$awards=$sor['awards'];
-				$contribute=$sor['contribute'];
-				$opinion=$sor['opinion'];
-				$comment=$sor['comment'];
-			//echo 'yeee';
+
+				$workplace = $sor['workplace'];
+				$position = $sor['position'];
+				$title = $sor['title'];
+				$other_work = $sor['other_work'];
+				$awards = $sor['awards'];
+				$contribute = $sor['contribute'];
+				$opinion = $sor['opinion'];
+				$comment = $sor['comment'];
+				
+				$licensing_exp = $sor['licensing_exp'];
+				
+				if ($survey_type == 'english') {
+					$licensing = $sor['licensing'];
+					$licensing_type = $sor['licensing_type'];
+					$employment_country = $sor['employment_country'];
+					$after_graduation = $sor['after_graduation'];
+				}
+				
+				if ($survey_type == 'german') {
+					$after_phys = $sor['after_phys'];
+					$wait = $sor['wait'];
+					$med_y_n = $sor['med_y_n'];
+					$grad_place = $sor['grad_place'];
+					$grad_yr_germ = $sor['grad_yr_germ'];
+				}
+				
 			$surveyFill = true;
 			$pg_content = 'survey_filled';
 			} 
 		else
 			{
-			//echo 'noo';
 			$surveyFill = false;
 			}
 	
