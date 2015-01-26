@@ -368,7 +368,7 @@ function adminMainPage() {
 	<a href="add_graduate_form.php">Add new graduate</a><br>
 	<a href="graduates.php">List of office registered graduates</a><br>
 	<a href="graduates_registered.php">List of user registered graduates</a><br>
-	<a href="logout.php">Logout</a>
+	<a href="logout2.php">Logout</a>
 	
 </p>	
 <?php	

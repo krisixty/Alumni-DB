@@ -82,7 +82,8 @@ function display_links() {
 function display_secondary_nav() {
 ?>
 		<ul class="secondary-nav">
-			<li><a href="../alumni/4/index.php" target="_blank">Join our Alumni Community</a></li>
+			<a href="../index.php" target="_blank">Join our Alumni Community</a></li>
+			<!--<li><li><a href="http://aas-szegedmed.hu/test/alumni/4/index.php" target="_blank">Join our Alumni Community</a></li></li>-->
 		</ul>
 
 <?php
@@ -124,7 +125,8 @@ function reunionMainContent() {
 		<h3><br></h3>
 			<img src="img/infoblokk_kedv_final_felso_cmyk_en_ESZA_low_res.jpg">		
 			<?php display_secondary_nav();?><br>	
-			<a href="http://sumaa.org" target="_blank"><img src="img/sumaa.png"></a>	
+			<a href="http://sumaa.org" target="_blank"><img src="img/sumaa.png"></a><br><br>	
+			<iframe width="100%" height="100%" src="//www.youtube.com/embed/gPVmHXP2Rlk" frameborder="0" allowfullscreen></iframe>
 		</div>
 	</div>	
 <?

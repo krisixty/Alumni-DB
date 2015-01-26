@@ -1,6 +1,8 @@
 <?php
+mainContentDivOpen();
 ?>
-<p class = "main">
+<h3>Registration Check</h3>
+<p>
 <?php
 //Personal data check
 	if (!$fname)
@@ -142,23 +144,21 @@
 		{
 		echo $passwd2Label.'filled'.'<br>';
 		}		
-
-		
-	
+?>
+</p>		
+<?php	
 
 	if ((!$fname) || (!$gname) || (!$gender) || (!$pob_country) || (!$pob_city) || 
 		(!$dob) || (!$citizenship) || (!$grad_faculty) || (!$grad_year) || (!$email) || (!$username) || (!$passwd) || (!$passwd2)) 
 		{
 		echo '<h3>'.'Registration failed! Please fill in all the required fields!'.'</h3></p>';
+		mainContentDivClose();
 		do_html_footer();
 		exit;
 		}
 	else
 		{
-		header("Location:member.php" );
-		//echo '<h3>'.'Registration successful'.'</h3></p>';
-		/*display_confirmation();*/
-		/*exit;*/
+		mainContentDivClose();
 		}	
 
 ?>

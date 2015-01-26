@@ -110,7 +110,11 @@ We are honored to welcome you at the homepage of the Alumni Weekend of the Facul
 
 It is our pleasure to invite you to the Alumni Weekend 2015 organized on the occasion of the 30th anniversary of the English Language Medical Program. Whether you graduated a year or more decades ago, whether from the Medical, Dental or Pharmacy Program, coming back together with your classmates for a reunion has special significance. 
 
-We have a great schedule planned, filled with opportunities for you to reconnect with your friends, the academic community, and to enjoy a beautiful autumn weekend in Szeged. We are looking forward to the opportunity to show you the growing and dynamic campus, moreover, we are keen to hear about your news and accomplishments, both personal and professional.
+We have a great schedule planned, filled with opportunities for you to reconnect with your friends, the academic community, and to enjoy a beautiful autumn weekend in Szeged.
+
+We are looking forward to the opportunity to show you the growing and dynamic campus, moreover, we are keen to hear about your news and accomplishments, both personal and professional.
+
+<!--<iframe width="560" height="315" src="//www.youtube.com/embed/gPVmHXP2Rlk" frameborder="0" allowfullscreen></iframe>-->
 
 On behalf of our entire academic community, welcome back & hope to see you at the Alumni Reunion Weekend 2015 in September.
 
@@ -143,7 +147,7 @@ Preliminary schedule</strong>
 
 <strong>Day 1. Friday</strong>
 
-14:00	Welcome reception at Hunguest Hotel Forrás**** 
+14:00	Welcome reception 
 16:00	Sightseeing tour with the highlights of new developments in the city and the university campus
 19:00	Dinner/Reception at the bank of the river Tisza
 
@@ -156,13 +160,13 @@ Venue: University Library-TIK
  9:30	Foreign Language Programs: Past-present-future
 13:00	Luncheon 
 14:30	CME workshops 
-20:00	Dinner at the Hunguest Hotel Forrás**** restaurant including cultural show 
+20:00	Dinner including cultural show 
 		presented by the International Student Union of Szeged
 
 
 <strong>Day 3. Sunday</strong> 
 
-10:00	Picnic and football with the professors
+10:00	SUMAA picnic and football with the professors
 
 </pre>
 

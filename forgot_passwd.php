@@ -3,7 +3,7 @@ $pass_sel = 'selected';
 require_once('alumni_includes.php');
 do_html_header('Resetting Password');
 $username=$_POST['username'];
-
+/*
   require_once('recaptchalib.php');
   include 'capkeys.php';
   $resp = recaptcha_check_answer ($privatekey,
@@ -17,7 +17,7 @@ $username=$_POST['username'];
          "(reCAPTCHA said: " . $resp->error . ")");
   } else 
   {
-
+*/
 	mainContentDivOpen();
 			
 		?>
@@ -44,5 +44,5 @@ $username=$_POST['username'];
 	
 do_html_url('login.php', 'Login');
 do_html_footer();
-  }
+  //}
 ?>

@@ -239,7 +239,7 @@ function notify_password($username, $password)
     }
 } 
 
-function send_application_email($username)
+function send_alumni_email($username)
 // notify the user that their password has been changed
 {
     $conn = db_connect();
@@ -257,7 +257,7 @@ function send_application_email($username)
     {
       $row = $result->fetch_object();
       $to = $row->email;
-      include('email_application.php');
+      include('email_alumni.php');
     }
 } 
 

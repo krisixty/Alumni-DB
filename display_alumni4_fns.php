@@ -198,6 +198,9 @@ function alumniMainContent() {
 			if ($pg_content == 'logout') {
 					display_logout_message();
 				}
+			if ($pg_content == 'logout2') {
+					display_logout_message2();
+				}	
 			if ($pg_content == 'registration_form') {
 					display_registration_form();
 				}
@@ -273,7 +276,7 @@ function do_html_footer()
 ?>
 
 	<footer class="main-footer">
-		        <p>Alumni Database &copy; 2014-2015 <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a></p>
+		        <p>Alumni Database V1.04 &copy; 2014-2015 <a href="http://aas-szegedmed.hu/kristof" target="_blank">Kristóf Szilágyi</a></p>
 	</footer>
 </body>
 </html>
@@ -331,7 +334,7 @@ function do_html_footer()
 	<h3>Register</h3>
 	
 		<form method='post' action='cap.php'>
-		<p>Create a user account:</p>
+		<p>Create a user account</p>
 			
 		<fieldset>
 		
@@ -349,7 +352,8 @@ function do_html_footer()
 					<option value="Female">Female</option>
 				</select>
 				
-				<label for="dob">Date of Birth:</label>
+				<label for="dob">Date of Birth (yyyy-mm-dd):<br>
+				(Some browsers do not support date picker. In that case please use the yyyy-mm-dd (year-month-day) format.)</label>
 				<input type="date" id="dob" name="dob">
 				
 				Place of Birth:
@@ -943,6 +947,42 @@ function display_logout_message() {
 		  // nem volt bejelentkezve, de valahogy ide került
 		  echo 'You were not logged in, and so have not been logged out.<br />';
 		  do_html_url('login.php', 'Login');
+		}
+	?>
+		</p>
+<?php
+		}
+?>		
+
+<?php
+function display_logout_message2() {
+	global $old_user;
+	global $result_dest;
+?>
+	
+
+	<h3>Logout</h3>
+		<p>
+		<?php
+		if (!empty($old_user)) 
+		{
+			if ($result_dest)
+			{
+			echo 'Logged out.' ?> <a href="login2.php">Log in</a> <?php ;
+			// ha be volt jelentkezve a user, akkor most már ki van jelentkezve
+			//header("Location:login.php");
+			}
+			else
+			{
+		   // be volt jelentkezve a user, de nem tud kijelentkezni
+			echo 'Could not log you out.<br />';
+			}
+		}
+		else
+		{
+		  // nem volt bejelentkezve, de valahogy ide került
+		  echo 'You were not logged in, and so have not been logged out.<br />';
+		  do_html_url('login2.php', 'Login');
 		}
 	?>
 		</p>

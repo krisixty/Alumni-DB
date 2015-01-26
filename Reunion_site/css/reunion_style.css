@@ -62,7 +62,7 @@ img.pics-in-line2 {
 }
 
 h2, h3 {
-	margin-top: 300px;
+	/*margin-top: 300px;*/
 	display: block;
 }
 
@@ -201,7 +201,7 @@ nav a.selected, nav a:hover {
 	}
 	
 	h2, h3 {
-	margin-top: 300px;
+	/*margin-top: 300px;*/
 	display: block;
 	}
 }
@@ -212,11 +212,11 @@ nav a.selected, nav a:hover {
 	================================ */
 
 	body {
-		padding-top: 75px;
+		/*padding-top: 75px;*/
 	}
 	
 	.main-header {
-		position: fixed;
+		/*position: fixed;*/
 		top: 0;
 		width: 100%;
 	}

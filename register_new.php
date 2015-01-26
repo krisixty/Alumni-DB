@@ -25,40 +25,38 @@ do_html_header('');
     // What happens when the CAPTCHA was entered incorrectly
     die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
          "(reCAPTCHA said: " . $resp->error . ")");
-  } else 
-  {
+		} 
+  else 
+		{
     // Your code here to handle a successful verification
-	
+	session_start();
 
-session_start();
+		register($username, $email, $passwd);
+		$_SESSION['valid_user']=$username;
+		
+		$conn = db_connect();
+		$insert_graduate=$conn->query("INSERT INTO graduate_data (username, fname, gname, gender, dob, pob_country, pob_city, citizenship, citizenship2, grad_faculty, grad_year, verification) VALUES ('$username', '$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship', '$citizenship2', '$grad_faculty', '$grad_year', 'No')");	
 
-	register($username, $email, $passwd);
-	$_SESSION['valid_user']=$username;
-	
-	//	do_html_header('Registration successful');
-	//	display_application_info();
-	//	do_html_url('aas.php', 'Go to the application form and submit your application.');
-	
-	$conn = db_connect();
-	$insert_graduate=$conn->query("INSERT INTO graduate_data (username, fname, gname, gender, dob, pob_country, pob_city, citizenship, citizenship2, grad_faculty, grad_year, verification) VALUES ('$username', '$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship', '$citizenship2', '$grad_faculty', '$grad_year', 'No')");	
-
-	//lekérdezi az AID-t és verificationt a graduate_data táblából
-	$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
-	$sor=mysqli_fetch_array($result);
-	$aid=$sor['AID'];
-	$verification=$sor['verification'];
-	/*
-	//Kettős állampolgárság
-	if($citizenship2)
-	{
-	//lekérdezi az AID-t a graduate_data táblából
-	$aid_q=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'");
-	$sor=mysqli_fetch_array($aid_q);
-	$aid=$sor['AID'];
-	$insert_citizenship2= $conn->query("INSERT INTO citizenship2 (AID, citizenship2) VALUES ('$aid', '$citizenship2')");
-	}
-	*/
-	do_html_footer();
-
+		//lekérdezi az AID-t és verificationt a graduate_data táblából
+		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
+		$sor=mysqli_fetch_array($result);
+		$aid=$sor['AID'];
+		$verification=$sor['verification'];
+		
+		if (!$insert_graduate)
+			{
+			throw new Exception('Could not register you in database. Please try again later.');
+			}
+			try
+				{
+				send_alumni_email($username);
+				}
+			catch (Exception $e)
+				{
+				echo 'Confirmation email could not be sent. Please try again later.';
+				}
+				
+			do_html_footer();
+			header("Location:member.php" );
 	}	 
 ?>

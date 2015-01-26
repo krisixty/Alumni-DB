@@ -4,7 +4,7 @@
 
 try
 	{
-	send_application_email($username);
+	send_alumni_email($username);
 	}
 
 catch (Exception $e)
