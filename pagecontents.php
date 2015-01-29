@@ -466,4 +466,14 @@ function contentAlumniMate() {
 	
 <?php
 }
+?>
 
+<?php
+function contentVerified() {
+?>
+	<h3>Verification Result</h3>
+	<p>Verification data updated.</p>
+	
+<?php
+}
+?>

@@ -46,6 +46,7 @@ function do_html_header() {
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/grid.css">
 	<link rel="stylesheet" href="css/alumni4_style.css">
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 	<header class="main-header">
@@ -93,7 +94,7 @@ function display_links() {
 	
 	
 	//Ezt átírni. check_valid_officer_user feltételre
-	if (($pg_content == 'officer')||($pg_content == 'add_graduate_form')) {
+	if (($pg_content == 'officer')||($pg_content == 'add_graduate_form') || ($pg_content == 'verification')) {
 		return true;
 		exit;
 	}
@@ -204,6 +205,9 @@ function alumniMainContent() {
 			if ($pg_content == 'registration_form') {
 					display_registration_form();
 				}
+			if ($pg_content == 'registration_form_officers') {
+					display_officer_registration_form();
+				}	
 			if ($pg_content == 'contact_us1') {
 					contentContactUs();
 				}
@@ -255,6 +259,11 @@ function alumniMainContent() {
 			if ($pg_content == 'change_password_form') {
 					display_change_password_form(); 
 				}
+			if ($pg_content == 'verified')	{
+					contentVerified();
+					adminMainPage();
+			}
+				
 			/*if ($pg_content == 'add_graduate_form') {
 					add_graduate_form();
 					}*/
@@ -333,7 +342,9 @@ function do_html_footer()
 ?>
 	<h3>Register</h3>
 	
-		<form method='post' action='cap.php'>
+		<!-- <form method='post' action='cap.php'> -->
+		<form method='post' action='register_new.php'>
+		<div class="g-recaptcha" data-sitekey="6LcCIwETAAAAAAmD81230bbhvTFoASR9a9NG3X-_"></div>
 		<p>Create a user account</p>
 			
 		<fieldset>
@@ -381,7 +392,7 @@ function do_html_footer()
 		
 			<legend><span class="number">2</span>Information Regarding Graduation</legend>
         	
-				<label for="grad_faculty">Which Faculty have you graduated from?</label>
+				<label for="grad_faculty">Please chose the Faculty you graduated from:</label>
 				<select id="grad_faculty" name="grad_faculty">
 					<option value="Medicine">Medicine</option>
 					<option value="Pharmacy">Pharmacy</option>
@@ -418,8 +429,8 @@ function do_html_footer()
 			<label for="passwd2">Confirm password:</label>
 			<input type='password' id="passwd2" name='passwd2' maxlength="16">
 			
-			<p>*max 16 chars</p>
-			<p>**between 6 and 16 chars</p>
+			<p>*max 16 characters</p>
+			<p>**between 6 and 16 characters</p>
 		
 		</fieldset>
 			
@@ -434,15 +445,13 @@ function do_html_footer()
 <?php
 // DISPLAY OFFICER REGISTRATION FORM
 	function display_officer_registration_form() {
-		
-		display_menu_icon();
-	?>
-	  
-		<form method='post' action='cap_officers.php'>
-			<p>Create a user account:</p>
-			
-			<h1>Academic officer user registration</h1>
-		
+?>
+	<h3>Academic officer user registration</h3>
+
+		<form method='post' action='register_new2.php'>
+		<div class="g-recaptcha" data-sitekey="6LcCIwETAAAAAAmD81230bbhvTFoASR9a9NG3X-_"></div>
+		<p>Create a user account</p>
+				
 		<fieldset>
 					
 			<label for="email">Email address:</label>
@@ -457,8 +466,8 @@ function do_html_footer()
 			<label for="passwd2">Confirm password:</label>
 			<input type='password' id="passwd2" name='passwd2' maxlength="16">
 			
-			<p>*max 16 chars</p>
-			<p>**between 6 and 16 chars</p>
+			<p>*max 16 characters</p>
+			<p>**between 6 and 16 characters</p>
 		
 		</fieldset>
 			
@@ -555,7 +564,7 @@ function do_html_footer()
 		
 			<legend><span class="number">2</span>Information Regarding Graduation</legend>
         	
-				<label for="grad_faculty">Which Faculty have you graduated from?</label>
+				<label for="grad_faculty">Please chose the Faculty you graduated from:</label>
 				<select id="grad_faculty" name="grad_faculty">
 					<option><?php print $grad_faculty;?></option>
 					<option value="Medicine">Medicine</option>
@@ -907,7 +916,8 @@ function display_contacts_form() {
 ?>
 	<h3>Reset password</h3>
 	
-		<form action='cap2.php' method='post'>
+		<form action='forgot_passwd.php' method='post'>
+		<div class="g-recaptcha" data-sitekey="6LcCIwETAAAAAAmD81230bbhvTFoASR9a9NG3X-_"></div>
 			<label for="username">Enter your username:</label>
 			<input type='text' id="username" name='username' size=16 maxlength=16></td></tr>
 			<button type='submit'>Reset password</button>
@@ -1080,6 +1090,36 @@ function display_alumni_mate_table_head() {
 				<button type='submit'>Show my public profile</button>	
 		</form>
 <?php
+}
+?>
+
+<?php
+	function display_verification_form() {
+
+	global $aid;
+	global $verification;
+?>
+      <form action="verify.php" method="post">
+       
+		<fieldset>
+		
+			<legend>Verification</legend>
+			
+				<label for="verification">Verify</label>
+				<select id="verification" name="verification">
+					<option><?php print $verification; ?></option>
+					<option>Yes</option>
+					<option>No</option>	
+				</select>
+			
+		</fieldset>
+		
+		<input type="hidden" id="AID" name="AID" value="<?php print $aid?>" />		
+        <button type="submit">Verify graduate</button>
+        
+      </form>
+
+<?php	
 }
 ?>
 

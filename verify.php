@@ -1,5 +1,8 @@
 <?php
+session_start();
 require_once('alumni_includes.php');
+require_once('pagecontents.php');
+$pg_content = 'verified';
 //session_start();
 //do_html_header('');
 //check_valid_user();
@@ -14,9 +17,20 @@ $conn = db_connect();
 $result=$conn->query("SELECT * FROM graduate_data WHERE AID='$aid'");
 
 do_html_header('');
+check_valid_officer_user();
+
 		$update_graduate_verification=$conn->query
 		("UPDATE graduate_data SET verification='$verification' WHERE AID='$aid'");
-		echo '<p class="main">Data updated'.'</p>'.'<p class="main">'.'<a href="graduates_registered.php">OK</a>'.'</p>';
+		
+		if(!$update_graduate_verification)
+		{
+		throw new Exception ('Could not connect to database server.');
+		}
+		else
+		{
+		alumniMainContent();
+		}
+			
 do_html_footer();
 ?>
 

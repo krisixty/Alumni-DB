@@ -69,7 +69,7 @@ function display_links() {
 			<li><a href="index.php" class="<?php echo $ind_sel; ?>">Home</a></li>
 			<li><a href="program.php" class="<?php echo $prog_sel; ?>">Program</a></li> 
 			<li><a href="accommodation.php" class="<?php echo $acc_sel; ?>">Accommodation</a></li> 
-			<li><a href="registration.php" class="<?php echo $reg_sel; ?>">Registration to the Event</a></li>
+			<li><a href="registration.php" class="<?php echo $reg_sel; ?>">Registration for the Event</a></li>
 			<li><a href="coming.php" class="<?php echo $com_sel; ?>">Who's Coming</a></li>
 			<li><a href="faq.php" class="<?php echo $faq_sel; ?>">FAQ</a></li>
 			<li><a href="contact.php" class="<?php echo $cont_sel; ?>">Contacts</a></li> 

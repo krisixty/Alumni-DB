@@ -14,7 +14,8 @@ html {
 body {
 	/*font-family: 'Ubuntu', sans-serif;*/
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
-	color: #369;
+	/*color: #369;*/
+	color: #000;
 	background-image: url('../img/Reunion_logo_bg2.png');
 	background-repeat: no-repeat;
 	background-position: 50% 400px; 
