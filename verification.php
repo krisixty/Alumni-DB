@@ -1,8 +1,12 @@
 <?php
-session_start();
-$pg_content = 'verification';
 require_once('alumni_includes.php');
-require_once('pagecontents.php');
+//session_start();
+//do_html_header('');
+//check_valid_user();
+//display_officer_menu();
+//$username=$_SESSION['valid_user'];
+
+
 
 $aid=$_POST['AID']; 
 $conn = db_connect();
@@ -22,22 +26,14 @@ $grad_year=$sor['grad_year'];
 $verification=$sor['verification'];
 
 do_html_header('');
-check_valid_officer_user();
-
-	mainContentDivOpen();
-
 ?>
-
-<h3>Verification</h3>
-
-<p>	
-
+<p class="main">	
 <?php
 
 	// Labels
 		include 'registration_variables.php';
 
-		echo 'Alumni Database ID number: '.$aid.'<br>';
+		echo $aid.'<br>';
 	//Personal data variables
 		echo $familyNameLabel.$fname.'<br>';
 		echo $firstNameLabel.$gname.'<br>';
@@ -57,10 +53,26 @@ check_valid_officer_user();
 	
 ?>
 </p>
+      <form action="verify.php" method="post">
+       
+		<fieldset>
+		
+			<legend>Verification</legend>
+			
+				<label for="verification">Verify</label>
+				<select id="verification" name="verification">
+					<option><?php print $verification; ?></option>
+					<option>Yes</option>
+					<option>No</option>	
+				</select>
+			
+		</fieldset>
+		
+		<input type="hidden" id="AID" name="AID" value="<?php print $aid?>" />		
+        <button type="submit">Verify graduate</button>
+        
+      </form>
 <?php
-		display_verification_form();
-
-	mainContentDivClose();
 do_html_footer();
 ?>
 

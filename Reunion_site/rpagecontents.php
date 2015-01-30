@@ -108,7 +108,7 @@ Dear Graduate,
 <img class="big-logo" src="img/Reunion_logo_middle.png">
 We are honored to welcome you at the homepage of the Alumni Weekend of the Faculties of Medicine, Dentistry and Pharmacy of the University of Szeged.
 
-It is our pleasure to invite you to the Alumni Weekend 2015 organized on the occasion of the 30th anniversary of the English Language Medical Program. Whether you have recently graduated or graduated decades ago, from either the Medical, Dental or Pharmacy Program, coming back together with your classmates for a reunion has special significance.
+It is our pleasure to invite you to the Alumni Weekend 2015 organized on the occasion of the 30th anniversary of the English Language Medical Program. Whether you graduated a year or more decades ago, whether from the Medical, Dental or Pharmacy Program, coming back together with your classmates for a reunion has special significance. 
 
 We have a great schedule planned, filled with opportunities for you to reconnect with your friends, the academic community, and to enjoy a beautiful autumn weekend in Szeged.
 
@@ -149,7 +149,7 @@ Preliminary schedule</strong>
 
 14:00	Welcome reception 
 16:00	Sightseeing tour with the highlights of new developments in the city and the university campus
-19:00	Dinner/Reception on the bank of the river Tisza
+19:00	Dinner/Reception at the bank of the river Tisza
 
 
 <strong>Day 2. Saturday</strong>
@@ -166,7 +166,7 @@ Venue: University Library-TIK
 
 <strong>Day 3. Sunday</strong> 
 
-10:00	Picnic and sports event with students, teachers and professors
+10:00	SUMAA picnic and football with the professors
 
 </pre>
 
