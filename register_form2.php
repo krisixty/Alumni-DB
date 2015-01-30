@@ -1,9 +1,9 @@
 <?php
-$content = 'register_form2';
-require_once('alumni_includes.php');
+$reg_sel= "selected";
+$pg_content = "registration_form_officers";
+include 'display_alumni4_fns.php';
+require_once 'pagecontents.php';
 do_html_header('');
-display_user_menu();
-alumni_body();
-//display_registration_form();
+alumniMainContent();
 do_html_footer();
 ?>
