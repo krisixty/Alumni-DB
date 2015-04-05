@@ -126,7 +126,9 @@ function reunionMainContent() {
 			<img src="img/infoblokk_kedv_final_felso_cmyk_en_ESZA_low_res.jpg">		
 			<?php display_secondary_nav();?><br>	
 			<a href="http://sumaa.org" target="_blank"><img src="img/sumaa.png"></a><br><br>	
-			<iframe width="100%" height="100%" src="//www.youtube.com/embed/gPVmHXP2Rlk" frameborder="0" allowfullscreen></iframe>
+			<iframe width="100%" height="100%" src="//www.youtube.com/embed/Qe6hC_FaJ7U" frameborder="0" allowfullscreen></iframe>
+			<br>
+			<a href="https://www.facebook.com/szegedalumni?fref=nf" target="_blank"><img src="img/Facebook-Logo-Wallpaper-Full-HD_small.png"></a><br>	
 		</div>
 	</div>	
 <?

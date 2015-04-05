@@ -4,7 +4,7 @@ function contentAccommodation() {
 		<h2>Accommodation</h2>
 			<pre>
 <img class="pics-in-text" src="img/hunguest_hotel_forras_1291.jpg">
-For your convenience, we have reserved a block of rooms at <a href="http://www.hunguesthotels.hu/en/hotel/szeged/hunguest_hotel_forras/" target="_blank">Hunguest Hotel Forrás****</a> for September 18–20, 2015 for two nights, where the welcome reception and the Saturday evening dinner takes place. 
+For your convenience, we have reserved a block of rooms at <a href="http://www.hunguesthotels.hu/en/hotel/szeged/hunguest_hotel_forras/" target="_blank">Hunguest Hotel Forrás****</a> for September 18–20, 2015 for two nights. 
 
 
 
@@ -168,6 +168,7 @@ Venue: University Library-TIK
 
 10:00	Picnic and sports event with students, teachers and professors
 
+<strong>The first 100 alumnis can attend the event for free!</strong>
 </pre>
 
 <?php
@@ -177,7 +178,7 @@ Venue: University Library-TIK
 <?php
 function contentRegistration() {
 ?>
-		<h2>Registration to the Event</h2>
+		<h2>Registration for the Event</h2>
 <pre>
 
 <h4>Who are we expecting?</h4>
@@ -187,10 +188,11 @@ Family members are also more than welcome to join the event.
 
 
 <h4>How can I register to the event?</h4>
-In order to be able to register to the event, you need to activate your Alumni Community account by filling in the <a href="../alumni/4/index.php" target="_blank">Alumni Database registration form</a>. Following the submission of the form, you will be notified via e-mail about the activation of your account approximately within 3 working days. 
+In order to be able to register to the event, you need to activate your Alumni Community account by filling in the <a href="../register_form.php" target="_blank">Alumni Database registration form</a>. Following the submission of the form, you will be notified via e-mail about the activation of your account approximately within 3 working days. 
 
 Registration to the Reunion Weekend will be open from early spring 2015. The registration form can be accessed from your Alumni Community account.
 
+<strong>The first 100 alumnis can attend the event for free!</strong>
 </pre>
 			  
 <?php
