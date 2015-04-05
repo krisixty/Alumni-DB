@@ -1,9 +1,10 @@
 <?php
+session_start();
 ob_start(); //Turn on output buffering
 $memb_sel = 'selected';
 $pg_content = 'member';
 require_once('alumni_includes.php');
-session_start();
+
 
 @$username=$_POST['username']; //undefined index hibát ad 
 @$passwd=$_POST['passwd'];
@@ -62,12 +63,10 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 				$add_city=$sor['add_city'];
 				$add_country=$sor['add_country'];
 				$phone=$sor['phone'];
-			//echo 'yeee';
 			$contactsFill = true;
 			} 
 		else
 			{
-			//echo 'noo';
 			$contactsFill = false;
 			}
 			
@@ -86,7 +85,6 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 			} 
 		else
 			{
-			echo 'noo';
 			$surveyFill = false;
 			}
 

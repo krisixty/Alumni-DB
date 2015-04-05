@@ -21,10 +21,12 @@ $grad_faculty=$sor['grad_faculty'];
 $grad_year=$sor['grad_year'];
 $verification=$sor['verification'];
 
-do_html_header('');
+do_html_admin_header('');
 check_valid_officer_user();
-
-	mainContentDivOpen();
+	display_login2_message();
+	
+	adminMainPage();
+	//mainContentDivOpen();
 
 ?>
 
@@ -58,9 +60,10 @@ check_valid_officer_user();
 ?>
 </p>
 <?php
+
 		display_verification_form();
 
-	mainContentDivClose();
+	//mainContentDivClose();
 do_html_footer();
 ?>
 

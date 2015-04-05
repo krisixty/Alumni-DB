@@ -2,34 +2,26 @@
 $pg_content = 'graduates';
 session_start();
 require_once('alumni_includes.php');
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-	    <title>Graduates</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="tablesorter/themes/blue/style.css">
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="tablesorter/jquery.tablesorter.js"></script> 
-		<script>
-		$(document).ready(function() 
-			{ 
-				$("#myTable").tablesorter(); 
-			} 
-		); 
-		</script>
-		
-    </head>
-<body>
-<?php
-require_once('pagecontents.php'); 
+require_once('pagecontents.php');
+
+do_html_admin_header(); 
 check_valid_officer_user();
-display_login_message();
-//alumni_body();
+display_login2_message();
 adminMainPage();
+
 $conn = db_connect();
-$graduates=$conn->query("SELECT * FROM graduate_officedata ORDER BY fname");
+
+//functiont csinálni belőle:
+display_graduate_filter();
+
+$grad_faculty = $_POST['grad_faculty'];
+
+if ($grad_faculty) {
+$graduates=$conn->query("SELECT * FROM graduate_officedata WHERE grad_faculty = '$grad_faculty' ORDER BY fname");
+}
+else {
+	$graduates=$conn->query("SELECT * FROM graduate_officedata ORDER BY fname");
+}
 ?>
 
 
@@ -99,10 +91,7 @@ while($sor=mysqli_fetch_array($graduates))
 </table>
 <?php 
 require_once('pagecontents.php'); 
-adminMainPage();
-?>
-</body>
-</html>
+do_html_footer();
 
 
 

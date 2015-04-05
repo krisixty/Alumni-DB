@@ -1,14 +1,15 @@
 <?php
 session_start();
-$pg_content = 'graduate';
+$pg_content = 'graduate_registered';
 require_once('alumni_includes.php');
-require_once('pagecontents.php');
+require_once('pagecontents.php'); 
 
-		$o_aid=$_POST['o_aid']; 
+		$aid=$_POST['AID']; 
 		$conn = db_connect();
-		$result=$conn->query("SELECT * FROM graduate_officedata WHERE o_aid='$o_aid'");
+		$result=$conn->query("SELECT * FROM graduate_data WHERE AID='$aid'");
 		$sor=mysqli_fetch_array($result);
 
+		
 		$fname = $sor['fname'];
 		$gname = $sor['gname'];
 		$gender=$sor['gender'];
@@ -22,7 +23,15 @@ require_once('pagecontents.php');
 		$diploma_serial=$sor['diploma_serial'];
 		$diploma_qual=$sor['diploma_qual'];
 		$grad_date=$sor['grad_date'];
-		$email=$sor['email'];	
+		
+		
+		$graduate_username = $sor['username'];
+		
+		$result_email=$conn->query("SELECT email FROM user WHERE username='$graduate_username'");
+		$e_sor=mysqli_fetch_array($result_email);
+		
+		$email=$e_sor['email'];	
+		
 		$diploma_average = $sor['diploma_average'];
 		$signatory_rector = $sor['signatory_rector'];
 		$signatory_dean = $sor['signatory_dean'];

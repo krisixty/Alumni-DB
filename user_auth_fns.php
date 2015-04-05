@@ -15,7 +15,10 @@ if (!$result)
 //van-e már ilyen username?
 if ($result->num_rows>0) 
 	{ 
-    throw new Exception('That username is already in use. Go back and choose an other one.');
+	//Temporary!!
+	echo '<h3>'.'That username is already in use. Go back and choose an other one.'.'</h3>';
+    //throw new Exception('That username is already in use. Go back and choose an other one.');
+	exit;
 	}
 // ha nincs akkor adatbázisba rakja
 //kreál egy random számot + megadott számot hozzáfűzi a jelszóhoz, majd sha1-el kódolja
@@ -260,6 +263,28 @@ function send_alumni_email($username)
       include('email_alumni.php');
     }
 } 
+
+function send_verification_email($graduate_username)
+// notify the user that their password has been changed
+{
+    $conn = db_connect();
+    $result = $conn->query("SELECT email FROM user
+                            WHERE username='$graduate_username'");
+    if (!$result)
+    {
+      throw new Exception('Could not find email address.');  
+    }
+    else if ($result->num_rows==0)
+    {
+      throw new Exception('Could not find email address.');   // username not in db
+    }
+    else
+    {
+      $row = $result->fetch_object();
+      $to = $row->email;
+      include('email_verification.php');
+    }
+}
 
 function is_verified() {
 

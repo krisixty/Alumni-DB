@@ -2,9 +2,7 @@
 session_start();
 require_once('alumni_includes.php');
 require_once('pagecontents.php'); 
-check_valid_officer_user();
 
-do_html_header('');
 
 	//Registration posts goes here
 		include 'add_grad_posts.php';
@@ -13,28 +11,36 @@ do_html_header('');
 	//Registration test goes here
 		include 'registration_variables.php';
 		
-	
 	$o_aid=$_POST['o_aid'];	
+
+do_html_admin_header('');
+check_valid_officer_user();
+display_login2_message();
+	//mainContentDivOpen();
+	adminMainPage();
 	
+
 	//SURVEY DATA from SURVEY
-	$conn = db_connect();
-	$result_o_aid = $conn->query("SELECT * FROM graduate_officedata WHERE o_aid='$o_aid'");	
-	$sor=mysqli_fetch_array($result_o_aid);
-	
-	if ($result_o_aid->num_rows>0)	
-		{
-		$update_graduate_officedata=$conn->query
-		("UPDATE graduate_officedata SET fname='$fname', gname='$gname', gender='$gender', dob='$dob', pob_country='$pob_country', pob_city='$pob_city', citizenship='$citizenship',  citizenship2='$citizenship2', grad_faculty='$grad_faculty', grad_year='$grad_year', diploma_serial='$diploma_serial', diploma_qual='$diploma_qual', grad_date='$grad_date', email='$email', diploma_average='$diploma_average', signatory_rector='$signatory_rector', signatory_dean='$signatory_dean', studies_start='$studies_start', start_semester='$start_semester' WHERE o_aid='$o_aid'");
-		echo 'Data updated'.'<br>';
-		}
-	else 
-		{
-	$insert_graduate=$conn->query("INSERT INTO graduate_officedata (fname, gname, gender, dob, pob_country, pob_city, citizenship, citizenship2, grad_faculty, grad_year, diploma_serial, diploma_qual, grad_date, email, diploma_average, signatory_rector, signatory_dean, studies_start, start_semester) VALUES ('$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship', '$citizenship2', '$grad_faculty', '$grad_year', '$diploma_serial', '$diploma_qual', '$grad_date', '$email', '$diploma_average', '$signatory_rector', '$signatory_dean', '$studies_start', '$start_semester')");	
-		echo 'Data inserted'.'<br>';
-		}
-?>
-<p class="main">	
-<?php
+		$conn = db_connect();
+		$result_o_aid = $conn->query("SELECT * FROM graduate_officedata WHERE o_aid='$o_aid'");	
+		$sor=mysqli_fetch_array($result_o_aid);
+		
+		if ($result_o_aid->num_rows>0)	
+			{
+			$update_graduate_officedata=$conn->query
+			("UPDATE graduate_officedata SET fname='$fname', gname='$gname', gender='$gender', dob='$dob', pob_country='$pob_country', pob_city='$pob_city', citizenship='$citizenship',  citizenship2='$citizenship2', grad_faculty='$grad_faculty', grad_year='$grad_year', diploma_serial='$diploma_serial', diploma_qual='$diploma_qual', grad_date='$grad_date', email='$email', diploma_average='$diploma_average', signatory_rector='$signatory_rector', signatory_dean='$signatory_dean', studies_start='$studies_start', start_semester='$start_semester' WHERE o_aid='$o_aid'");
+			echo 'Data updated'.'<br>';
+			}
+		else 
+			{
+		$insert_graduate=$conn->query("INSERT INTO graduate_officedata (fname, gname, gender, dob, pob_country, pob_city, citizenship, citizenship2, grad_faculty, grad_year, diploma_serial, diploma_qual, grad_date, email, diploma_average, signatory_rector, signatory_dean, studies_start, start_semester) VALUES ('$fname', '$gname', '$gender', '$dob', '$pob_country', '$pob_city', '$citizenship', '$citizenship2', '$grad_faculty', '$grad_year', '$diploma_serial', '$diploma_qual', '$grad_date', '$email', '$diploma_average', '$signatory_rector', '$signatory_dean', '$studies_start', '$start_semester')");	
+			echo 'Data inserted'.'<br>';
+			
+			$result_new_o_aid = $conn->query("SELECT * FROM graduate_officedata WHERE fname='$fname'");	
+			$sor=mysqli_fetch_array($result_new_o_aid);
+			$o_aid = $sor['o_aid'];
+			}
+
 	//Personal data variables
 		echo $familyNameLabel.$fname.'<br>';
 		echo $firstNameLabel.$gname.'<br>';
@@ -68,8 +74,8 @@ do_html_header('');
 		</form>
 		
 
-</p>		
+	
 <?php
-adminMainPage();
-do_html_footer();		 
+	//mainContentDivClose();
+do_html_footer();	 
 ?>

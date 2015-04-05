@@ -1,42 +1,13 @@
-<?php
-function contentNews() {
-?>
-<h3>News</h3>
-<p class="main">Reunion Weekend 2015 website launched!</p>
-<?php
-}
-?>
-
-<?php
-function contentAccomodation() {
-?>
-<h3>Accomodation</h3>
-<pre>
-For your convenience, we have reserved 50 rooms at <a href="http://www.hunguesthotels.hu/en/hotel/szeged/hunguest_hotel_forras/" target="_blank">Hunguest Hotel Forrás****</a> for September 18–20, 2015 for two nights, where the welcome reception and the Saturday evening dinner takes place.
-
-To book a room, please send an e-mail to <a href="mailto:hotelforras@hunguesthotels.com">hotelforras@hunguesthotels.com</a>, indicating the duration of your stay and the number of rooms you wish to reserve. Be sure to book mentioning “Alumni Reunion” to receive the discounted rates below.
-
-Single room: 18.400 HUF/night
-Double room: 23.400 HUF/night
-Extra bed: 9.500 HUF/night
-
-The prices include accommodation with buffet breakfast, unrestricted access (for the duration of your stay) to the pools of Napfényfürdő Aquapolis Szeged – adjacent to the Hotel – (baths with slides, medical baths, outdoor swimming pools), a daily single time entry to the “Silent Wellness” section of Napfényfürdő Aquapolis Szeged (for the duration of your stay) for a 3-hour-long period, (“Silent Wellness” can only be entered by adults – above 16 – to ensure that Guests are not disturbed). 
-
-Services: Adventure pools, effervescent bath, sauna, infra cabin, steam cabin, salt cabin, tepidarium, aroma cabin, outdoor sauna, WIFI internet access in the rooms, bathrobe, VAT. (On the day of departure, “Silent Wellness” is accessible until 11. a.m. only).
-
-Prices do not include local tax.
-
-Accommodation with breakfast is free of charge for children below 4 years of age.
-</pre>
-<?php
-}
-?>
 
 <?php
 function contentIndex() {
+	
+	
+	global $indexHeaderLng;
+	
 ?>
 
-<h3>About Us</h3>
+<h3> <?php print $indexHeaderLng; ?></h3>
 <pre>
 <img class="pics-in-text" src="img/infoblokk_kedv_final_felso_cmyk_en_ESZA_low_res.jpg">
 Dear Graduates,
@@ -62,8 +33,11 @@ The Alumni Team
 
 <?php
 function contentContactUs() {
+	
+	global $contactHeaderLng;
+	
 ?>
-<h3>Contact Us</h3>
+<h3><?php print $contactHeaderLng; ?></h3>
 <pre>
 Foreign Students' Secretariat
 Alumni Team
@@ -84,6 +58,15 @@ function display_login_message() {
 	<ul class="main-nav">
 	<li><a href="logout.php" class="<?php echo $lout_sel; ?>">Logout</a></li> 
 	</ul>
+	
+<?php
+}
+?>
+
+<?php
+function display_login2_message() {
+?>
+	<p>Welcome <?php /*echo $_SESSION['valid_officeruser'].',';*/  echo $_SESSION['valid_user'].','; ?> you are logged in to Alumni Database. </p>
 	
 <?php
 }
@@ -122,9 +105,48 @@ function contentMemberPage() {
 	global $title;
 	global $other_work;
 	global $awards;
+	
+	//LANGUAGE GLOBALS
+	global $memberPageHeaderLng ;
+	
+	global $memberPagePersonalProfileLng;
+	global $memberPagePersonalDataLng ;
+	
+	global $memberPageDobLng;
+	global $memberPagePobLng ;
+	global $memberPageCitizenshipLng ;
+	
+	global $memberPageGradLng ;
+	
+	global $memberPageIdLng ;
+	
+	global $memberPageAddressLng ;
+	global $memberPagePcLng ;
+	global $memberPageCityLng ;
+	global $memberPageCountryLng ;
+	global $memberPagePhoneLng ;
+	global $memberPageEmail_Lng;
+	global $memberPageYourContactsLng ;
+	global $memberPageContactsLng;
+	global $memberPageGiveContactsLng;
+	
+	global $memberPageProfessionalProfileLng;
+	global $memberPageEmploymentLng  ;
+	
+	global $memberPageWorkPlaceLng;
+	global $memberPagePositionLng ;
+	global $memberPageTitleLng ;
+	global $memberPageOtherWorkLng ;
+	global $memberPageAwardsLng ;
+	global $memberPageEditLng ;
+	global $memberPageSurveyLng ;
+	
+	global $memberPageParagraphLng ;
+	
+	
 
 ?>
-<h3>Your Alumni Database Account</h3>
+<h3><?php print $memberPageHeaderLng; ?></h3>
 <?php 
 check_valid_user();
 
@@ -147,15 +169,15 @@ The Alumni Team
 	?>
 
 </pre>
-
+<?php print $memberPagePersonalProfileLng; ?>
 <fieldset class="text">
-	<legend class="text">Personal profile</legend>
+	<legend class="text"></legend>
 		<fieldset class="text2">
-			<legend class="text2">Personal data</legend>
+			<legend class="text2"><?php print $memberPagePersonalDataLng; ?></legend>
 			<strong><?php echo $gname.' '.$fname; ?></strong><br>
-			Date of birth: <?php echo $dob; ?><br>
-			Place of birth: <?php echo $pob_city.', '.$pob_country; ?><br>
-			Citizenship: <?php echo $citizenship; ?>
+			<?php print $memberPageDobLng; ?> <?php echo $dob; ?><br>
+			<?php print $memberPagePobLng; ?> <?php echo $pob_city.', '.$pob_country; ?><br>
+			<?php print $memberPageCitizenshipLng; ?> <?php echo $citizenship; ?>
 			<?php
 			if ($citizenship2) {
 				echo ', '.$citizenship2.'<br>';
@@ -166,11 +188,11 @@ The Alumni Team
 				}
 			?>
 
-			Graduation: <?php echo $grad_faculty.', '.$grad_year; ?><br>
+			<?php print $memberPageGradLng; ?> <?php echo $grad_faculty.', '.$grad_year; ?><br>
 				<?php
 				
 			?>
-			Alumni Database ID number: <?php echo $aid;?>
+			<?php print $memberPageIdLng; ?> <?php echo $aid;?>
 		</fieldset>
 <?php
 	if ($contactsFill)
@@ -178,22 +200,22 @@ The Alumni Team
 	?>
 		<fieldset class="text2">
 			<legend class="text2">Contacts</legend>
-			Address: <?php echo $permadd; ?><br>
-			Postal Code: <?php echo $add_pc; ?><br>
-			City: <?php echo $add_city; ?><br>
-			Country: <?php echo $add_country; ?><br>
-			Phone number: <?php echo $phone; ?><br>
-			E-mail: <?php echo $email; ?><br>
+			<?php print $memberPageAddressLng; ?> <?php echo $permadd; ?><br>
+			<?php print $memberPagePcLng; ?> <?php echo $add_pc; ?><br>
+			<?php print $memberPageCityLng; ?> <?php echo $add_city; ?><br>
+			<?php print $memberPageCountryLng; ?> <?php echo $add_country; ?><br>
+			<?php print $memberPagePhoneLng; ?> <?php echo $phone; ?><br>
+			<?php print $memberPageEmail_Lng; ?> <?php echo $email; ?><br>
 			<br>
-			<strong><a href="yourcontacts.php">Edit your contacts info</a></strong>
+			<strong><a href="yourcontacts.php"><?php print $memberPageYourContactsLng; ?></a></strong>
 			<?php
 			}
 		else
 			{
 		?>
 		<fieldset class="text2">
-			<legend class="text2">Contacts</legend>
-			<a href="yourcontacts.php">Give us your contacts info</a>
+			<legend class="text2"><?php print $memberPageContactsLng; ?></legend>
+			<a href="yourcontacts.php"><?php print $memberPageGiveContactsLng; ?></a>
 			<?php
 			}
 		?>
@@ -202,32 +224,32 @@ The Alumni Team
 		
 		
 <fieldset class="text">
-	<legend class="text">Professional profile</legend>	
+	<legend class="text"><?php print $memberPageProfessionalProfileLng; ?></legend>	
 		<fieldset class="text2">
-			<legend class="text2">Employment</legend>
+			<legend class="text2"><?php print $memberPageEmploymentLng; ?></legend>
 <?php
 	if ($surveyFill) {
 	?>
 
-				Current workplace: <?php echo $workplace;?><br>
-				Current position: <?php echo $position;?><br>
-				Current title: <?php echo $title;?><br>
-				Other workplace(s): <?php echo $other_work;?><br>
-				Awards/Honors: <?php echo $awards;?><br>
+				<?php print $memberPageWorkPlaceLng; ?> <?php echo $workplace;?><br>
+				<?php print $memberPagePositionLng; ?> <?php echo $position;?><br>
+				<?php print $memberPageTitleLng; ?> <?php echo $title;?><br>
+				<?php print $memberPageOtherWorkLng; ?> <?php echo $other_work;?><br>
+				<?php print $memberPageAwardsLng; ?> <?php echo $awards;?><br>
 				<br>
-				<a href="survey_edit.php">Edit your professional info</a>
+				<a href="survey_edit.php"><?php print $memberPageEditLng; ?></a>
 	</fieldset>	
 	<?php
 	}
 	else {
 		?>
-		<a href="survey.php">Please fill out our survey</a>
+		<a href="survey.php"><?php print $memberPageSurveyLng; ?></a>
 		<?php
 	}
 	?>			
 </fieldset>	
 </fieldset>		
-<p>You can check below what other graduates can see about you under your Alumni Database public profile.
+<p><?php print $memberPageParagraphLng; ?>
 <?php		
 display_public_profile_form();
 ?></p>
@@ -240,10 +262,12 @@ display_public_profile_form();
 
 <?php
 function contentSurveyPageTop() {
+	
+	global $surveyHeaderLng;
 
 	//check_valid_user();
 ?>
-<h3>Alumni Survey</h3>
+<h3><?php print $surveyHeaderLng ;?></h3>
 <pre>
 Dear Graduate,
 
@@ -300,14 +324,24 @@ function contentSurveyFilledIn() {
 	
 	global $surveyFill;
 	global $survey_type;
+	
+	//LANGUAGE GLOBALS
+	
+	global $surveyFilledHeaderLng ;
+	global $surveyFilledParagraphLng;
+	global $surveyFilledHeader2Lng;
+	
+	global $surveyFilledEditLng ;
+	
+	
 ?>
 <p>
-<h3>Alumni Survey</h3>
-Thank you for filling in our questionnaire! We hope to see you at the Alumni Reunion Weekend organized to celebrate the 30th anniversary of the English language Medical Program between the 18-20. of September 2015 in Szeged!</p> 
+<h3><?php print $surveyFilledHeaderLng ;?></h3>
+<?php print $surveyFilledParagraphLng; ?></p> 
 
 
 <fieldset class="text">
-<h4>Your Survey Answers</h4>
+<h4><?php print $surveyFilledHeader2Lng; ?></h4>
 <p>
 
 <?php
@@ -345,7 +379,7 @@ $span = '<span class="question">';
 		}	
 ?>		
 </p>
-<p><a href="survey_edit.php">Edit your answers</a></p>
+<p><a href="survey_edit.php"><?php print $surveyFilledEditLng; ?></a></p>
 </fieldset>		
 <?php
 }
@@ -353,22 +387,36 @@ $span = '<span class="question">';
 
 <?php
 function editSurveyTop() {
+	
+	global $surveyTopHeaderLng;
+	
 ?>
-	<h3>Edit survey answers</h3>
+	<h3><?php print $surveyTopHeaderLng; ?></h3>
 <?php
 }
 ?>
 
 <?php
 function adminMainPage() {
+	
+	global $mainPageHeaderLng;
+	global $mainPageOfficerLng ;
+	global $mainPageAddGraduatesLng;
+	global $mainPageGraduatesLng;
+	global $mainPageGraduatesRegLng;
+	global $mainPageSurveyListLng;
+	global $mainPageLogoutLng ;
+	
+	
 ?>
-<h3>Alumni Database Admin v1.1</h3>
+<h3><?php print $mainPageHeaderLng ; ?></h3>
 <p class= "main">
-	<a href="officer.php">Admin mainpage</a><br>
-	<a href="add_graduate_form.php">Add new graduate</a><br>
-	<a href="graduates.php">List of office registered graduates</a><br>
-	<a href="graduates_registered.php">List of user registered graduates</a><br>
-	<a href="logout2.php">Logout</a>
+	<a href="officer.php"><?php print $mainPageOfficerLng ; ?></a><br>
+	<a href="add_graduate_form.php"><?php print $mainPageAddGraduatesLng ; ?></a><br>
+	<a href="graduates.php"><?php print $mainPageGraduatesLng ; ?></a><br>
+	<a href="graduates_registered.php"><?php print $mainPageGraduatesRegLng ; ?></a><br>
+	<a href="survey_list.php"><?php print $mainPageSurveyListLng; ?></a><br>
+	<a href="logout2.php"><?php print $mainPageLogoutLng ; ?></a>
 	
 </p>	
 <?php	
@@ -377,32 +425,45 @@ function adminMainPage() {
 
 <?php
 function contentReunionRegistration() {
+	
+	global $reunionHeaderLng;
+	global $reunionParagraph1Lng;
+	global $reunionParagraph2Lng;
+	global $reunionWeekendLng;
+	global $verification_result;
+	
 ?>
-<h3>Registration for Reunion Weekend 2015</h3>
+<h3><?php print $reunionHeaderLng ; ?></h3>
 <?php
 
 check_valid_user();
 
-	if ($verification == 'No') {
-		?><p>Please check back later, following the verification of your data.</p><?php
+	is_verified();
+	if ($verification_result == 'No') {
+		?><p><?php print $reunionParagraph1Lng ; ?></p><?php
 		}
 	else {
-		?><p>Please check back later, registration to the Reunion Weekend will be open from early spring 2015.</p><?php
+		?><p><?php print $reunionParagraph2Lng ; ?></p><?php
 	}
-	?><a href="../../reunion/index.php" target="_blank">Reunion Weekend 2015 website</a></li><?php
+	?><a href="../../reunion/index.php" target="_blank"><?php print $reunionWeekendLng ; ?></a></li><?php
 }
 ?>
 
 <?php
 function contentAlumniCommunity() {
 	
+	global $communityHeaderLng;
+	global $communityParagraphLng;
+	global $communityShowAll_Lng;
+	global $communityShowFilterLng;
+	
 ?>
 
-	<h3>Alumni Community</h3>
+	<h3><?php print $communityHeaderLng ; ?></h3>
 	<p>
-		Are you looking for your old classmates and friends? Find them with the help of the filter options below!<br><br>
-		<a href="alumni_community_all.php">Show all registered graduates</a><br>
-		<a href="alumni_community_filters.php">Filter registered graduates</a><br>	
+		<?php print $communityParagraphLng ; ?><br><br>
+		<a href="alumni_community_all.php"><?php print $communityShowAll_Lng;?></a><br>
+		<a href="alumni_community_filters.php"><?php print $communityShowFilterLng;?></a><br>	
 	</p>
 <?php
 }
@@ -428,37 +489,57 @@ function contentAlumniMate() {
 	global $awards;
 	
 	global $surveyFill;
+	
+	//LANGUAGE GLOBALS
+	
+	global $mateHeaderLng ;
+	global $matePublicProfileLng ;
+	global $matePersonalDataLng;
+	global $mateFamilyNameLng ;
+	global $mateFirstNameLng ;
+	global $mateFacultyLng;
+	global $mateGradYearLng ;
+	global $mateEmail_Lng ;
+	global $mateEmploymentLng ;
+	
+	global $mateWorkPlaceLng ;
+	global $matePositionLng ;
+	global $mateTitleLng ;
+	global $mateOtherWorkPlaceLng ;
+	global $mateAwardsLng ;
+	
+	global $mateEmptyLng ;
 ?>
-	<h3>Alumni Community</h3>
+	<h3><?php print $mateHeaderLng;?></h3>
 
 		<fieldset class="text">
-			<legend class="text">Public profile</legend>
+			<legend class="text"><?php print $matePublicProfileLng;?></legend>
 				<fieldset class="text2">
-					<legend class="text2">Personal data</legend>
+					<legend class="text2"><?php print $matePersonalDataLng;?></legend>
 					<strong><?php echo $gname.' '.$fname; ?></strong><br>
-					Family name: <?php echo $fname;?><br>
-					First name: <?php echo $gname;?><br>
-					Faculty: <?php echo $grad_faculty;?><br>
-					Graduation Year: <?php echo $grad_year;?><br>
-					E-mail: <?php echo $email;?><br>
+					<?php print $mateFamilyNameLng;?> <?php echo $fname;?><br>
+					<?php print $mateFirstNameLng;?> <?php echo $gname;?><br>
+					<?php print $mateFacultyLng;?> <?php echo $grad_faculty;?><br>
+					<?php print $mateGradYearLng;?> <?php echo $grad_year;?><br>
+					<?php print $mateEmail_Lng;?><?php echo $email;?><br>
 				</fieldset>	
 				
 				<fieldset class="text2">
-					<legend class="text2">Employment</legend>
+					<legend class="text2"><?php print $mateEmploymentLng;?></legend>
 		<?php
 				if ($surveyFill) {
 				?>
-							Current workplace: <?php echo $workplace;?><br>
-							Current position: <?php echo $position;?><br>
-							Current title: <?php echo $title;?><br>
-							Other workplace(s): <?php echo $other_work;?><br>
-							Awards/Honors: <?php echo $awards;?><br>
+							<?php print $mateWorkPlaceLng;?> <?php echo $workplace;?><br>
+							<?php print $matePositionLng;?> <?php echo $position;?><br>
+							<?php print $mateTitleLng;?> <?php echo $title;?><br>
+							<?php print $mateOtherWorkPlaceLng;?> <?php echo $other_work;?><br>
+							<?php print $mateAwardsLng;?> <?php echo $awards;?><br>
 				</fieldset>	
 			<?php
 				}
 				else {
 				?>
-				This user has not uploaded professional data yet.
+				<?php print $mateEmptyLng;?>
 				<?php
 			}
 			?>			
@@ -470,9 +551,15 @@ function contentAlumniMate() {
 
 <?php
 function contentVerified() {
+
+	global $verifiedHeaderLng;
+	global $verifiedParagraphLng;
+
 ?>
-	<h3>Verification Result</h3>
-	<p>Verification data updated.</p>
+
+
+	<h3><?php print $verifiedHeaderLng ;?></h3>
+	<p><?php print $verifiedParagraphLng ;?></p>
 	
 <?php
 }

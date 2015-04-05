@@ -9,7 +9,7 @@ do_html_header('');
 check_valid_user();
 
 $conn = db_connect();
-$graduates=$conn->query("SELECT * FROM graduate_data ORDER BY fname");
+$graduates=$conn->query("SELECT * FROM graduate_data WHERE verification = 'Yes' ORDER BY fname");
 
 
 	mainContentDivOpen();

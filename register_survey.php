@@ -32,8 +32,37 @@ if ($result_survey->num_rows>0)
 	}
 else
 	{
-	$insert_survey=$conn->query("INSERT INTO survey (AID, licensing, licensing_type, licensing_exp, employment_country, after_graduation, workplace, position, title, other_work, awards, contribute, opinion, comment, after_phys) VALUES ('$aid', '$licensing', '$licensing_type', '$licensing_exp', '$employment_country', '$after_graduation', '$workplace', '$position', '$title', '$other_work', '$awards', '$contribute', '$opinion', '$comment', '$after_phys', '$wait', '$med_y_n', '$grad_place', '$grad_yr_germ')");
+	/*
+	$insert_survey=$conn->query("INSERT INTO survey (AID, licensing, licensing_type, licensing_exp, employment_country, after_graduation, workplace, position, title, other_work, awards, contribute, opinion, comment, after_phys) VALUES ('$aid', '$licensing', '$licensing_type', '$licensing_exp', '$employment_country', '$after_graduation', '$workplace', '$position', '$title', '$other_work', '$awards', '$contribute', '$opinion', '$comment', '$after_phys')"); */
+	
+	$insert_survey=$conn->query("INSERT INTO survey (AID, licensing, licensing_type, licensing_exp, employment_country, after_graduation, workplace, position, title, other_work, awards, contribute, opinion, comment, after_phys, wait, med_y_n, grad_place, grad_yr_germ) VALUES ('$aid', '$licensing', '$licensing_type', '$licensing_exp', '$employment_country', '$after_graduation', '$workplace', '$position', '$title', '$other_work', '$awards', '$contribute', '$opinion', '$comment', '$after_phys', '$wait', '$med_y_n', '$grad_place', '$grad_yr_germ')");
 	header("Location:survey.php" );
+	
+	if (!$insert_survey)
+		{
+		throw new Exception(); 
+		echo 'error'.'<br>';
+		echo $aid.'<br>';
+		echo $licensing.'<br>';
+		echo $licensing_type.'<br>';
+		echo $licensing_exp.'<br>';
+		echo $employment_country.'<br>';
+		echo $after_graduation.'<br>';
+		echo $workplace.'<br>';
+		echo $position.'<br>';
+		echo $title.'<br>';
+		echo $other_work.'<br>';
+		echo $awards.'<br>';
+		echo $contribute.'<br>';
+		echo $opinion.'<br>';
+		echo $comment.'<br>';
+		echo $after_phys.'<br>';
+		echo $wait.'<br>';
+		echo $med_y_n.'<br>';
+		echo $grad_place.'<br>';
+		echo $grad_yr_germ.'<br>';
+		}
+	
 	}
 
 ?>

@@ -17,10 +17,10 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 		} 
 	catch (Exception $e)	
 		{
-		do_html_header('Problem:'); //sikertelen bejelentkezés
+		do_html_admin_header('Problem:'); //sikertelen bejelentkezés
 		?><p class="text"><?php
 		echo 'You could not be logged in. You must be logged in to view this page.';
-		do_html_url('login.php', 'Login');
+		do_html_url('login2.php', 'Login');
 		do_html_footer();
 		exit;
 		}
@@ -31,11 +31,12 @@ if (isset($_POST['username'])&&($_POST['passwd'])) //bejelentkezés próba
 	
 require_once('pagecontents.php');
 
-do_html_header('');
+do_html_admin_header('');
 check_valid_officer_user();
-	mainContentDivOpen();
+	display_login2_message();
+	//mainContentDivOpen();
 		adminMainPage();
-	mainContentDivClose();
+	//mainContentDivClose();
 do_html_footer();
 
 ?>

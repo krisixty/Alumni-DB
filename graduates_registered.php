@@ -2,35 +2,29 @@
 $pg_content = 'graduates_registered';
 session_start();
 require_once('alumni_includes.php');
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-	    <title>List of Registered Graduates</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="tablesorter/themes/blue/style.css">
-		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script type="text/javascript" src="tablesorter/jquery.tablesorter.js"></script> 
-		<script>
-		$(document).ready(function() 
-			{ 
-				$("#myTable").tablesorter(); 
-			} 
-		); 
-		</script>
-		
-    </head>
-<body>
-<?php
 require_once('pagecontents.php'); 
+
+do_html_admin_header(); 
 check_valid_officer_user();
-display_login_message();
-//alumni_body();
+display_login2_message();
 adminMainPage();
+
 $conn = db_connect();
-$graduates=$conn->query("SELECT * FROM graduate_data ORDER BY fname");
+
+//functiont csinálni belőle:
+display_graduate_filter();
+
+$grad_faculty = $_POST['grad_faculty'];
+
+if ($grad_faculty) {
+$graduates=$conn->query("SELECT * FROM graduate_data WHERE grad_faculty = '$grad_faculty' ORDER BY fname");
+}
+else {
+	$graduates=$conn->query("SELECT * FROM graduate_data ORDER BY fname");
+}
 ?>
+
+
 <table id="myTable" class="tablesorter">
 
 	<thead>
@@ -77,6 +71,13 @@ while($sor=mysqli_fetch_array($graduates))
 <input type="submit" name="Submit" id="Submit" value="Verfication" />
 </form></td>
 
+        <td>
+<form action="graduate_registered.php" method="post" id="form1">
+<input type="hidden" id="AID" name="AID" value="<?php print $sor['AID']?>" />
+<input type="submit" name="Submit" id="Submit" value="+" />
+</form></td>
+
+
        </tr>
 	<?php
 	}
@@ -84,7 +85,6 @@ while($sor=mysqli_fetch_array($graduates))
 </tbody>
 </table>
 <?php 
-adminMainPage();
 do_html_footer();
 ?>
 

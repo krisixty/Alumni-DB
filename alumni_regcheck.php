@@ -40,7 +40,7 @@ mainContentDivOpen();
 		}
 	else
 		{
-		echo $dateOfBirthLabel;
+		echo $dateOfBirthLabel.$dob.'<br>';
 		}	
 
 	if (!$pob_city)
