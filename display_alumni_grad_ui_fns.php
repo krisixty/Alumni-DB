@@ -256,23 +256,13 @@ function alumniMainContent() {
 				}
 			if ($pg_content == 'faq') {
 					contentFAQ();
-				}	
-			/*	
-			if ($pg_content == 'index') {
-					contentIndex();
-				}	
-			*/	
+				}		
 			if ($pg_content == 'index1') {
 					contentIndex();
 				}				
 			if ($pg_content == 'member') {
 					contentMemberPage();
 				}
-			/*	
-			if ($pg_content == 'officer') {
-					adminMainPage();
-				}	
-			*/	
 			if ($pg_content == 'alumni_community') {
 					contentAlumniCommunity();
 				}	
@@ -292,15 +282,10 @@ function alumniMainContent() {
 				}	
 			if ($pg_content == 'reunion_registration') {
 					contentReunionRegistration(); 
-						is_verified();
-						if ($verification_result == 'Yes') {
-						display_reunion_registration_form();
-						}
 				}	
 			if ($pg_content == 'reunion_registration_family') {
 					display_family_form();
-				}	
-				
+				}		
 				
 			if ($pg_content == 'forgot_form') {
 					display_forgot_form(); 
@@ -480,7 +465,7 @@ function do_html_footer() {
 					<option value="Pharmacy"><?php print $displayPharmacyLng; ?></option>
 					<option value="Dentistry"><?php print $displayDentistryLng; ?></option>
 					<option value="Medicine, 2-year German Program"><?php print $displayMed2YearGermanProgLng; ?></option>
-					<option><?php print $displayNoDiplomaLng; ?></option>
+					<option value="not graduated - partial studies"><?php print $displayNoDiplomaLng; ?></option>
 				</select>
 				
 				<label for="grad_year"><?php print $displayGradYearLng; ?></label>
@@ -1065,20 +1050,19 @@ function display_alumni_mate_table_head() {
 
 <?php
 	function display_reunion_registration_form() {
+	
+		global $showDayOneFee;
+		global $showDayTwoFee;
+		global $showDayThreeFee;
 ?>	
-		<h3>Reunion Weekend 2015 Registration form</h3>
-		
 		  <form action="register_reunion1.php" method="post">
 			
-			<p>The first 100 alumni can attend the reunion for free.<br>
-			Remaining free places: ...<br>
-			I would like to take part in the following programs, please tick.:</p>
-			<p><a href="reunion_registration_family.php">Registration form for Family members</a></p>
-
-			
+			<p>Check the programs you would like to attend to:</p>
 			
 			<fieldset>
 				<legend>Day 1. Friday</legend>
+				<?php echo $showDayOneFee; //if not in the first 100 alumni or not graduated just partially studied?>
+				<br>
 				
 				14:00 Welcome reception 
 				<input type="checkbox" name="welcome_reception" value=1 /><br>
@@ -1088,6 +1072,8 @@ function display_alumni_mate_table_head() {
 				<input type="checkbox" name="dinner" id="dinner" value=1 /><br><br>
 				
 				<legend>Day 2. Saturday</legend>
+				<?php echo $showDayTwoFee; //if not in the first 100 alumni or not graduated just partially studied?>
+				<br>
 				
 				9:30 Presentations, Prize award ceremony, tree planting, photoshooting, luncheon
 				<input type="checkbox" name="presentations" id="presentations" value=1 /><br>
@@ -1099,8 +1085,13 @@ function display_alumni_mate_table_head() {
 				<input type="checkbox" name="gala_dinner" id="gala_dinner" value=1 /><br><br>
 				
 				<legend>Day 3. Sunday</legend>
+				<?php echo $showDayThreeFee; //if not in the first 100 alumni or not graduated just partially studied?>
+				<br>
 				
-				10:00 SUMAA Picnic and football with the professors <input type="checkbox" name="picnic" id="picnic" value=1 />
+				10:00 SUMAA Picnic and football with the professors <input type="checkbox" name="picnic" id="picnic" value=1 /><br><br>
+				
+				<?php //if not in the first 100 alumni or not graduated just partially studied?>	
+				Registration fee (including registration package): 30 EUR
 		  
 			</fieldset>
 				
@@ -1127,15 +1118,19 @@ function display_alumni_mate_table_head() {
 <?php
 	function display_family_form() {
 ?>	
-		<h3>Reunion Weekend 2015 Registration form for Family Members</h3>
+		<h3>Registration form for Family Members</h3>
 
-			<form action="register_family.php" method="post">
+			<form action="register_family.php" method="post" target="_blank">
 				
 				<p>Please list the name of your family members invited and also include the age of your child(ren).</p>
 				
 				<fieldset>
 					<legend>Family Members</legend>
-					
+				
+				<label for="family_members">family members</label>
+				<textarea id="family_members" name="family_members"></textarea>
+				
+				<!--	
 					<label for="fmember1">1</label>
 					<input type="text" id="fmember1" name="fmember1" maxlength="150">
 				
@@ -1153,19 +1148,20 @@ function display_alumni_mate_table_head() {
 					
 					<label for="fmember6">1</label>
 					<input type="text" id="fmember6" name="fmember6" maxlength="150">
+				-->
 				</fieldset>
 
 				<fieldset>
 					<legend>Day 1. Friday</legend>
 					<p>family members:<br> 		
-					adults/children over 12: 20 EUR<br>
-					children between 4-12: 10 EUR<br>
+					adults/children over 12: 34 EUR<br>
+					children between 4-12: 17 EUR<br>
 					children under 4: free<br>
 					</p>
 						
 						14:00 Welcome reception<br>	
 							<label for="welcome_memb_o12">attending adult(s) and children over 12:</label>
-							<select id="welcome_memb_o12" name="welcome_memb_012">
+							<select id="welcome_memb_o12" name="welcome_memb_o12">
 										<?php memberNumber(); ?>
 							</select>
 							
@@ -1216,8 +1212,8 @@ function display_alumni_mate_table_head() {
 				<fieldset>
 				<legend>Day 2. Saturday</legend>
 					<p>family members:<br> 		
-					adults/children over 12: 36 EUR<br>
-					children between 4-12: 18 EUR<br>
+					adults/children over 12: 54 EUR<br>
+					children between 4-12: 27 EUR<br>
 					children under 4: free<br>
 					</p>
 					
@@ -1242,8 +1238,8 @@ function display_alumni_mate_table_head() {
 				<fieldset>
 				<legend>Day 3. Sunday</legend>
 					<p>family members:<br> 		
-					adults/children over 12: 10 EUR<br>
-					children between 4-12: 5 EUR<br>
+					adults/children over 12: 14 EUR<br>
+					children between 4-12: 7 EUR<br>
 					children under 4: free<br>
 					</p>
 					

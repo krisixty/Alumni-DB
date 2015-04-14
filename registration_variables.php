@@ -13,7 +13,7 @@ $fieldIsRequired = "Field is required! ";
 	
 //Graduation data variables
 	$graduationFacultyLabel = "Faculty: ";
-	$graduationYearLabel = "Graduation Year: ";
+	$graduationYearLabel = "Year of graduation/Physikum/Last Year in School: ";
 
 //User data variables
 	$emailLabel = "E-mail: ";

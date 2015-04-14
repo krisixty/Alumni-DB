@@ -430,10 +430,25 @@ function contentReunionRegistration() {
 	global $reunionParagraph1Lng;
 	global $reunionParagraph2Lng;
 	global $reunionWeekendLng;
+	global $reunionForFamily1Lng;
+	global $reunionParagraphNoContacts1Lng;
+	global $reunionParagraphNoContacts2Lng;
+	global $reunionHereLng;
+	global $reunionAlreadyLng;
 	global $verification_result;
+	global $contactsFill;
+	global $freePlaces;
+	global $reunionRegistered;
+	global $notGraduated;
+	global $showDayOneFee;
+	global $showDayTwoFee;
+	global $showDayThreeFee;
+	
 	
 ?>
 <h3><?php print $reunionHeaderLng ; ?></h3>
+
+<a href="../../reunion/index.php" target="_blank"><?php print $reunionWeekendLng ; ?></a>
 <?php
 
 check_valid_user();
@@ -442,10 +457,46 @@ check_valid_user();
 	if ($verification_result == 'No') {
 		?><p><?php print $reunionParagraph1Lng ; ?></p><?php
 		}
+		
 	else {
-		?><p><?php print $reunionParagraph2Lng ; ?></p><?php
+		is_contactsFilled();
+		if ($contactsFill) {
+			
+			is_ReunionRegistration();
+			
+				if ($reunionRegistered) {
+				?><p><?php echo $reunionAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'</a>.'?></p><?php
+				
+				}
+				if (!$reunionRegistered) {
+				?><p><?php echo $reunionForFamily1Lng;?></p><?php
+				
+					isNotGraduated();
+					if ($notGraduated) {
+						showFees();
+					}
+					if (!$notGraduated) {
+						freePlaces();
+						if ($freePlaces !== 0) {
+						?><p>The first 100 alumni can attend the reunion for free.<br>
+						Remaining free places: <?php print $freePlaces?></p>
+						<?php
+						}
+						else {
+						?><!--<p>No more free places left.</p>--><?php
+						showFees();
+						}
+					}
+				display_reunion_registration_form();
+				}
+			}
+				
+		if (!$contactsFill) {
+			?><p>
+			<?php echo $reunionParagraphNoContacts1Lng.' '.'<a href="yourcontacts.php">'.$reunionHereLng.'</a> '.$reunionParagraphNoContacts2Lng;?>
+			</p><?php
+		}
 	}
-	?><a href="../../reunion/index.php" target="_blank"><?php print $reunionWeekendLng ; ?></a></li><?php
 }
 ?>
 

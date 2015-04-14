@@ -286,6 +286,7 @@ function send_verification_email($graduate_username)
     }
 }
 
+
 function is_verified() {
 
 	global $verification_result;
@@ -295,6 +296,104 @@ function is_verified() {
 		$result = $conn->query("SELECT verification FROM graduate_data WHERE username='$username'");
 		$row=mysqli_fetch_array($result);
 		$verification_result = $row['verification'];
+}
+
+function is_contactsFilled() {
+
+	global $contactsFill;
+	
+		$username=$_SESSION['valid_user'];
+		$conn = db_connect();
+		
+		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
+		$sor=mysqli_fetch_array($result);
+		$aid=$sor['AID'];
+		
+		$result_contacts=$conn->query("SELECT * FROM graduate_contacts WHERE AID='$aid'");
+		$sor=mysqli_fetch_array($result_contacts);
+	
+		if ($result_contacts->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
+			{
+			$contactsFill = true;
+			} 
+		else
+			{
+			$contactsFill = false;
+			}
+}
+
+function freePlaces() {
+	
+	global $freePlaces; 
+	
+		$conn = db_connect();
+		$result_freeplaces=$conn->query("SELECT COUNT(*) as total FROM reunion_registration");
+		$sor=mysqli_fetch_array($result_freeplaces);
+		$freePlaces = 100 - $sor['total'];
+}
+
+function is_ReunionRegistration() {
+
+	global $reunionRegistered;
+	
+		$username=$_SESSION['valid_user'];
+		$conn = db_connect();
+		
+		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
+		$sor=mysqli_fetch_array($result);
+		$aid=$sor['AID'];
+		
+		$result_reunion_registration=$conn->query("SELECT * FROM reunion_registration WHERE AID='$aid'");
+		$sor=mysqli_fetch_array($result_reunion_registration);
+	
+		if ($result_reunion_registration->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
+			{
+			$reunionRegistered = true;
+			} 
+		else
+			{
+			$reunionRegistered = false;
+			}
+}
+
+function aidGetter() {
+		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
+		$sor=mysqli_fetch_array($result);
+		$aid=$sor['AID'];
+}
+
+function isNotGraduated() {
+	
+	//aidGetter();
+	
+		global $notGraduated;
+	
+		$username=$_SESSION['valid_user'];
+		$conn = db_connect();
+		
+		$result_not_grad=$conn->query("SELECT * FROM graduate_data WHERE username='$username' AND grad_faculty='not graduated - partial studies'");
+		$sor=mysqli_fetch_array($result_not_grad);
+	
+	
+		if ($result_not_grad->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
+			{
+			$notGraduated = true;
+			} 
+		else
+			{
+			$notGraduated = false;
+			}
+}
+
+function showFees() {
+
+	global $showDayOneFee;
+	global $showDayTwoFee;
+	global $showDayThreeFee;
+
+		$showDayOneFee = "34 EUR<br>";
+		$showDayTwoFee = "90 EUR<br>";
+		$showDayThreeFee = "14 EUR<br>";
 }
 
 

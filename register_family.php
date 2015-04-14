@@ -1,5 +1,14 @@
 <?php
+session_start();
+require_once('pagecontents.php');
+require_once('alumni_includes.php');
+do_html_header('');
+check_valid_user();
 
+$username=$_SESSION['valid_user'];
+
+$family_members = $_POST['family_members'];
+//Day One
 $welcome_memb_o12 = $_POST['welcome_memb_o12'];
 $welcome_memb_412 = $_POST['welcome_memb_412'];
 $welcome_memb_u4 = $_POST['welcome_memb_u4'];
@@ -12,29 +21,68 @@ $dinner_memb_o12 = $_POST['dinner_memb_o12'];
 $dinner_memb_412 = $_POST['dinner_memb_412'];
 $dinner_memb_u14 = $_POST['dinner_memb_u14'];
 	
-	//20 EUR for over 12, 10 EUR for 4-12
-	$dayOneFee = 20 * ($welcome_memb_o12 + $sight_memb_o12 + $dinner_memb_o12) + 10 * ($welcome_memb_412 + $sight_memb_412 + $dinner_memb_412);
-
+	//34 EUR for over 12, 17 EUR for 4-12
+	$dayOneAtt = $welcome_memb_o12 + $welcome_memb_412 + $welcome_memb_u4 + $sight_memb_o12 + $sight_memb_412 + $sight_memb_u4 + $dinner_memb_o12 + $dinner_memb_412 + $dinner_memb_u14;
+	$dayOneFee = 34 * ($welcome_memb_o12 + $sight_memb_o12 + $dinner_memb_o12) + 17 * ($welcome_memb_412 + $sight_memb_412 + $dinner_memb_412);
+//Day Two
 $gdinner_memb_o12 = $_POST['gdinner_memb_o12'];
 $gdinner_memb_412 = $_POST['gdinner_memb_412'];
 $gdinner_memb_u14 = $_POST['gdinner_memb_u14'];
 
-	//36 EUR for over 12, 18 EUR for 4-12	
-	$dayTwoFee = 36 * $gdinner_memb_o12 + 18 * $gdinner_memb_412;
+	//54 EUR for over 12, 27 EUR for 4-12	
+	$dayTwoAtt = $gdinner_memb_o12 + $gdinner_memb_412 + $gdinner_memb_u14;
+	$dayTwoFee = 54 * $gdinner_memb_o12 + 27 * $gdinner_memb_412;
 
+//Day Three	
 $pic_memb_o12 = $_POST['pic_memb_o12'];
 $pic_memb_412 = $_POST['pic_memb_412'];
 $pic_memb_u14 = $_POST['pic_memb_u14'];
 
-	//10 EUR for over 12, 5 EUR for 4-12
-	$dayThreeFee = 10 * $pic_memb_o12 + 5 * $pic_memb_412;
+	//14 EUR for over 12, 7 EUR for 4-12
+	$dayThreeAtt = $pic_memb_o12 + $pic_memb_412 + $pic_memb_u14;
+	$dayThreeFee = 14 * $pic_memb_o12 + 7 * $pic_memb_412;
 
+$totalFee = $dayOneFee + $dayTwoFee + $dayThreeFee;	
 	
-echo $dayOneFee.'<br>';
-echo $dayTwoFee.'<br>';
-echo $dayThreeFee.'<br>';
+$conn = db_connect();
 
-echo 'Total fee calculated';
-echo $dayOneFee + $dayTwoFee + $dayThreeFee;
+$result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'");
+	$sor=mysqli_fetch_array($result);
+	$aid=$sor['AID'];
 
+	$insert_family_reg=$conn->query("INSERT INTO reunion_family (AID, family_members, welcome_memb_o12, welcome_memb_412, welcome_memb_u4, sight_memb_o12, sight_memb_412, sight_memb_u4, dinner_memb_o12, dinner_memb_412, dinner_memb_u14, gdinner_memb_o12, gdinner_memb_412, gdinner_memb_u14, pic_memb_o12, pic_memb_412, pic_memb_u14, dayOneFee, dayOneAtt, dayTwoFee, dayTwoAtt, dayThreeFee, dayThreeAtt, totalFee) VALUES ('$aid', '$family_members', '$welcome_memb_o12', '$welcome_memb_412', '$welcome_memb_u4', '$sight_memb_o12', '$sight_memb_412', '$sight_memb_u4', '$dinner_memb_o12', '$dinner_memb_412', '$dinner_memb_u14', '$gdinner_memb_o12', '$gdinner_memb_412', '$gdinner_memb_u14', '$pic_memb_o12', '$pic_memb_412', '$pic_memb_u14', '$dayOneFee', '$dayOneAtt', '$dayTwoFee', '$dayTwoAtt', '$dayThreeFee', '$dayThreeAtt', '$totalFee')");
+
+	mainContentDivOpen();
+	?><h3>Registered Family Members</h3><?php
+		echo 'Total fee for day one: '.$dayOneFee.' EUR for '.$dayOneAtt.' Family Members.<br>';
+		echo 'Total fee for day two: '.$dayTwoFee.' EUR for '.$dayTwoAtt.' Family Members.<br>';
+		echo 'Total fee for day three: '.$dayThreeFee.' EUR for '.$dayThreeAtt.' Family Members.<br>';
+		echo 'Total fee calculated: '.$totalFee.' EUR';
+	mainContentDivClose();	
+do_html_footer();	
+	
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

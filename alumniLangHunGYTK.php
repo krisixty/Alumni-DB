@@ -529,6 +529,11 @@
 	$reunionParagraph1Lng = "Please check back later, following the verification of your data.";
 	$reunionParagraph2Lng = "Please check back later, registration to the Reunion Weekend will be open from early spring 2015.";
 	$reunionWeekendLng = "Reunion Weekend 2015 website";
+	$reunionForFamily1Lng = "To register family members for the event you must register yourself first. After doing so, the registration form for family members will appear.";
+	$reunionParagraphNoContacts1Lng = "Please fill in your contacts info first";
+	$reunionHereLng = "here";
+	$reunionParagraphNoContacts2Lng = "and after that you can register.";
+	$reunionAlreadyLng = "Thank you for your registration to the Reunion Weekend 2015. If you would like to bring family member(s), you can register them ";
 	
 	
 	//ALUMNI COMMUNITY
