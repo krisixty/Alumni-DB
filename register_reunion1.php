@@ -1,26 +1,16 @@
 <?php
 session_start();
-//require_once('pagecontents.php');
+require_once('pagecontents.php');
 require_once('alumni_includes.php');
-
-//do_html_header('');
+do_html_header('');
 check_valid_user();
+
 $username=$_SESSION['valid_user'];
 
 //Day One
 $welcome_reception = $_POST['welcome_reception'];
 $sightseeing = $_POST['sightseeing'];
 $dinner = $_POST['dinner'];
-
-	
-	
-	
-	if(isset($welcome_reception) || ($sightseeing) || ($dinner))  {
-		$dayOneFee = 20;
-		}	
-	else {
-		$dayOneFee = 0;
-		}	 
 
 
 //Day Two 
@@ -29,22 +19,81 @@ $students_meet = $_POST['students_meet'];
 $cme_ws = $_POST['cme_ws'];
 $gala_dinner = $_POST['gala_dinner'];
 
-	$dayOneFee = 60*($welcome_reception + $sightseeing + $dinner);
-
 //Day Three
 $picnic = $_POST['picnic'];
+	
+$dayOneFee = 0;	
+$dayTwoFee = 0;
+$dayThreeFee = 0; 
+$regFee = 0;
+	
+	
+	isNotGraduated();
+	freePlaces();
+	
+	if (($notGraduated == true) || ($freePlaces == 0)) {
+	
+		if(isset($welcome_reception) || ($sightseeing) || ($dinner))  {
+			$dayOneFee = 34;
+			}	
+		else {
+			$dayOneFee = 0;
+			}	
+		
+		if(isset($presentations) || ($students_meet) || ($cme_ws) || ($gala_dinner))  {
+			$dayTwoFee = 90;
+			}	
+		else {
+			$dayTwoFee = 0;
+			}
+		
+		if(isset($picnic))  {
+			$dayThreeFee = 14;
+			}	
+		else {
+			$dayThreeFee = 0;
+			}
+		
+		$regFee = 30;	
+	}
+	$totalFee = $dayOneFee+$dayTwoFee+$dayThreeFee+$regFee;
+	
 
-//if not in the first 100 alumni or not graduated just partially studied
-echo 'Total fee for day one: '.$dayOneFee.' EUR<br>';
-echo 'Total fee for day two: '.$dayTwoFee.' EUR<br>';
-echo 'Total fee for day three: '.$dayThreeFee.' EUR<br>';
-echo 'Total fee calculated: '.$totalFee.' EUR';
+	mainContentDivOpen();
+	?><h3>Registered</h3><?php
+	
+		if ((!$welcome_reception) && (!$sightseeing) && (!$dinner) && (!$presentations) && (!$students_meet) && (!$cme_ws) && (!$gala_dinner) && (!$picnic)) {
+			echo 'You have not checked any program!';
+			mainContentDivClose();	
+			do_html_footer();
+			exit;
+		}
+		
+		$conn = db_connect();
+		$result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'");
+			$sor=mysqli_fetch_array($result);
+			$aid=$sor['AID'];
 
-$conn = db_connect();
+		$insert_reunion_reg=$conn->query("INSERT INTO reunion_registration (AID, welcome_reception, sightseeing, dinner, presentations, students_meet, cme_ws, gala_dinner, picnic, dayOneFee, dayTwoFee, dayThreeFee, regFee, totalFee) VALUES ('$aid', '$welcome_reception', '$sightseeing', '$dinner', '$presentations', '$cme_ws', '$students_meet', '$gala_dinner', '$picnic', '$dayOneFee', '$dayTwoFee', '$dayThreeFee', '$regFee', '$totalFee')");
 
-$result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'");
-	$sor=mysqli_fetch_array($result);
-	$aid=$sor['AID'];
+		/*
+			if (!$insert_reunion_reg)
+				{
+				throw new Exception('Could not register you in database. Please try again later.');
+				}
+				try
+					{
+					send_alumni_email($username);
+					}
+					catch (Exception $e)
+					{
+					echo 'Confirmation email could not be sent. Please try again later.';
+					do_html_footer();
+					}*/
+		
+		include 'reunion_regstatus.php';	
+		echo 'Thank you for your registration for Reunion Weekend 2015!<br><br>';
+	
+	mainContentDivClose();	
+do_html_footer();	
 
-
-$insert_reunion_reg=$conn->query("INSERT INTO reunion_registration (AID, welcome_reception, sightseeing, dinner, presentations, students_meet, cme_ws, gala_dinner, picnic, dayOneFee, dayTwoFee, dayThreeFee, totalFee) VALUES ('$aid', '$welcome_reception', '$sightseeing', '$dinner', '$presentations', '$cme_ws', '$students_meet', '$gala_dinner', '$picnic', '$dayOneFee', '$dayTwoFee', '$dayThreeFee', '$totalFee')");

@@ -443,6 +443,29 @@ function contentReunionRegistration() {
 	global $showDayOneFee;
 	global $showDayTwoFee;
 	global $showDayThreeFee;
+	global $reunionRegPrgLng;
+	
+	//Day One
+	global $dayOneLng;
+	global $welcome_receptionLng;
+	global $sightseeingLng;
+	global $dinnerLng;
+	
+	//Day Two
+	global $dayTwoLng;
+	global $presentationsLng;
+	global $students_meetLng;
+	global $cme_wsLng;
+	global $gala_dinnerLng;
+	//Day Three
+	global $dayThreeLng;
+	global $picnicLng;
+	
+	global $dayOneFee;
+	global $dayTwoFee;
+	global $dayThreeFee;
+	global $regFee;
+	global $totalFee;
 	
 	
 ?>
@@ -465,7 +488,10 @@ check_valid_user();
 			is_ReunionRegistration();
 			
 				if ($reunionRegistered) {
-				?><p><?php echo $reunionAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'</a>.'?></p><?php
+				?><p><?php echo $reunionAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'.</a><br><br>'.$reunionRegPrgLng;?></p><?php
+				
+				//reunion events query goes here
+				include 'reunion_regstatus.php';
 				
 				}
 				if (!$reunionRegistered) {

@@ -532,6 +532,24 @@
 	$reunionHereLng = "here";
 	$reunionParagraphNoContacts2Lng = "and after that you can register.";
 	$reunionAlreadyLng = "Thank you for your registration to the Reunion Weekend 2015. If you would like to bring family member(s), you can register them ";
+	$reunionRegPrgLng = "You have registered yourself for the following programs: ";
+	
+	//REUNION REGISTRATION FORM
+	//Day One
+	$dayOneLng = "Day 1. Friday";
+	$welcome_receptionLng = "14:00 Welcome reception";
+	$sightseeingLng = "16:00 Sightseeing tour";
+	$dinnerLng  = "19:00 Dinner";
+	//Day Two
+	$dayTwoLng = "Day 2. Saturday";
+	$presentationsLng = "9:30 Presentations, Prize award ceremony, tree planting, photoshooting, luncheon";
+	$students_meetLng = "13:30 Students meet Alumni";
+	$cme_wsLng = "14.30 CME workshops";
+	$gala_dinnerLng = "20:00 Gala-dinner with show";
+	//Day Three
+	$dayThreeLng = "Day 3. Sunday";
+	$picnicLng = "10:00 SUMAA Picnic with the professors and students";
+	
 	
 	//ALUMNI COMMUNITY
 	

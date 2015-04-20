@@ -349,6 +349,16 @@ function is_ReunionRegistration() {
 		if ($result_reunion_registration->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
 			{
 			$reunionRegistered = true;
+			
+			$welcome_reception=$sor['welcome_reception'];
+			$sightseeing=$sor['sightseeing'];
+			$dinner=$sor['dinner'];	
+			$presentations=$sor['presentations'];	
+			$students_meet=$sor['students_meet'];	
+			$cme_ws=$sor['cme_ws'];	
+			$gala_dinner=$sor['gala_dinner'];			
+			$picnic=$sor['picnic'];	
+			
 			} 
 		else
 			{
@@ -375,7 +385,7 @@ function isNotGraduated() {
 		$sor=mysqli_fetch_array($result_not_grad);
 	
 	
-		if ($result_not_grad->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
+		if ($result_not_grad->num_rows>0) //Check if user is a graduate or not
 			{
 			$notGraduated = true;
 			} 

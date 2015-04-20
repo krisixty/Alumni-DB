@@ -1054,41 +1054,57 @@ function display_alumni_mate_table_head() {
 		global $showDayOneFee;
 		global $showDayTwoFee;
 		global $showDayThreeFee;
+		
+		//Day One
+		global $dayOneLng;
+		global $welcome_receptionLng;
+		global $sightseeingLng;
+		global $dinnerLng;
+		//Day Two
+		global $dayTwoLng;
+		global $presentationsLng;
+		global $students_meetLng;
+		global $cme_wsLng;
+		global $gala_dinnerLng;
+		//Day Three
+		global $dayThreeLng;
+		global $picnicLng;
 ?>	
 		  <form action="register_reunion1.php" method="post">
 			
 			<p>Check the programs you would like to attend to:</p>
 			
 			<fieldset>
-				<legend>Day 1. Friday</legend>
+				<legend><?php echo $dayOneLng;?></legend>
 				<?php echo $showDayOneFee; //if not in the first 100 alumni or not graduated just partially studied?>
 				<br>
 				
-				14:00 Welcome reception 
+				<?php echo $welcome_receptionLng;?>
 				<input type="checkbox" name="welcome_reception" value=1 /><br>
-				16:00 Sightseeing tour 
+				<?php echo $sightseeingLng;?>
 				<input type="checkbox" name="sightseeing" id="sightseeing" value=1 /><br>
-				19:00 Dinner 
+				<?php echo $dinnerLng;?> 
 				<input type="checkbox" name="dinner" id="dinner" value=1 /><br><br>
 				
-				<legend>Day 2. Saturday</legend>
+				<legend><?php echo $dayTwoLng;?></legend>
 				<?php echo $showDayTwoFee; //if not in the first 100 alumni or not graduated just partially studied?>
 				<br>
 				
-				9:30 Presentations, Prize award ceremony, tree planting, photoshooting, luncheon
+				<?php echo $presentationsLng;?>
 				<input type="checkbox" name="presentations" id="presentations" value=1 /><br>
-				13:30 Students meet Alumni
+				<?php echo $students_meetLng;?>
 				<input type="checkbox" name="students_meet" id="students_meet" value=1 /><br>
-				14.30 CME workshops
+				<?php echo $cme_wsLng;?>
 				<input type="checkbox" name="cme_ws" id="cme_ws" value=1 /><br>
-				20:00	Gala-dinner with show
+				<?php echo $gala_dinnerLng;?>
 				<input type="checkbox" name="gala_dinner" id="gala_dinner" value=1 /><br><br>
 				
-				<legend>Day 3. Sunday</legend>
+				<legend><?php echo $dayThreeLng;?></legend>
 				<?php echo $showDayThreeFee; //if not in the first 100 alumni or not graduated just partially studied?>
 				<br>
 				
-				10:00 SUMAA Picnic and football with the professors <input type="checkbox" name="picnic" id="picnic" value=1 /><br><br>
+				<?php echo $picnicLng;?>
+				<input type="checkbox" name="picnic" id="picnic" value=1 /><br><br>
 				
 				<?php //if not in the first 100 alumni or not graduated just partially studied?>	
 				Registration fee (including registration package): 30 EUR
