@@ -284,7 +284,7 @@ function alumniMainContent() {
 					contentReunionRegistration(); 
 				}	
 			if ($pg_content == 'reunion_registration_family') {
-					display_family_form();
+					contentFamilyRegistration();
 				}		
 				
 			if ($pg_content == 'forgot_form') {
@@ -1133,17 +1133,40 @@ function display_alumni_mate_table_head() {
 
 <?php
 	function display_family_form() {
-?>	
-		<h3>Registration form for Family Members</h3>
 
+		global $famHeaderLng;
+		global $famLegendLng;
+		global $famLabelLng;
+
+		global $famMembersLng1;
+		global $famMembersLng2;
+		global $famMembersLng3;
+						
+		global $famMembOver12Lng;
+		global $famMembBtw412Lng;
+		global $famMembUnder4Lng;
+		
+		//Day One
+		global $dayOneLng;
+		global $welcome_receptionLng;
+		global $sightseeingLng;
+		global $dinnerLng;
+		//Day Two
+		global $dayTwoLng;
+		global $presentationsLng;
+		global $students_meetLng;
+		global $cme_wsLng;
+		global $gala_dinnerLng;
+		//Day Three
+		global $dayThreeLng;
+		global $picnicLng;
+?>	
 			<form action="register_family.php" method="post" target="_blank">
 				
-				<p>Please list the name of your family members invited and also include the age of your child(ren).</p>
-				
 				<fieldset>
-					<legend>Family Members</legend>
+					<legend><?php echo $famLegendLng;?></legend>
 				
-				<label for="family_members">family members</label>
+				<label for="family_members"><?php echo $famLabelLng;?></label>
 				<textarea id="family_members" name="family_members"></textarea>
 				
 				<!--	
@@ -1168,57 +1191,53 @@ function display_alumni_mate_table_head() {
 				</fieldset>
 
 				<fieldset>
-					<legend>Day 1. Friday</legend>
-					<p>family members:<br> 		
-					adults/children over 12: 34 EUR<br>
-					children between 4-12: 17 EUR<br>
-					children under 4: free<br>
-					</p>
+					<legend><?php echo $dayOneLng; ?></legend>
+					<p><?php echo $famMembersLng1; ?></p>
 						
-						14:00 Welcome reception<br>	
-							<label for="welcome_memb_o12">attending adult(s) and children over 12:</label>
+						<?php echo $welcome_receptionLng; ?><br>	
+							<label for="welcome_memb_o12"><?php echo $famMembOver12Lng; ?></label>
 							<select id="welcome_memb_o12" name="welcome_memb_o12">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="welcome_memb_412">attending child(ren) between 4-12:</label>
+							<label for="welcome_memb_412"><?php echo$famMembBtw412Lng; ?></label>
 							<select id="welcome_memb_412" name="welcome_memb_412">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="welcome_memb_u4">attending child(ren) under 4:</label>
+							<label for="welcome_memb_u4"><?php echo $famMembUnder4Lng; ?></label>
 							<select id="welcome_memb_u4" name="welcome_memb_u4">
 										<?php memberNumber(); ?>
 							</select>
 						
-						16:00 Sightseeing tour<br>	
-							<label for="sight_memb_o12">attending adult(s) and children over 12:</label>
+						<?php echo $sightseeingLng; ?><br>	
+							<label for="sight_memb_o12"><?php echo $famMembOver12Lng; ?></label>
 							<select id="sight_memb_o12" name="sight_memb_o12">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="sight_memb_412">attending child(ren) between 4-12:</label>
+							<label for="sight_memb_412"><?php echo $famMembBtw412Lng; ?></label>
 							<select id="sight_memb_412" name="sight_memb_412">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="sight_memb_u4">attending child(ren) under 4:</label>
+							<label for="sight_memb_u4"><?php echo $famMembUnder4Lng; ?></label>
 							<select id="sight_memb_u4" name="sight_memb_u4">
 										<?php memberNumber(); ?>
 							</select>
 						
-						19:00 Dinner<br>	
-							<label for="dinner_memb_o12">attending adult(s) and children over 12:</label>
+						<?php echo $dinnerLng; ?><br>	
+							<label for="dinner_memb_o12"><?php echo $famMembOver12Lng; ?></label>
 							<select id="dinner_memb_o12" name="dinner_memb_o12">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="dinner_memb_412">attending child(ren) between 4-12:</label>
+							<label for="dinner_memb_412"><?php echo $famMembBtw412Lng; ?></label>
 							<select id="dinner_memb_412" name="dinner_memb_412">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="dinner_memb_u14">attending child(ren) under 4:</label>
+							<label for="dinner_memb_u14"><?php echo $famMembUnder4Lng; ?></label>
 							<select id="dinner_memb_u14" name="dinner_memb_u14">
 										<?php memberNumber(); ?>
 							</select>
@@ -1226,25 +1245,21 @@ function display_alumni_mate_table_head() {
 				</fieldset>
 
 				<fieldset>
-				<legend>Day 2. Saturday</legend>
-					<p>family members:<br> 		
-					adults/children over 12: 54 EUR<br>
-					children between 4-12: 27 EUR<br>
-					children under 4: free<br>
-					</p>
+				<legend><?php echo $dayTwoLng; ?></legend>
+					<p><?php echo $famMembersLng2; ?></p>
 					
-						20:00 Gala-dinner with show<br>
-							<label for="gdinner_memb_o12">attending adult(s) and children over 12:</label>
+						<?php echo $gala_dinnerLng; ?><br>
+							<label for="gdinner_memb_o12"><?php echo $famMembOver12Lng; ?></label>
 							<select id="gdinner_memb_o12" name="gdinner_memb_o12">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="gdinner_memb_412">attending child(ren) between 4-12:</label>
+							<label for="gdinner_memb_412"><?php echo $famMembBtw412Lng; ?></label>
 							<select id="gdinner_memb_412" name="gdinner_memb_412">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="gdinner_memb_u14">attending child(ren) under 4:</label>
+							<label for="gdinner_memb_u14"><?php echo $famMembUnder4Lng; ?></label>
 							<select id="gdinner_memb_u14" name="gdinner_memb_u14">
 										<?php memberNumber(); ?>
 							</select>
@@ -1252,25 +1267,21 @@ function display_alumni_mate_table_head() {
 				</fieldset>
 				
 				<fieldset>
-				<legend>Day 3. Sunday</legend>
-					<p>family members:<br> 		
-					adults/children over 12: 14 EUR<br>
-					children between 4-12: 7 EUR<br>
-					children under 4: free<br>
-					</p>
+				<legend><?php echo $dayThreeLng; ?></legend>
+					<p><?php echo $famMembersLng3; ?></p>
 					
-						10:00 SUMAA Picnic and 	football with the professors<br>
-							<label for="pic_memb_o12">attending adult(s) and children over 12:</label>
+						<?php echo $picnicLng; ?><br>
+							<label for="pic_memb_o12"><?php echo $famMembOver12Lng; ?></label>
 							<select id="pic_memb_o12" name="pic_memb_o12">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="pic_memb_412">attending child(ren) between 4-12:</label>
+							<label for="pic_memb_412"><?php echo$famMembBtw412Lng; ?></label>
 							<select id="pic_memb_412" name="pic_memb_412">
 										<?php memberNumber(); ?>
 							</select>
 							
-							<label for="pic_memb_u14">attending child(ren) under 4:</label>
+							<label for="pic_memb_u14"><?php echo $famMembUnder4Lng; ?></label>
 							<select id="pic_memb_u14" name="pic_memb_u14">
 										<?php memberNumber(); ?>
 							</select>

@@ -26,9 +26,7 @@ if ($reunionRegistered) {
 						$dayTwoFee = $sor['dayTwoFee'];
 						$dayThreeFee = $sor['dayThreeFee'];
 						$regFee = $sor['regFee'];
-						$totalFee = $sor['totalFee'];
-						
-						
+						$totalFee = $sor['totalFee'];					
 		}				
 
 

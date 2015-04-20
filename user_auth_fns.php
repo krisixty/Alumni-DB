@@ -286,6 +286,11 @@ function send_verification_email($graduate_username)
     }
 }
 
+function aidGetter() {
+		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
+		$sor=mysqli_fetch_array($result);
+		$aid=$sor['AID'];
+}
 
 function is_verified() {
 
@@ -349,16 +354,6 @@ function is_ReunionRegistration() {
 		if ($result_reunion_registration->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
 			{
 			$reunionRegistered = true;
-			
-			$welcome_reception=$sor['welcome_reception'];
-			$sightseeing=$sor['sightseeing'];
-			$dinner=$sor['dinner'];	
-			$presentations=$sor['presentations'];	
-			$students_meet=$sor['students_meet'];	
-			$cme_ws=$sor['cme_ws'];	
-			$gala_dinner=$sor['gala_dinner'];			
-			$picnic=$sor['picnic'];	
-			
 			} 
 		else
 			{
@@ -366,10 +361,28 @@ function is_ReunionRegistration() {
 			}
 }
 
-function aidGetter() {
+function is_FamilyRegistration() {
+
+	global $familyRegistered;
+	
+		$username=$_SESSION['valid_user'];
+		$conn = db_connect();
+		
 		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
 		$sor=mysqli_fetch_array($result);
 		$aid=$sor['AID'];
+		
+		$result_reunion_family=$conn->query("SELECT * FROM reunion_family WHERE AID='$aid'");
+		$sor=mysqli_fetch_array($result_reunion_family);
+	
+		if ($result_reunion_family->num_rows>0) //vizsgálja, hogy kitöltötte-e már a kapcsolatokat
+			{
+			$familyRegistered = true;
+			} 
+		else
+			{
+			$familyRegistered = false;
+			}
 }
 
 function isNotGraduated() {

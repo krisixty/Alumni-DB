@@ -435,11 +435,15 @@ function contentReunionRegistration() {
 	global $reunionParagraphNoContacts2Lng;
 	global $reunionHereLng;
 	global $reunionAlreadyLng;
+	global $reunionFamAlreadyLng;
+	
 	global $verification_result;
 	global $contactsFill;
 	global $freePlaces;
 	global $reunionRegistered;
+	global $familyRegistered;
 	global $notGraduated;
+	
 	global $showDayOneFee;
 	global $showDayTwoFee;
 	global $showDayThreeFee;
@@ -488,10 +492,21 @@ check_valid_user();
 			is_ReunionRegistration();
 			
 				if ($reunionRegistered) {
-				?><p><?php echo $reunionAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'.</a><br><br>'.$reunionRegPrgLng;?></p><?php
 				
-				//reunion events query goes here
+				
+				is_FamilyRegistration();
+				
+					if (!$familyRegistered) {
+					?><p><?php echo $reunionAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'.</a><br><br>'.$reunionRegPrgLng;?></p><?php
+					}
+					
+					if ($familyRegistered) {
+					?><p><?php echo $reunionFamAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'.</a><br><br>'.$reunionRegPrgLng;?></p><?php
+					}
+					
+					//reunion events query goes here
 				include 'reunion_regstatus.php';
+				
 				
 				}
 				if (!$reunionRegistered) {
@@ -525,6 +540,44 @@ check_valid_user();
 	}
 }
 ?>
+
+<?php
+function contentFamilyRegistration() {
+	
+	global $famHeaderLng;
+	global $reunionRegistered;
+	global $familyRegistered;
+	global $mustFirstYouLng;
+?>
+	<h3><?php print $famHeaderLng ; ?></h3>
+<?php	
+		is_ReunionRegistration();
+			
+			if ($reunionRegistered) {
+				
+				is_FamilyRegistration();
+				
+					if (!$familyRegistered) {
+					display_family_form();
+					}
+					
+					if ($familyRegistered) {
+					?><p>Note: Registered family members go here.</p><?php
+					}
+					
+					//reunion events query goes here
+				//include 'reunion_family_regstatus.php';
+				
+				
+			}
+			
+			if (!$reunionRegistered) {
+				?><p><?php echo $mustFirstYouLng;?></p><?php
+				}			
+}
+
+?>
+
 
 <?php
 function contentAlumniCommunity() {

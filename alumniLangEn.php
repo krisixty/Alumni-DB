@@ -531,8 +531,10 @@
 	$reunionParagraphNoContacts1Lng = "Please fill in your contacts info first";
 	$reunionHereLng = "here";
 	$reunionParagraphNoContacts2Lng = "and after that you can register.";
-	$reunionAlreadyLng = "Thank you for your registration to the Reunion Weekend 2015. If you would like to bring family member(s), you can register them ";
+	$reunionAlreadyLng = "Thank you for your registration for the Reunion Weekend 2015. If you would like to bring family member(s), you can register them ";
+	$reunionFamAlreadyLng = "Thank you for your registration for the Reunion Weekend 2015. You can check your registered family member(s) ";
 	$reunionRegPrgLng = "You have registered yourself for the following programs: ";
+	
 	
 	//REUNION REGISTRATION FORM
 	//Day One
@@ -549,6 +551,29 @@
 	//Day Three
 	$dayThreeLng = "Day 3. Sunday";
 	$picnicLng = "10:00 SUMAA Picnic with the professors and students";
+	
+	//REUNION REGISTRATION FORM FOR FAMILY MEMBERS
+	$famHeaderLng = "Registration form for Family Members for Reunion Weekend 2015";
+	$famLegendLng = "Family Members";
+	$famLabelLng = "Please list the name of your family members invited and also include the age of your child(ren).";
+	$famMembersLng1 = "family members:<br> 		
+					adults/children over 12: 34 EUR<br>
+					children between 4-12: 17 EUR<br>
+					children under 4: free<br>";
+	$famMembersLng2	= "family members:<br> 		
+					adults/children over 12: 54 EUR<br>
+					children between 4-12: 27 EUR<br>
+					children under 4: free<br>";
+	$famMembersLng3	= "family members:<br> 		
+					adults/children over 12: 14 EUR<br>
+					children between 4-12: 7 EUR<br>
+					children under 4: free<br>";
+					
+	$famMembOver12Lng = "attending adult(s) and children over 12: ";
+	$famMembBtw412Lng = "attending child(ren) between 4-12: ";
+	$famMembUnder4Lng = "attending child(ren) under 4: ";
+	$mustFirstYouLng = "You must register yourself first.";				
+	
 	
 	
 	//ALUMNI COMMUNITY
