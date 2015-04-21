@@ -1054,6 +1054,7 @@ function display_alumni_mate_table_head() {
 		global $showDayOneFee;
 		global $showDayTwoFee;
 		global $showDayThreeFee;
+		global $showRegFee;
 		
 		//Day One
 		global $dayOneLng;
@@ -1069,6 +1070,7 @@ function display_alumni_mate_table_head() {
 		//Day Three
 		global $dayThreeLng;
 		global $picnicLng;
+		global $acknowledgeLng;
 ?>	
 		  <form action="register_reunion1.php" method="post">
 			
@@ -1106,9 +1108,11 @@ function display_alumni_mate_table_head() {
 				<?php echo $picnicLng;?>
 				<input type="checkbox" name="picnic" id="picnic" value=1 /><br><br>
 				
+				<?php echo $acknowledgeLng; ?>
+				<input type="checkbox" name="acknowledge" id="acknowledge" value=1 /><br><br>
+				
 				<?php //if not in the first 100 alumni or not graduated just partially studied?>	
-				Registration fee (including registration package): 30 EUR
-		  
+				<?php echo $showRegFee; ?>
 			</fieldset>
 				
 			<button type="submit">Register</button>

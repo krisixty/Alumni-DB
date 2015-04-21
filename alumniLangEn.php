@@ -551,7 +551,7 @@
 	//Day Three
 	$dayThreeLng = "Day 3. Sunday";
 	$picnicLng = "10:00 SUMAA Picnic with the professors and students";
-	
+	$acknowledgeLng = "I acknowledge that after having registered for the event, my name will appear on the reunion’s website. ";
 	//REUNION REGISTRATION FORM FOR FAMILY MEMBERS
 	$famHeaderLng = "Registration form for Family Members for Reunion Weekend 2015";
 	$famLegendLng = "Family Members";

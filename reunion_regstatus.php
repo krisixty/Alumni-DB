@@ -70,7 +70,7 @@ if ($reunionRegistered) {
 				echo $picnicLng.'<br><br>';
 				}
 		
-		echo 'Fee for day one: '.$dayOneFee.' EUR<br>';
+		echo '<br>Fee for day one: '.$dayOneFee.' EUR<br>';
 		echo 'Fee for day two: '.$dayTwoFee.' EUR<br>';
 		echo 'Fee for day three: '.$dayThreeFee.' EUR<br>';
 		echo 'Registration fee: '.$regFee.' EUR<br>';

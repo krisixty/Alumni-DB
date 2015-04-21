@@ -54,10 +54,10 @@ $result=$conn->query("SELECT AID FROM graduate_data WHERE username='$username'")
 
 	mainContentDivOpen();
 	?><h3>Registered Family Members</h3><?php
-		echo 'Total fee for day one: '.$dayOneFee.' EUR for '.$dayOneAtt.' Family Members.<br>';
-		echo 'Total fee for day two: '.$dayTwoFee.' EUR for '.$dayTwoAtt.' Family Members.<br>';
-		echo 'Total fee for day three: '.$dayThreeFee.' EUR for '.$dayThreeAtt.' Family Members.<br>';
-		echo 'Total fee calculated: '.$totalFee.' EUR';
+	
+		include 'reunion_family_regstatus.php';	
+		echo 'Thank you for registering your family members for Reunion Weekend 2015!<br><br>';
+
 	mainContentDivClose();	
 do_html_footer();	
 	

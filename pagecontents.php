@@ -493,7 +493,6 @@ check_valid_user();
 			
 				if ($reunionRegistered) {
 				
-				
 				is_FamilyRegistration();
 				
 					if (!$familyRegistered) {
@@ -506,8 +505,6 @@ check_valid_user();
 					
 					//reunion events query goes here
 				include 'reunion_regstatus.php';
-				
-				
 				}
 				if (!$reunionRegistered) {
 				?><p><?php echo $reunionForFamily1Lng;?></p><?php
@@ -548,6 +545,37 @@ function contentFamilyRegistration() {
 	global $reunionRegistered;
 	global $familyRegistered;
 	global $mustFirstYouLng;
+	
+	//Day One
+	global $dayOneLng;
+	global $welcome_receptionLng;
+	global $sightseeingLng;
+	global $dinnerLng;
+	
+	//Day Two
+	global $dayTwoLng;
+	global $presentationsLng;
+	global $students_meetLng;
+	global $cme_wsLng;
+	global $gala_dinnerLng;
+	//Day Three
+	global $dayThreeLng;
+	global $picnicLng;
+	
+	global $famMembersLng1;
+	global $famMembersLng2;
+	global $famMembersLng3;
+		
+	global $famMembOver12Lng;
+	global $famMembBtw412Lng;
+	global $famMembUnder4Lng;
+	
+	global $dayOneFee;
+	global $dayTwoFee;
+	global $dayThreeFee;
+	global $regFee;
+	global $totalFee;
+	
 ?>
 	<h3><?php print $famHeaderLng ; ?></h3>
 <?php	
@@ -562,13 +590,9 @@ function contentFamilyRegistration() {
 					}
 					
 					if ($familyRegistered) {
-					?><p>Note: Registered family members go here.</p><?php
-					}
-					
 					//reunion events query goes here
-				//include 'reunion_family_regstatus.php';
-				
-				
+					include 'reunion_family_regstatus.php';
+					}
 			}
 			
 			if (!$reunionRegistered) {

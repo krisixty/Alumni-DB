@@ -286,6 +286,28 @@ function send_verification_email($graduate_username)
     }
 }
 
+function send_reunion_email($graduate_username)
+// notify the user that their password has been changed
+{
+    $conn = db_connect();
+    $result = $conn->query("SELECT email FROM user
+                            WHERE username='$graduate_username'");
+    if (!$result)
+    {
+      throw new Exception('Could not find email address.');  
+    }
+    else if ($result->num_rows==0)
+    {
+      throw new Exception('Could not find email address.');   // username not in db
+    }
+    else
+    {
+      $row = $result->fetch_object();
+      $to = $row->email;
+      include('email_reunion.php');
+    }
+}
+
 function aidGetter() {
 		$result=$conn->query("SELECT * FROM graduate_data WHERE username='$username'");
 		$sor=mysqli_fetch_array($result);
@@ -413,10 +435,12 @@ function showFees() {
 	global $showDayOneFee;
 	global $showDayTwoFee;
 	global $showDayThreeFee;
+	global $showRegFee;
 
 		$showDayOneFee = "34 EUR<br>";
 		$showDayTwoFee = "90 EUR<br>";
 		$showDayThreeFee = "14 EUR<br>";
+		$showRegFee = "Registration fee (including registration package): 30 EUR" ;
 }
 
 

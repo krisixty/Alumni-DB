@@ -21,12 +21,21 @@ $gala_dinner = $_POST['gala_dinner'];
 
 //Day Three
 $picnic = $_POST['picnic'];
+$acknowledge = $_POST['acknowledge'];
 	
 $dayOneFee = 0;	
 $dayTwoFee = 0;
 $dayThreeFee = 0; 
 $regFee = 0;
 	
+if (!$acknowledge){
+	mainContentDivOpen();
+		?><h3>Registration Failed</h3>
+		<p>You must tick the acknowledgement.</p><?php
+	mainContentDivClose();	
+do_html_footer();
+	exit;
+}	
 	
 	isNotGraduated();
 	freePlaces();
@@ -74,7 +83,7 @@ $regFee = 0;
 			$sor=mysqli_fetch_array($result);
 			$aid=$sor['AID'];
 
-		$insert_reunion_reg=$conn->query("INSERT INTO reunion_registration (AID, welcome_reception, sightseeing, dinner, presentations, students_meet, cme_ws, gala_dinner, picnic, dayOneFee, dayTwoFee, dayThreeFee, regFee, totalFee) VALUES ('$aid', '$welcome_reception', '$sightseeing', '$dinner', '$presentations', '$cme_ws', '$students_meet', '$gala_dinner', '$picnic', '$dayOneFee', '$dayTwoFee', '$dayThreeFee', '$regFee', '$totalFee')");
+		$insert_reunion_reg=$conn->query("INSERT INTO reunion_registration (AID, welcome_reception, sightseeing, dinner, presentations, students_meet, cme_ws, gala_dinner, picnic, acknowledge, dayOneFee, dayTwoFee, dayThreeFee, regFee, totalFee) VALUES ('$aid', '$welcome_reception', '$sightseeing', '$dinner', '$presentations', '$cme_ws', '$students_meet', '$gala_dinner', '$picnic', '$acknowledge', '$dayOneFee', '$dayTwoFee', '$dayThreeFee', '$regFee', '$totalFee')");
 
 		/*
 			if (!$insert_reunion_reg)
