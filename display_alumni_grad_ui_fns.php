@@ -1165,7 +1165,7 @@ function display_alumni_mate_table_head() {
 		global $dayThreeLng;
 		global $picnicLng;
 ?>	
-			<form action="register_family.php" method="post" target="_blank">
+			<form action="register_family.php" method="post">
 				
 				<fieldset>
 					<legend><?php echo $famLegendLng;?></legend>

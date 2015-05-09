@@ -404,8 +404,10 @@ function adminMainPage() {
 	global $mainPageAddGraduatesLng;
 	global $mainPageGraduatesLng;
 	global $mainPageGraduatesRegLng;
+	global $mainPageFamilyRegLng;
 	global $mainPageSurveyListLng;
-	global $mainPageLogoutLng ;
+	global $mainPageLogoutLng;
+	global $mainPageGraduatesReunLng;
 	
 	
 ?>
@@ -416,6 +418,8 @@ function adminMainPage() {
 	<a href="graduates.php"><?php print $mainPageGraduatesLng ; ?></a><br>
 	<a href="graduates_registered.php"><?php print $mainPageGraduatesRegLng ; ?></a><br>
 	<a href="survey_list.php"><?php print $mainPageSurveyListLng; ?></a><br>
+	<a href="reunion_list.php"><?php print $mainPageGraduatesReunLng; ?></a><br>
+	<a href="family_list.php"><?php print $mainPageFamilyRegLng; ?></a><br>
 	<a href="logout2.php"><?php print $mainPageLogoutLng ; ?></a>
 	
 </p>	
@@ -448,6 +452,7 @@ function contentReunionRegistration() {
 	global $showDayTwoFee;
 	global $showDayThreeFee;
 	global $reunionRegPrgLng;
+	global $reunionPymntLng; 
 	
 	//Day One
 	global $dayOneLng;
@@ -575,7 +580,7 @@ function contentFamilyRegistration() {
 	global $dayThreeFee;
 	global $regFee;
 	global $totalFee;
-	
+	global $reunionPymntLng; 	
 ?>
 	<h3><?php print $famHeaderLng ; ?></h3>
 <?php	

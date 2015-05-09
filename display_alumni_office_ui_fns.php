@@ -205,6 +205,7 @@ function alumniAdminMainContent() {
 		global $adminPharmacyLng ;
 		global $adminDentistryLng ;
 		global $adminMed2YearGermanProgLng ;
+		global $displayNoDiplomaLng; 
 		
 		global $adminGradYearLng;
 		global $adminYearLng;
@@ -327,6 +328,8 @@ function alumniAdminMainContent() {
 					<option value="Pharmacy"><?php print $adminPharmacyLng ; ?></option>
 					<option value="Dentistry"><?php print $adminDentistryLng ; ?></option>
 					<option value="Medicine, 2-year German Program"><?php print $adminMed2YearGermanProgLng ; ?></option>
+					<option value="not graduated - partial studies"><?php print $displayNoDiplomaLng; ?></option>
+					
 				</select>
 				
 				<label for="grad_year"><?php print $adminGradYearLng ; ?></label>

@@ -34,11 +34,13 @@ E-mail: $email
 
 Should you have questions, feel free to contact us:
 Foreign Students' Secretariat
-Alumni Team
+Anita Takács
+Alumni Coordinator
 H-6720 Szeged
 Dóm tér 12.
 T: +3662546-867
 alumni.fs@med.u-szeged.hu
+www.alumni.szegedmed.hu
 www.szegedmed.hu
 
 ------------------------------------------------------------------------------

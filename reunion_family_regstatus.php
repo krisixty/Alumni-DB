@@ -41,7 +41,7 @@ if ($familyRegistered) {
 }
 	
 	if ($family_members) {
-		echo $family_members.'<br><br>';
+		echo '<pre>'.$family_members.'</pre><br><br>';
 	}
 	
 	if (($welcome_memb_o12) || ($welcome_memb_412) || ($welcome_memb_u4) ||
@@ -49,13 +49,13 @@ if ($familyRegistered) {
 	($dinner_memb_o12) || ($dinner_memb_412) || ($dinner_memb_u14)) {
 		
 		//Day One
-		echo $dayOneLng.'<br>';
+		echo '<strong>'.$dayOneLng.'</strong><br>';
 	}
 	
 		//Day One, Welcome Reception
 		if ( ($welcome_memb_o12) || ($welcome_memb_412) || ($welcome_memb_u4) )  {
 			
-			echo '<br>'.$welcome_receptionLng.'<br>';
+			echo '<br><strong>'.$welcome_receptionLng.'</strong><br>';
 			
 				if ($welcome_memb_o12) {
 					echo $famMembOver12Lng.' '.$welcome_memb_o12.'<br>';
@@ -71,7 +71,7 @@ if ($familyRegistered) {
 		//Day One, Sightseeing
 		if ( ($sight_memb_o12) || ($sight_memb_412) || ($sight_memb_u4) )  {
 			
-			echo '<br>'.$sightseeingLng.'<br>';
+			echo '<br><strong>'.$sightseeingLng.'</strong><br>';
 			
 				if ($sight_memb_o12) {
 					echo $famMembOver12Lng.' '.$sight_memb_o12.'<br>';
@@ -87,7 +87,7 @@ if ($familyRegistered) {
 		//Day One, Dinner
 		if ( ($dinner_memb_o12) || ($dinner_memb_412) || ($dinner_memb_u14) )  {
 			
-			echo '<br>'.$dinnerLng.'<br>';
+			echo '<br><strong>'.$dinnerLng.'</strong><br>';
 			
 				if ($dinner_memb_o12) {
 					echo $famMembOver12Lng.' '.$dinner_memb_o12.'<br>';
@@ -103,8 +103,8 @@ if ($familyRegistered) {
 	//Day Two, Gala-dinner	
 		if ( ($gdinner_memb_o12) || ($gdinner_memb_412) || ($gdinner_memb_u14) )  {
 			
-			echo '<br>'.$dayTwoLng.'<br>';
-			echo '<br>'.$gala_dinnerLng.'<br>';
+			echo '<strong>'.$dayTwoLng.'</strong><br>';
+			echo '<br><strong>'.$gala_dinnerLng.'</strong><br>';
 			
 				if ($gdinner_memb_o12) {
 					echo $famMembOver12Lng.' '.$gdinner_memb_o12.'<br>';
@@ -120,8 +120,8 @@ if ($familyRegistered) {
 	//Day Three, Picnic
 		if ( ($pic_memb_o12) || ($pic_memb_412) || ($pic_memb_u14) )  {
 		
-			echo '<br>'.$dayThreeLng.'<br>';
-			echo '<br>'.$gala_dinnerLng.'<br>';
+			echo '<strong>'.$dayThreeLng.'</strong><br>';
+			echo '<br><strong>'.$gala_dinnerLng.'</strong><br>';
 			
 				if ($pic_memb_o12) {
 					echo $famMembOver12Lng.' '.$pic_memb_o12.'<br>';
@@ -133,9 +133,17 @@ if ($familyRegistered) {
 					echo $famMembUnder4Lng.' '.$pic_memb_u4.'<br>';
 				}
 		}
-
+/*
 		echo '<br>Total fee for day one: '.$dayOneFee.' EUR for '.$dayOneAtt.' Family Members.<br>';
 		echo 'Total fee for day two: '.$dayTwoFee.' EUR for '.$dayTwoAtt.' Family Members.<br>';
 		echo 'Total fee for day three: '.$dayThreeFee.' EUR for '.$dayThreeAtt.' Family Members.<br><br>';
 		echo 'Total fee calculated: '.$totalFee.' EUR';
+*/
+		echo '<br>Total fee for day one: '.$dayOneFee.' EUR<br>';
+		echo 'Total fee for day two: '.$dayTwoFee.' EUR<br>';
+		echo 'Total fee for day three: '.$dayThreeFee.'<br><br>';
+		echo 'Total fee calculated: '.$totalFee.' EUR<br><br>';
+		echo $reunionPymntLng.'<br>';
+		
+		
 ?>

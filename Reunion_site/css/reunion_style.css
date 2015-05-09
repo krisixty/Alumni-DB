@@ -14,8 +14,8 @@ html {
 body {
 	/*font-family: 'Ubuntu', sans-serif;*/
 	font: normal 1em/1.5 'Ubuntu', sans-serif;
-	/*color: #369;*/
-	color: #000;
+	color: #369;
+	/*color: #000;*/
 	background-image: url('../img/Reunion_logo_bg2.png');
 	background-repeat: no-repeat;
 	background-position: 50% 400px; 
@@ -122,6 +122,26 @@ nav a, nav a:visited { /*pesudo class*/
 nav a.selected, nav a:hover {
   color: #3F7785;
   
+}
+
+table.community {
+	border-collapse: separate;
+    border-spacing: 1px;
+}
+
+.community tr:nth-child(even) {
+    background-color: #B4CBD7;
+}
+
+.community td {
+	padding: 0px 10px 0px 5px;
+}
+
+.community th {
+	color: #fff;
+	font-weight: normal;
+	background-color: #3F8ABF;
+	padding: 3px 10px 3px 5px;
 }
 
 /* Main Layout Styles

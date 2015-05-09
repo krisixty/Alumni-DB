@@ -517,6 +517,8 @@
 	$mainPageGraduatesLng = "List of office registered graduates";
 	$mainPageGraduatesRegLng = "List of user registered graduates";
 	$mainPageSurveyListLng = "List of submitted surveys";
+	$mainPageGraduatesReunLng = "List of graduates registered for Reunion Weekend 2015";
+	$mainPageFamilyRegLng = "List of registered family members for Reunion Weekend 2015";
 	$mainPageLogoutLng = "Logout";
 	
 	
@@ -534,6 +536,11 @@
 	$reunionAlreadyLng = "Thank you for your registration for the Reunion Weekend 2015. If you would like to bring family member(s), you can register them ";
 	$reunionFamAlreadyLng = "Thank you for your registration for the Reunion Weekend 2015. You can check your registered family member(s) ";
 	$reunionRegPrgLng = "You have registered yourself for the following programs: ";
+	$reunionPymntLng = "<strong>Payments have to be made to the following account:</strong><br>
+										Szegedi Orvosképzés Fejlesztéséért Alapítvány <br>
+										H-6720, Szeged, Zrínyi u. 9.<br>
+										IBAN: HU57 11735005-20481649-00000000<br> 
+										Swift:OTPVHUHB<br>";
 	
 	
 	//REUNION REGISTRATION FORM
@@ -544,7 +551,7 @@
 	$dinnerLng  = "19:00 Dinner";
 	//Day Two
 	$dayTwoLng = "Day 2. Saturday";
-	$presentationsLng = "9:30 Presentations, Prize award ceremony, tree planting, photoshooting, luncheon";
+	$presentationsLng = "9:30 Presentations, Prize award ceremony, photoshooting, luncheon";
 	$students_meetLng = "13:30 Students meet Alumni";
 	$cme_wsLng = "14.30 CME workshops";
 	$gala_dinnerLng = "20:00 Gala-dinner with show";

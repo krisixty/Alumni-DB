@@ -52,6 +52,8 @@ function contentComing() {
 <pre>After having registered for the reunion, members’ name – along with the year of the acquisition of their diploma – will appear here.
 
 Be sure to check back regularly and let any other graduates of the university know who are still missing and should also be joining the event.</pre>	
+
+
 <?php
 }
 ?>
@@ -156,19 +158,45 @@ Preliminary schedule</strong>
 
 Venue: University Library-TIK
 
- 9:00	Registration 
- 9:30	Foreign Language Programs: Past-present-future
-13:00	Luncheon 
+9:00	Registration 
+9:30	Foreign Language Programs: Past-present-future, Prize award ceremony, photoshooting
+12:00	Luncheon 
+13:30	Students meet alumni
 14:30	CME workshops 
-20:00	Dinner including cultural show 
-		presented by the International Student Union of Szeged
+			Prof. Ferenc Bari: Medical Informatics: Opportunities and challenges 
+			Prof. András Palkó: New trends and developments in Radiology.
+			Prof. Katalin Nagy: New challenges in Dentistry
+			Prof. Tamás Martinek - Protein-mimetics in drug discovery.
+17:00	Free program
+20:00	Dinner including cultural show presented by the International Student Union of Szeged
 
 
 <strong>Day 3. Sunday</strong> 
 
 10:00	Picnic and sports event with students, teachers and professors
 
-<strong>The first 100 alumnis can attend the event for free!</strong>
+
+<strong>Costs: </strong>
+The first 100 alumni can attend the event for free!
+
+<strong><em>Participation fee: 
+-	for everyone else, alumni and non-graduates:</em></strong>
+
+Day 1, Friday (including welcome reception, sightseeing tour and dinner) 34 EUR
+Day 2, Saturday (including presentation, Prize award ceremony, photoshooting, luncheon, CME workshops and gala dinner with show) 	90 EUR
+Day3, Sunday- (Picnic with professors and students) 14 EUR
+Registration fee (including registration package) 30 EUR
+
+<strong><em>-	for family members:
+adults and children over 12:</em></strong>
+
+Day 1, Friday (including welcome reception, sightseeing tour and dinner) 34 EUR
+Day 2, Saturday (galadinner with show) 54 EUR
+Day3, Sunday-(Picnic with professors and students) 14 EUR
+
+<strong><em>Children between 4-12 get a 50 % discount. Children under 4 can join the programs for free.</em></strong>
+
+
 </pre>
 
 <?php
@@ -190,9 +218,15 @@ Family members are also more than welcome to join the event.
 <h4>How can I register to the event?</h4>
 In order to be able to register to the event, you need to activate your Alumni Community account by filling in the <a href="../register_form.php" target="_blank">Alumni Database registration form</a>. Following the submission of the form, you will be notified via e-mail about the activation of your account approximately within 3 working days. 
 
-Registration to the Reunion Weekend will be open from early spring 2015. The registration form can be accessed from your Alumni Community account.
+ The registration form can be accessed from your <a href="../index.php">Alumni Community account</a>.
 
-<strong>The first 100 alumnis can attend the event for free!</strong>
+<strong>The first 100 alumni can attend the event for free!</strong>
+
+<strong>I have not graduated at the University of Szeged, can I STILL come to the reunion?</strong>
+
+Of course! Those who have not graduated are also more than welcome to attend the reunion.
+When you register for the alumni database, please select ‘partial studies’. Once your account is verified, you can submit your registration form. You can check the participation fees <a href="program.php">here</a>.
+
 </pre>
 			  
 <?php

@@ -85,23 +85,24 @@ do_html_footer();
 
 		$insert_reunion_reg=$conn->query("INSERT INTO reunion_registration (AID, welcome_reception, sightseeing, dinner, presentations, students_meet, cme_ws, gala_dinner, picnic, acknowledge, dayOneFee, dayTwoFee, dayThreeFee, regFee, totalFee) VALUES ('$aid', '$welcome_reception', '$sightseeing', '$dinner', '$presentations', '$cme_ws', '$students_meet', '$gala_dinner', '$picnic', '$acknowledge', '$dayOneFee', '$dayTwoFee', '$dayThreeFee', '$regFee', '$totalFee')");
 
-		/*
+		
 			if (!$insert_reunion_reg)
 				{
 				throw new Exception('Could not register you in database. Please try again later.');
 				}
 				try
 					{
-					send_alumni_email($username);
+					include 'reunion_regstatus.php';	
+					echo $reunionAlreadyLng.'<a href="reunion_registration_family.php">'.$reunionHereLng.'.</a><br><br>';
+					send_reunion_email($username);
 					}
 					catch (Exception $e)
 					{
 					echo 'Confirmation email could not be sent. Please try again later.';
 					do_html_footer();
-					}*/
+					}
 		
-		include 'reunion_regstatus.php';	
-		echo 'Thank you for your registration for Reunion Weekend 2015!<br><br>';
+
 	
 	mainContentDivClose();	
 do_html_footer();	

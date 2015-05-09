@@ -1,17 +1,12 @@
 <?php
 
-
-/*Contacts :
-Permanent Address: $permadd
-Postal code: $add_pc
-City: $add_city, Country: $add_country
-Phone number: $phone
-*/
-
 //angol nyelvű visszajelzés a jelentkezésről: tárgy, szöveg
-$subject = "Confirmation of your University of Szeged Alumni Database Data Verification";
+$subject = "Confirmation of your Reunion Weekend 2015 Family Members Registration";
 $body = "Dear $gname $fname,\n\n
-This is to inform you that your data stored in the University of Szeged Alumni Database has not been verified. 
+
+Thank you for registering your family member(s) to Reunion Weekend 2015.
+
+Their detailed registration info can be viewed in the Alumni Database.	
 
 Should you have questions, feel free to contact us:
 Foreign Students' Secretariat

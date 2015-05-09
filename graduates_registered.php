@@ -17,10 +17,10 @@ display_graduate_filter();
 $grad_faculty = $_POST['grad_faculty'];
 
 if ($grad_faculty) {
-$graduates=$conn->query("SELECT * FROM graduate_data WHERE grad_faculty = '$grad_faculty' ORDER BY fname");
+$graduates=$conn->query("SELECT * FROM graduate_data INNER JOIN user ON graduate_data.username = user.username WHERE grad_faculty = '$grad_faculty' ORDER BY fname");
 }
 else {
-	$graduates=$conn->query("SELECT * FROM graduate_data ORDER BY fname");
+	$graduates=$conn->query("SELECT * FROM graduate_data INNER JOIN user ON graduate_data.username = user.username ORDER BY fname");
 }
 ?>
 
@@ -39,6 +39,7 @@ else {
 		<th>Citizenship 2</th>
 		<th>Grad. faculty</th>
         <th>Grad. year</th>
+		<th>Email</th>
 		<th>Verified</th>
 		<th>Verification</th>
 
@@ -63,6 +64,7 @@ while($sor=mysqli_fetch_array($graduates))
 		<td><?php print $sor['citizenship2'];?></td>
 		<td><?php print $sor['grad_faculty'];?></td>
 		<td><?php print $sor['grad_year'];?></td>
+		<td><?php print $sor['email'];?></td>
 		<td><?php print $sor['verification'];?></td>
 	
         <td>

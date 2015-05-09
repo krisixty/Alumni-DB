@@ -33,7 +33,7 @@ if ($reunionRegistered) {
 		//Day One
 		if (($welcome_reception) || ($sightseeing) || ($dinner)) {
 			
-			echo $dayOneLng.'<br>';
+			echo '<strong>'.$dayOneLng.'</strong><br>';
 		
 				if ($welcome_reception) {
 					echo $welcome_receptionLng.'<br>';
@@ -48,7 +48,7 @@ if ($reunionRegistered) {
 	
 		//Day Two
 		if (($presentations) || ($students_meet) || ($cme_ws) || ($gala_dinner)) {
-			echo '<br>'.$dayTwoLng.'<br>';
+			echo '<br><strong>'.$dayTwoLng.'</strong><br>';
 			
 				if ($presentations) {
 					echo $presentationsLng.'<br>';
@@ -66,7 +66,7 @@ if ($reunionRegistered) {
 		
 		//Day Three
 		if ($picnic) {
-			echo '<br>'.$dayThreeLng.'<br>';
+			echo '<br><strong>'.$dayThreeLng.'</strong><br>';
 				echo $picnicLng.'<br><br>';
 				}
 		
@@ -75,5 +75,6 @@ if ($reunionRegistered) {
 		echo 'Fee for day three: '.$dayThreeFee.' EUR<br>';
 		echo 'Registration fee: '.$regFee.' EUR<br>';
 		echo 'Total fee calculated: '.$totalFee.' EUR<br><br>';
+		echo $reunionPymntLng.'<br>';
 
 ?>

@@ -264,6 +264,50 @@ function send_alumni_email($username)
     }
 } 
 
+function send_reunion_email($username)
+// notify the user that their password has been changed
+{
+    $conn = db_connect();
+    $result = $conn->query("SELECT email FROM user
+                            WHERE username='$username'");
+    if (!$result)
+    {
+      throw new Exception('Could not find email address.');  
+    }
+    else if ($result->num_rows==0)
+    {
+      throw new Exception('Could not find email address.');   // username not in db
+    }
+    else
+    {
+      $row = $result->fetch_object();
+      $to = $row->email;
+      include('email_reunion.php');
+    }
+}
+
+function send_family_email($username)
+// notify the user that their password has been changed
+{
+    $conn = db_connect();
+    $result = $conn->query("SELECT email FROM user
+                            WHERE username='$username'");
+    if (!$result)
+    {
+      throw new Exception('Could not find email address.');  
+    }
+    else if ($result->num_rows==0)
+    {
+      throw new Exception('Could not find email address.');   // username not in db
+    }
+    else
+    {
+      $row = $result->fetch_object();
+      $to = $row->email;
+      include('email_family.php');
+    }
+}  
+
 function send_verification_email($graduate_username)
 // notify the user that their password has been changed
 {
@@ -283,28 +327,6 @@ function send_verification_email($graduate_username)
       $row = $result->fetch_object();
       $to = $row->email;
       include('email_verification.php');
-    }
-}
-
-function send_reunion_email($graduate_username)
-// notify the user that their password has been changed
-{
-    $conn = db_connect();
-    $result = $conn->query("SELECT email FROM user
-                            WHERE username='$graduate_username'");
-    if (!$result)
-    {
-      throw new Exception('Could not find email address.');  
-    }
-    else if ($result->num_rows==0)
-    {
-      throw new Exception('Could not find email address.');   // username not in db
-    }
-    else
-    {
-      $row = $result->fetch_object();
-      $to = $row->email;
-      include('email_reunion.php');
     }
 }
 
